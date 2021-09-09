@@ -35,7 +35,7 @@ public class ClientesEntity {
         this.id = id;
     }
 
-    @Id
+    @Basic
     @Column(name = "mail")
     public String getMail() {
         return mail;
@@ -45,7 +45,7 @@ public class ClientesEntity {
         this.mail = mail;
     }
 
-    @Basic
+    @Id
     @Column(name = "usuario")
     public String getUsuario() {
         return usuario;
