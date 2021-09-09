@@ -4,7 +4,6 @@ import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
 public class Main {
 
     private static ConfigurableApplicationContext context;

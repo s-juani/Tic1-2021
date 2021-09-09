@@ -4,6 +4,7 @@ module com.example.sprint0_ {
 
     requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
+    requires spring.core;
     requires spring.context;
     requires spring.boot;
     requires spring.boot.autoconfigure;
