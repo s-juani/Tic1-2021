@@ -17,4 +17,6 @@ module com.example.sprint0_ {
     exports com.example.sprint0;
     exports project;
     opens project to javafx.fxml;
+    exports entities;
+    opens entities to javafx.fxml;
 }

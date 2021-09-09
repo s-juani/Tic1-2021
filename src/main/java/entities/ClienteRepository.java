@@ -1,8 +1,6 @@
-package com.example.sprint0;
+package entities;
 
 import org.springframework.data.repository.CrudRepository;
-
-import java.sql.Date;
 
 public interface ClienteRepository extends CrudRepository<ClientesEntity, Long> {
 

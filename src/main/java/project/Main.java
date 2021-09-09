@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Main {
 
     private static ConfigurableApplicationContext context;
+
     public static ConfigurableApplicationContext getContext(){
         return context;
     }

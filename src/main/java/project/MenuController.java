@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.springframework.stereotype.Component;
+import entities.ClienteManager;
 
+import java.time.LocalDate;
 
 @Component
 public class MenuController{
@@ -22,11 +24,19 @@ public class MenuController{
 
     @FXML
     void loginUser(ActionEvent event){
-        /***
-         * La funcion loginUser() debe checkear si los datos ingresados son validos y si existe un usuario al que
-         * correspondan los mismos. De ser asi en un principio enviara una alerta diciendo que se logueo con exito,
-         * en un futuro dara ingreso al sistema.
-         */
+        if (txtLoginUser.getText() == null || txtLoginPassword.getText() == null){
+            showAlert(
+                    "Datos faltantes.",
+                    "Se deben completar todos los campos.");
+        } else {
+            String user = txtLoginUser.getText();
+            String password = txtLoginPassword.getText();
+
+            //FIXME añadir query si existe user al que corresponda la password
+
+        }
+
+
     }
 
 
@@ -52,14 +62,45 @@ public class MenuController{
 
     @FXML
     void registerUser(ActionEvent event){
-        /***
-         * La funcion registerUser() debe checkear si los datos ingresados son validos y si ya no existe un usuario
-         * con los mismos datos. De cumplirse ambas condiciones debe llamar a la entidad User para crear un usuario
-         * nuevo y persistirlo en el sistema.
-         *
-         * Para cada posible resultado debera enviar una alerta, en caso de registrar el usuario con exito debe
-         * cambiar de escena.
-         */
+        if (txtNombreCompleto.getText() == null || dateFechaNacimieto.getValue() == null || txtCorreoElectronico.getText() == null
+                || txtUser.getText() == null || txtPassword.getText() == null){
+
+            showAlert(
+                    "Datos faltantes.",
+                    "Se deben completar todos los campos.");
+
+        } else{
+            try{
+
+                String name = txtNombreCompleto.getText();
+                LocalDate birth = dateFechaNacimieto.getValue();
+                String email = txtCorreoElectronico.getText();
+                String user = txtUser.getText();
+                String password = txtPassword.getText();
+
+                try{
+                    ClienteManager.addClient(email,user,name,birth,password);               //FIXME error al llamar la funcion addClient()
+                    showAlert("Usuario registrado.","Se registro el usuario con exito.");
+                }
+                catch (Exception e){ //Informacion invalida                                 //FIXME añadir exceptions correspondientes
+                    showAlert(
+                            "Informacion invalida.",
+                            "Se encontro un error al ingresar los datos."
+                    );
+                }
+                catch (Exception e){ //Usuario ya existente
+                    showAlert(
+                            "Usuario ya existente",
+                            "El usuario que desea registrar ya existe en el sistema."
+                    );
+                }
+            }
+            catch (Exception e){
+                showAlert(
+                        "Error al ingresar los datos.",
+                        "Checkee que los datos ingresados sean correctos e intentelo nuevamente");
+            }
+        }
     }
 
     // ---- UTILITIES ---- //

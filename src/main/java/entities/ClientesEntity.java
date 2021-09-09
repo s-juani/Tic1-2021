@@ -1,4 +1,4 @@
-package com.example.sprint0;
+package entities;
 
 import javax.persistence.*;
 import java.sql.Date;
