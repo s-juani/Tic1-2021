@@ -1,15 +1,26 @@
-package project;
+package application.project.Menu;
 
+import application.entities.ent.ClienteRepository;
+import application.entities.ent.ClientesEntity;
+import application.entities.exceptions.InvalidInformation;
+import application.entities.exceptions.UserAlreadyInUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import entities.ClienteManager;
+import application.entities.ClienteManager;
 
 import java.time.LocalDate;
 
 @Component
 public class MenuController{
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ClienteManager clientMgr;
 
     // ---- SUB-MENU LOGIN (variables) ---- //
 
@@ -31,14 +42,35 @@ public class MenuController{
         } else {
             String user = txtLoginUser.getText();
             String password = txtLoginPassword.getText();
+            ClientesEntity cliente = clienteRepository.findOneByUsuario(user);
+            if (cliente==null){
+                showAlert(
+                        "Usuario no existe.",
+                        "El usuario ingresado no existe."
+                );
+            }
+            else{
+                if(!cliente.getPw().equals(password)){
+                    showAlert(
+                            "Contraseña incorrecta",
+                            "La contraseña ingresada es incorrecta, inténtelo de nuevo."
+                    );
+                }
+                else{
+                    showAlert(
+                            "Login exitoso",
+                            "Login exitoso."
+                    );
+                }
+            }
 
-            //FIXME añadir query si existe user al que corresponda la password
+            //Esto esta para probar correrlo o falta algo?
 
+            //Caused by: java.lang.reflect.InvocationTargetException
+            //Caused by: java.lang.NullPointerException: Cannot invoke "application.entities.ent.ClienteRepository.findOneByUsuario(String)" because "this.clienteRepository" is null
+            //seguimos luchando con el is null
         }
-
-
     }
-
 
     // ---- SUB-MENU REGISTER ---- //
 
@@ -60,6 +92,7 @@ public class MenuController{
     @FXML
     private PasswordField txtPassword;
 
+
     @FXML
     void registerUser(ActionEvent event){
         if (txtNombreCompleto.getText() == null || dateFechaNacimieto.getValue() == null || txtCorreoElectronico.getText() == null
@@ -79,20 +112,24 @@ public class MenuController{
                 String password = txtPassword.getText();
 
                 try{
-                    ClienteManager.addClient(email,user,name,birth,password);               //FIXME error al llamar la funcion addClient()
+                    clientMgr.addClient(email,user,name,birth,password);
                     showAlert("Usuario registrado.","Se registro el usuario con exito.");
                 }
-                catch (Exception e){ //Informacion invalida                                 //FIXME añadir exceptions correspondientes
+                catch (InvalidInformation e0){ //Informacion invalida
                     showAlert(
                             "Informacion invalida.",
                             "Se encontro un error al ingresar los datos."
                     );
                 }
-                catch (Exception e){ //Usuario ya existente
+                catch (UserAlreadyInUse e1){ //Nombre de usuario no disponible
                     showAlert(
-                            "Usuario ya existente",
-                            "El usuario que desea registrar ya existe en el sistema."
+                            "Usuario no disponible.",
+                            "El nombre de usuario ingresado ya esta en uso."
                     );
+                }
+
+                catch (Exception e){
+                    e.printStackTrace();
                 }
             }
             catch (Exception e){

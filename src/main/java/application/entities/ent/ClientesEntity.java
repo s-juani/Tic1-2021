@@ -1,7 +1,7 @@
-package entities;
+package application.entities.ent;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "clientes", schema = "tic1sch")
@@ -10,10 +10,10 @@ public class ClientesEntity {
     private String mail;
     private String usuario;
     private String nombre;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String pw;
 
-    public ClientesEntity(String mail, String usuario, String nombre, Date fechaNacimiento, String pw) {
+    public ClientesEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw) {
         this.mail = mail;
         this.usuario = usuario;
         this.nombre = nombre;
@@ -67,11 +67,11 @@ public class ClientesEntity {
 
     @Basic
     @Column(name = "fecha_nacimiento")
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

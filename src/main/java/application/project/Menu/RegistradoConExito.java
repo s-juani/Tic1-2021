@@ -1,4 +1,4 @@
-package project;
+package application.project.Menu;
 
 public class RegistradoConExito {
 }
