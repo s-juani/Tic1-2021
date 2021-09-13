@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import application.project.StarterApplication;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class Main {
 
     private static ConfigurableApplicationContext context;

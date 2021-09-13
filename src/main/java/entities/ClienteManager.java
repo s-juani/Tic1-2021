@@ -1,5 +1,7 @@
 package entities;
 
+import application.entities.ent.ClienteRepository;
+import application.entities.ent.ClientesEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
