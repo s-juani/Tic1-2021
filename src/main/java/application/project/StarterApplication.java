@@ -21,7 +21,7 @@ public class StarterApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        root = fxmlLoader.load(application.project.StarterApplication.class.getResource("menu.fxml"));
+        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream("menu.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }

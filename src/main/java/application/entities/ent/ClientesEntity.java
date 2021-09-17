@@ -1,16 +1,27 @@
 package application.entities.ent;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "clientes", schema = "tic1sch")
 public class ClientesEntity {
-    private Long id;
-    private String mail;
+
+    @Id
+    @GeneratedValue(generator = "client_id")
+    @GenericGenerator(name = "clien_id", strategy = "increment")
+    public long id;
+
     private String usuario;
+
+    private String mail;
+
     private String nombre;
+
     private LocalDate fechaNacimiento;
+
     private String pw;
 
     public ClientesEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw) {
@@ -21,22 +32,16 @@ public class ClientesEntity {
         this.pw = pw;
     }
 
-    public ClientesEntity() {
+    public ClientesEntity() {}
 
-    }
-
-    @Id
-    @GeneratedValue
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "mail")
     public String getMail() {
         return mail;
     }
@@ -45,8 +50,7 @@ public class ClientesEntity {
         this.mail = mail;
     }
 
-    @Id
-    @Column(name = "usuario")
+
     public String getUsuario() {
         return usuario;
     }
@@ -55,8 +59,7 @@ public class ClientesEntity {
         this.usuario = usuario;
     }
 
-    @Basic
-    @Column(name = "nombre")
+
     public String getNombre() {
         return nombre;
     }
@@ -65,8 +68,7 @@ public class ClientesEntity {
         this.nombre = nombre;
     }
 
-    @Basic
-    @Column(name = "fecha_nacimiento")
+
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -75,8 +77,7 @@ public class ClientesEntity {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    @Basic
-    @Column(name = "pw")
+
     public String getPw() {
         return pw;
     }

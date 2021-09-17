@@ -8,12 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import application.entities.ClienteManager;
+import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
 
-@Component
+@Controller
 public class MenuController{
 
     @Autowired
