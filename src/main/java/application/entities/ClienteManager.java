@@ -1,6 +1,6 @@
 package application.entities;
 
-import application.entities.ent.ClienteRepository;
+import application.entities.ent.TuristaRepository;
 import application.entities.ent.ClientesEntity;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class ClienteManager {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private TuristaRepository turistaRepository;
 
     public void addClient(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw)
             throws UserAlreadyInUse, InvalidInformation {
@@ -25,7 +25,7 @@ public class ClienteManager {
             System.out.println("Por crear cliente");
             ClientesEntity cliente = new ClientesEntity(mail, usuario, nombre, fechaNacimiento, pw);
             System.out.println("Cliente creado");
-            clienteRepository.save(cliente);
+            //turistaRepository.save(cliente);
             System.out.println("Cliente guardado");
         } catch(Exception e){
             throw new UserAlreadyInUse();

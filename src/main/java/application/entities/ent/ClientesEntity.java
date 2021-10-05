@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "clientes", schema = "tic1sch")
-public class ClientesEntity {
+public class ClientesEntity extends UsuarioEntity {
 
     @Id
     @GeneratedValue(generator = "client_id")

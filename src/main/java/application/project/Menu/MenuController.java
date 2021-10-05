@@ -1,6 +1,6 @@
 package application.project.Menu;
 
-import application.entities.ent.ClienteRepository;
+import application.entities.ent.TuristaRepository;
 import application.entities.ent.ClientesEntity;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class MenuController{
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private TuristaRepository turistaRepository;
 
     @Autowired
     private ClienteManager clientMgr;
@@ -42,7 +42,7 @@ public class MenuController{
         } else {
             String user = txtLoginUser.getText();
             String password = txtLoginPassword.getText();
-            ClientesEntity cliente = clienteRepository.findOneByUsuario(user);
+            ClientesEntity cliente = turistaRepository.findOneByUsuario(user);
             if (cliente==null){
                 showAlert(
                         "Usuario no existe.",
