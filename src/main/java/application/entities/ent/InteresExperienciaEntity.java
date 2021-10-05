@@ -3,7 +3,7 @@ package application.entities.ent;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "interes_experiencia", schema = "tic1sch", catalog = "")
+@Table(name = "interes_experiencia")
 @IdClass(InteresExperienciaEntityPK.class)
 public class InteresExperienciaEntity {
     private String interes;
@@ -66,23 +66,23 @@ public class InteresExperienciaEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "interes", referencedColumnName = "nombre", nullable = false)
-    public InteresEntity getInteresByInteres() {
-        return interesByInteres;
-    }
-
-    public void setInteresByInteres(InteresEntity interesByInteres) {
-        this.interesByInteres = interesByInteres;
-    }
-
-    @ManyToOne
-    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
-    public ExperienciaEntity getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(ExperienciaEntity experiencia) {
-        this.experiencia = experiencia;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "interes", referencedColumnName = "nombre", nullable = false)
+//    public InteresEntity getInteresByInteres() {
+//        return interesByInteres;
+//    }
+//
+//    public void setInteresByInteres(InteresEntity interesByInteres) {
+//        this.interesByInteres = interesByInteres;
+//    }
+//
+//    @ManyToOne
+//    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+//    public ExperienciaEntity getExperiencia() {
+//        return experiencia;
+//    }
+//
+//    public void setExperiencia(ExperienciaEntity experiencia) {
+//        this.experiencia = experiencia;
+//    }
 }

@@ -3,7 +3,7 @@ package application.entities.ent;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "video", schema = "tic1sch", catalog = "")
+@Table(name = "video")
 public class VideoEntity {
     private String url;
     private ExperienciaEntity experiencia;

@@ -51,13 +51,13 @@ public class InteresTuristaEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "nombre_interes", referencedColumnName = "nombre", nullable = false)
-    public InteresEntity getInteresByNombreInteres() {
-        return interesByNombreInteres;
-    }
-
-    public void setInteresByNombreInteres(InteresEntity interesByNombreInteres) {
-        this.interesByNombreInteres = interesByNombreInteres;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "nombre_interes", referencedColumnName = "nombre", nullable = false)
+//    public InteresEntity getInteresByNombreInteres() {
+//        return interesByNombreInteres;
+//    }
+//
+//    public void setInteresByNombreInteres(InteresEntity interesByNombreInteres) {
+//        this.interesByNombreInteres = interesByNombreInteres;
+//    }
 }

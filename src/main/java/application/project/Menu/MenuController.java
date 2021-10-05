@@ -1,7 +1,8 @@
 package application.project.Menu;
 
+import application.entities.ent.TuristaEntity;
 import application.entities.ent.TuristaRepository;
-import application.entities.ent.ClientesEntity;
+//import application.entities.ent.ClientesEntity;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
 import javafx.event.ActionEvent;
@@ -42,7 +43,7 @@ public class MenuController{
         } else {
             String user = txtLoginUser.getText();
             String password = txtLoginPassword.getText();
-            ClientesEntity cliente = turistaRepository.findOneByUsuario(user);
+            TuristaEntity cliente = turistaRepository.findOneByUsuario(user);
             if (cliente==null){
                 showAlert(
                         "Usuario no existe.",

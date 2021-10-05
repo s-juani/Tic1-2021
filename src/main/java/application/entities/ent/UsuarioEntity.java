@@ -4,11 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "usuario", schema = "tic1sch")
+@Table(name = "usuario")
 public class UsuarioEntity {
     private String mail;
     private String usuario;
     private String pw;
+
+    public UsuarioEntity(){}
+
+    public UsuarioEntity(String mail, String usuario, String pw) {
+        this.mail = mail;
+        this.usuario = usuario;
+        this.pw = pw;
+    }
 
     @Id
     @Column(name = "mail")
@@ -20,8 +28,7 @@ public class UsuarioEntity {
         this.mail = mail;
     }
 
-    @Basic
-    @Column(name = "usuario")
+
     public String getUsuario() {
         return usuario;
     }
@@ -30,8 +37,7 @@ public class UsuarioEntity {
         this.usuario = usuario;
     }
 
-    @Basic
-    @Column(name = "pw")
+
     public String getPw() {
         return pw;
     }

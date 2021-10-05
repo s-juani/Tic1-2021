@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "reserva", schema = "tic1sch", catalog = "")
+@Table(name = "reserva")
 @IdClass(ReservaEntityPK.class)
 public class ReservaEntity {
     private String mailTurista;
@@ -79,13 +79,13 @@ public class ReservaEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
-    public ExperienciaEntity getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(ExperienciaEntity experiencia) {
-        this.experiencia = experiencia;
-    }
+//    @ManyToOne
+//    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+//    public ExperienciaEntity getExperiencia() {
+//        return experiencia;
+//    }
+//
+//    public void setExperiencia(ExperienciaEntity experiencia) {
+//        this.experiencia = experiencia;
+//    }
 }

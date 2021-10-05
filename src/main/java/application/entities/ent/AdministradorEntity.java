@@ -1,24 +1,11 @@
 package application.entities.ent;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "administrador", schema = "tic1sch")
+@PrimaryKeyJoinColumn(name="mail")
+@Table(name = "administrador")
 public class AdministradorEntity extends UsuarioEntity{
-    private String mail;
-
-    @Id
-    @Column(name = "mail")
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -27,13 +14,13 @@ public class AdministradorEntity extends UsuarioEntity{
 
         AdministradorEntity that = (AdministradorEntity) o;
 
-        if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
+        if (this.getMail() != null ? !this.getMail().equals(that.getMail()) : that.getMail() != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return mail != null ? mail.hashCode() : 0;
+        return this.getMail() != null ? this.getMail().hashCode() : 0;
     }
 }

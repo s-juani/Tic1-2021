@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "clientes", schema = "tic1sch")
+@PrimaryKeyJoinColumn(name="mail")
+@Table(name = "clientes")
 public class TuristaEntity extends UsuarioEntity {
-    private String mail;
     private String nombre;
     private LocalDate fechaNacimiento;
     private boolean tipoDocumento;
@@ -16,17 +16,19 @@ public class TuristaEntity extends UsuarioEntity {
     private String nacionalidad;
     private String origenDocumento;
 
-    @Id
-    @GeneratedValue(generator = "client_id")
-    @GenericGenerator(name = "clien_id", strategy = "increment")
-    private long id;
-
-    public String getMail() {
-        return mail;
+    public TuristaEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw)  {
+        super(mail, usuario, pw);
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    //    @Id
+//    @GeneratedValue(generator = "client_id")
+//    @GenericGenerator(name = "clien_id", strategy = "increment")
+    private long id;
+
+    public TuristaEntity() {
+
     }
 
 
@@ -101,7 +103,7 @@ public class TuristaEntity extends UsuarioEntity {
 
         if (id != that.id) return false;
         if (tipoDocumento != that.tipoDocumento) return false;
-        if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
+        if (this.getMail() != null ? !this.getMail().equals(that.getMail()) : that.getMail() != null) return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
         if (fechaNacimiento != null ? !fechaNacimiento.equals(that.fechaNacimiento) : that.fechaNacimiento != null)
             return false;
@@ -115,7 +117,7 @@ public class TuristaEntity extends UsuarioEntity {
 
     @Override
     public int hashCode() {
-        int result = mail != null ? mail.hashCode() : 0;
+        int result = this.getMail() != null ? this.getMail().hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (fechaNacimiento != null ? fechaNacimiento.hashCode() : 0);
         result = 31 * result + (int) (id ^ (id >>> 32));

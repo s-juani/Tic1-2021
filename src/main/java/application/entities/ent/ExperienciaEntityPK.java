@@ -5,17 +5,17 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 public class ExperienciaEntityPK implements Serializable {
-    private String operadorTuristico;
+    private String operador_turistico;
     private String nombre;
 
     @Column(name = "operador_turistico")
     @Id
-    public String getOperadorTuristico() {
-        return operadorTuristico;
+    public String getOperador_turistico() {
+        return operador_turistico;
     }
 
-    public void setOperadorTuristico(String operadorTuristico) {
-        this.operadorTuristico = operadorTuristico;
+    public void setOperador_turistico(String operador_turistico) {
+        this.operador_turistico = operador_turistico;
     }
 
     @Column(name = "nombre")
@@ -35,7 +35,7 @@ public class ExperienciaEntityPK implements Serializable {
 
         ExperienciaEntityPK that = (ExperienciaEntityPK) o;
 
-        if (operadorTuristico != null ? !operadorTuristico.equals(that.operadorTuristico) : that.operadorTuristico != null)
+        if (operador_turistico != null ? !operador_turistico.equals(that.operador_turistico) : that.operador_turistico != null)
             return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
 
@@ -44,7 +44,7 @@ public class ExperienciaEntityPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = operadorTuristico != null ? operadorTuristico.hashCode() : 0;
+        int result = operador_turistico != null ? operador_turistico.hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         return result;
     }

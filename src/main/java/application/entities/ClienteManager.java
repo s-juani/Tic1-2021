@@ -1,7 +1,8 @@
 package application.entities;
 
+import application.entities.ent.TuristaEntity;
 import application.entities.ent.TuristaRepository;
-import application.entities.ent.ClientesEntity;
+//import application.entities.ent.ClientesEntity;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,10 @@ public class ClienteManager {
         }
         try {
             System.out.println("Por crear cliente");
-            ClientesEntity cliente = new ClientesEntity(mail, usuario, nombre, fechaNacimiento, pw);
+            TuristaEntity turista = new TuristaEntity(mail,usuario, nombre, fechaNacimiento,pw);
+//            ClientesEntity cliente = new ClientesEntity(mail, usuario, nombre, fechaNacimiento, pw);
             System.out.println("Cliente creado");
-            //turistaRepository.save(cliente);
+            turistaRepository.save(turista);
             System.out.println("Cliente guardado");
         } catch(Exception e){
             throw new UserAlreadyInUse();

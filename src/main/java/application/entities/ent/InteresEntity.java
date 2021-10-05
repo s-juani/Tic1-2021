@@ -49,30 +49,30 @@ public class InteresEntity {
         this.interesByEsSubinteresDe = interesByEsSubinteresDe;
     }
 
-    @OneToMany(mappedBy = "interesByEsSubinteresDe")
-    public Collection<InteresEntity> getInteresByNombre() {
-        return interesByNombre;
-    }
-
-    public void setInteresByNombre(Collection<InteresEntity> interesByNombre) {
-        this.interesByNombre = interesByNombre;
-    }
-
-    @OneToMany(mappedBy = "interesByInteres")
-    public Collection<InteresExperienciaEntity> getInteresExperienciasByNombre() {
-        return interesExperienciasByNombre;
-    }
-
-    public void setInteresExperienciasByNombre(Collection<InteresExperienciaEntity> interesExperienciasByNombre) {
-        this.interesExperienciasByNombre = interesExperienciasByNombre;
-    }
-
-    @OneToMany(mappedBy = "interesByNombreInteres")
-    public Collection<InteresTuristaEntity> getInteresTuristasByNombre() {
-        return interesTuristasByNombre;
-    }
-
-    public void setInteresTuristasByNombre(Collection<InteresTuristaEntity> interesTuristasByNombre) {
-        this.interesTuristasByNombre = interesTuristasByNombre;
-    }
+//    @OneToMany(mappedBy = "interesByEsSubinteresDe")
+//    public Collection<InteresEntity> getInteresByNombre() {
+//        return interesByNombre;
+//    }
+//
+//    public void setInteresByNombre(Collection<InteresEntity> interesByNombre) {
+//        this.interesByNombre = interesByNombre;
+//    }
+//
+//    @OneToMany(mappedBy = "interesByInteres")
+//    public Collection<InteresExperienciaEntity> getInteresExperienciasByNombre() {
+//        return interesExperienciasByNombre;
+//    }
+//
+//    public void setInteresExperienciasByNombre(Collection<InteresExperienciaEntity> interesExperienciasByNombre) {
+//        this.interesExperienciasByNombre = interesExperienciasByNombre;
+//    }
+//
+//    @OneToMany(mappedBy = "interesByNombreInteres")
+//    public Collection<InteresTuristaEntity> getInteresTuristasByNombre() {
+//        return interesTuristasByNombre;
+//    }
+//
+//    public void setInteresTuristasByNombre(Collection<InteresTuristaEntity> interesTuristasByNombre) {
+//        this.interesTuristasByNombre = interesTuristasByNombre;
+//    }
 }
