@@ -9,15 +9,17 @@ import java.util.Collection;
 @Table(name = "experiencia")
 @IdClass(ExperienciaEntityPK.class)
 public class ExperienciaEntity {
+    @Id
     private String operador_turistico;
+    @Id
     private String nombre;
     private String descripcion;
     private String aforo;
     private boolean conReserva;
     private int latitud;
     private int longitud;
-//    @OneToMany(mappedBy = "experiencia")
-//    private Collection<ImagenEntity> imagens;
+    @OneToMany(mappedBy = "experiencia",fetch = FetchType.EAGER)
+    private Collection<ImagenEntity> imagens;
 //    @OneToMany(mappedBy = "experiencia")
 //    private Collection<InteresExperienciaEntity> interesExperiencias;
 //    @OneToMany(mappedBy = "experiencia")
@@ -25,10 +27,10 @@ public class ExperienciaEntity {
 //    @OneToMany(mappedBy = "experiencia")
 //    private Collection<VideoEntity> videos;
 
-    @Id
-    @GeneratedValue(generator = "experiencia_id")
-    @GenericGenerator(name = "xp_id", strategy = "increment")
-    public long id;
+//    @Id
+//    @GeneratedValue(generator = "experiencia_id")
+//    @GenericGenerator(name = "xp_id", strategy = "increment")
+//    public long id;
 
     public String getOperador_turistico() {
         return operador_turistico;
@@ -117,14 +119,26 @@ public class ExperienciaEntity {
         return result;
     }
 
-//    @OneToMany(mappedBy = "experiencia")
-//    public Collection<ImagenEntity> getImagens() {
-//        return imagens;
-//    }
-//
-//    public void setImagens(Collection<ImagenEntity> imagens) {
-//        this.imagens = imagens;
-//    }
+    @Override
+    public String toString() {
+        return "ExperienciaEntity{" +
+                "operador_turistico='" + operador_turistico + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", aforo='" + aforo + '\'' +
+                ", conReserva=" + conReserva +
+                ", latitud=" + latitud +
+                ", longitud=" + longitud + '}';
+    }
+
+    //    @OneToMany(mappedBy = "experiencia")
+    public Collection<ImagenEntity> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(Collection<ImagenEntity> imagens) {
+        this.imagens = imagens;
+    }
 //
 //    @OneToMany(mappedBy = "experiencia")
 //    public Collection<InteresExperienciaEntity> getInteresExperiencias() {

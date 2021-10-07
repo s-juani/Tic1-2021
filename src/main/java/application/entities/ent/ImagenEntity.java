@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "imagen", schema = "tic1sch", catalog = "")
+@Table(name = "imagen")
 public class ImagenEntity {
     private int idimagen;
     private byte[] imagen;
