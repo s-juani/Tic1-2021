@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="743.0" fitWidth="953.0" layoutX="3.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="190.52020263671875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="960.0" AnchorPane.topAnchor="147.0">
+         <image>
+            <Image url="@Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="349.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="596.0" layoutY="273.0" text="Usuario" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="540.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="118.0" layoutY="159.2" text="Nombre completo" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="263.0" text="Fecha de nacimiento" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="210.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.8" layoutY="412.80000000000007" prefHeight="44.0" prefWidth="314.0" text="Correo electronico" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="430.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="125.19999999999999" layoutY="439.20000000000005" prefHeight="50.0" prefWidth="420.0" text="Contraseña" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="650.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRegistrar" layoutX="260.0" layoutY="696.0" mnemonicParsing="false" onAction="#registerUser" text="Registrar" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="800.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+            <PasswordField layoutX="125.19999999999999" layoutY="479.20000000000005" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="700.0" />
+            <TextField layoutX="125.19999999999999" layoutY="375.20000000000005" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="480.0" />
+            <TextField layoutX="67.8" layoutY="107.8" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="150.0" />
+            <DatePicker layoutX="40.0" layoutY="159.0" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="260.0" />
+            <TextField layoutX="249.0" layoutY="380.0" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="590.0" />
+            <Label layoutX="192.8" layoutY="422.80000000000007" prefHeight="44.0" prefWidth="314.0" text="Nacionalidad" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="178.0" layoutY="274.0" prefHeight="50.0" prefWidth="350.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="370.0" />
+            <Label text="Registrarse" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" text="←" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
