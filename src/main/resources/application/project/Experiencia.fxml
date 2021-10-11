@@ -7,21 +7,28 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<Stage xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<Stage height="600.0" width="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <scene>
         <Scene>
             <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
             <children>
-               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1920.0" style="-fx-background-color: 0;">
+               <AnchorPane prefHeight="500.0" prefWidth="1920.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0">
+                     <ImageView fitHeight="102.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="0.0">
                         <image>
-                           <Image url="@../../../Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.36.png" />
+                           <Image url="@../../../../../../../../../Copia%20de%20Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png" />
                         </image>
                      </ImageView>
-                     <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: 000;" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <ImageView fitHeight="102.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1788.0" AnchorPane.topAnchor="0.0">
+                        <image>
+                           <Image url="@../../../../../../../../../Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png" />
+                        </image>
+                     </ImageView>
+                     <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white;" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <items>
                            <MenuItem mnemonicParsing="false" text="Editar perfil" />
                            <MenuItem mnemonicParsing="false" text="Preferencias" />
@@ -29,8 +36,81 @@
                         </items>
                      </SplitMenuButton>
                      <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: 0;" text="Notificaciones" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0" />
-                     <Button layoutX="1630.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: 0;" text="Favoritos" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0" />
-                     <Button layoutX="1373.0" layoutY="4.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #FFFFFF#FFFFFF;" text="Itinerario" AnchorPane.rightAnchor="443.5" AnchorPane.topAnchor="4.0" />
+                     <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: whithe;" text="Favoritos" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0" />
+                     <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #FFFFFF#FFFFFF;" text="Itinerario" AnchorPane.rightAnchor="443.5" AnchorPane.topAnchor="4.0" />
+                  </children>
+               </AnchorPane>
+               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                        <font>
+                           <Font size="64.0" />
+                        </font>
+                     </Text>
+                     <Text layoutX="1142.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     <AnchorPane prefHeight="400.0" prefWidth="1000.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                        <children>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <font>
+                                 <Font size="36.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="138.0" layoutY="101.0" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="561.71875" AnchorPane.bottomAnchor="55.8125" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="320.28125" AnchorPane.topAnchor="83.59765625">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="620.0">
+                        <children>
+                           <Text layoutX="181.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reseñas" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <font>
+                                 <Font size="36.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="7.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calificacion ★★★★★" AnchorPane.leftAnchor="0.0">
+                              <font>
+                                 <Font size="24.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="116.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.leftAnchor="0.0">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="137.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="758.8922119140625" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="120.0" />
+                           <Text layoutX="136.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.leftAnchor="0.0">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="157.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="758.8922119140625" AnchorPane.leftAnchor="0.0" />
+                           <Text layoutX="126.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.rightAnchor="0.0">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="147.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="758.8922119140625" AnchorPane.rightAnchor="0.0" />
+                           <Text layoutX="146.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.rightAnchor="0.0">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                           <Text layoutX="167.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="758.8922119140625" AnchorPane.rightAnchor="0.0" />
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="200.0">
+                        <children>
+                           <Button mnemonicParsing="false" text="→" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                              <font>
+                                 <Font name="System Bold" size="13.0" />
+                              </font>
+                           </Button>
+                           <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           <Button mnemonicParsing="false" text="←" AnchorPane.topAnchor="200.0" />
+                        </children>
+                     </AnchorPane>
                   </children>
                </AnchorPane>
             </children></AnchorPane>
