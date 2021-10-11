@@ -43,6 +43,7 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 
     implementation 'mysql:mysql-connector-java:8.0.25'
+    implementation 'org.controlsfx:controlsfx:11.1.0'
 }
 
 test {

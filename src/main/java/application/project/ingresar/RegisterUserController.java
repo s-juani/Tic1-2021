@@ -1,4 +1,4 @@
-package application.project.controllers.ingresar;
+package application.project.ingresar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class RegisterUserController {
 
     @FXML
@@ -44,5 +46,7 @@ public class RegisterUserController {
 
     }
 
+    public void volver(ActionEvent actionEvent) {
+    }
 }
 

@@ -1,4 +1,4 @@
-package application.project.controllers.ingresar;
+package application.project.ingresar;
 
 import application.Main;
 import javafx.event.ActionEvent;
@@ -40,7 +40,7 @@ public class InitialController {
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(LoginUserController.class.getResourceAsStream("ingresar/login.fxml"));
+        Parent root = fxmlLoader.load(LoginUserController.class.getResourceAsStream("login.fxml"));
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
@@ -48,7 +48,16 @@ public class InitialController {
     }
 
     @FXML
-    void gotoRegister(ActionEvent event) {
+    void gotoRegister(ActionEvent event) throws IOException {
+
+        Stage stage = (Stage) this.btnIngresar.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(LoginUserController.class.getResourceAsStream("register.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
 
     }
 
