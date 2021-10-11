@@ -1,6 +1,5 @@
 package application.project;
 
-
 import application.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 public class StarterApplication extends Application {
 
-    private Parent root;
+    public Parent root;
 
     @Override
     public void init() throws Exception{}
@@ -21,7 +20,7 @@ public class StarterApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream("menu.fxml"));
+        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream("ingresar/initial.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }

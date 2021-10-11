@@ -1,4 +1,4 @@
-package application.project.Menu;
+package application.project.controllers;
 
 import application.entities.ent.TuristaEntity;
 import application.entities.ent.TuristaRepository;
