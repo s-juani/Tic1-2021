@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "interes", schema = "tic1sch", catalog = "")
+@Table(name = "interes")
 public class InteresEntity {
     private String nombre;
     private InteresEntity interesByEsSubinteresDe;
@@ -40,7 +40,7 @@ public class InteresEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "es_subinteres_de", referencedColumnName = "nombre", nullable = false)
+    @JoinColumn(name = "es_subinteres_de", referencedColumnName = "nombre", nullable = true)
     public InteresEntity getInteresByEsSubinteresDe() {
         return interesByEsSubinteresDe;
     }

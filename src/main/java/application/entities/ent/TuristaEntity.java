@@ -13,7 +13,8 @@ public class TuristaEntity extends UsuarioEntity {
     private LocalDate fechaNacimiento;
     private boolean tipoDocumento;
     private String nroDocumento;
-    private String nacionalidad;
+
+    private PaisEntity nacionalidad;
     private String origenDocumento;
 
     public TuristaEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw)  {
@@ -76,12 +77,13 @@ public class TuristaEntity extends UsuarioEntity {
         this.nroDocumento = nroDocumento;
     }
 
-
-    public String getNacionalidad() {
+    @ManyToOne(targetEntity = PaisEntity.class)
+    @JoinColumn(name = "nacionalidad", referencedColumnName = "nombre", nullable = false)
+    public PaisEntity getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(String nacionalidad) {
+    public void setNacionalidad(PaisEntity nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 
