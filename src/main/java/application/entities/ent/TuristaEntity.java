@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Entity
 @PrimaryKeyJoinColumn(name="mail")
@@ -16,6 +17,7 @@ public class TuristaEntity extends UsuarioEntity {
 
     private PaisEntity nacionalidad;
     private String origenDocumento;
+    private Collection<InteresEntity> intereses;
 
     public TuristaEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw)  {
         super(mail, usuario, pw);
@@ -94,6 +96,18 @@ public class TuristaEntity extends UsuarioEntity {
 
     public void setOrigenDocumento(String origenDocumento) {
         this.origenDocumento = origenDocumento;
+    }
+
+    @ManyToMany(targetEntity = InteresEntity.class,fetch = FetchType.EAGER)
+    @JoinTable(name="interes_turista",
+            joinColumns = @JoinColumn(insertable = false,updatable = false,name = "mail_turista", referencedColumnName = "mail", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "nombre_interes", referencedColumnName = "nombre", nullable = false))
+    public Collection<InteresEntity> getIntereses() {
+        return intereses;
+    }
+
+    public void setIntereses(Collection<InteresEntity> intereses) {
+        this.intereses = intereses;
     }
 
     @Override

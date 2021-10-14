@@ -1,45 +1,46 @@
 package application.entities.ent;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "experiencia")
 @IdClass(ExperienciaEntityPK.class)
 public class ExperienciaEntity {
-    @Id
-    private String operador_turistico;
-    @Id
+
+    private String operador;
+
     private String nombre;
     private String descripcion;
     private String aforo;
     private boolean conReserva;
     private int latitud;
     private int longitud;
-    @OneToMany(mappedBy = "experiencia",fetch = FetchType.EAGER)
-    private Collection<ImagenEntity> imagens;
+    private Set<ImagenEntity> imagens;
+    private Set<CalificacionEntity> calificaciones;
+    private Set<InteresEntity> intereses;
+    private Set<VideoEntity> videos;
+    private Set<ReservaEntity> reservas;
 //    @OneToMany(mappedBy = "experiencia")
-//    private Collection<InteresExperienciaEntity> interesExperiencias;
-//    @OneToMany(mappedBy = "experiencia")
-//    private Collection<ReservaEntity> reservas;
-//    @OneToMany(mappedBy = "experiencia")
-//    private Collection<VideoEntity> videos;
+
 
 //    @Id
 //    @GeneratedValue(generator = "experiencia_id")
 //    @GenericGenerator(name = "xp_id", strategy = "increment")
 //    public long id;
-
-    public String getOperador_turistico() {
-        return operador_turistico;
+    @Id
+    public String getOperador() {
+        return operador;
     }
 
-    public void setOperador_turistico(String operador_turistico) {
-        this.operador_turistico = operador_turistico;
+    public void setOperador(String operador_turistico) {
+        this.operador = operador_turistico;
     }
-
+    @Id
     public String getNombre() {
         return nombre;
     }
@@ -88,6 +89,58 @@ public class ExperienciaEntity {
         this.longitud = longitud;
     }
 
+    @OneToMany(targetEntity = CalificacionEntity.class, fetch = FetchType.EAGER)
+    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = "operador_experiencia", referencedColumnName = "operador", nullable = false), @JoinColumn(insertable = false,updatable = false,name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+    public Set<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(Set<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
+    @ManyToMany(targetEntity = InteresEntity.class,fetch = FetchType.EAGER)
+    @JoinTable(name="interes_experiencia",
+            joinColumns = {@JoinColumn(insertable = false,updatable = false,name = "operador_experiencia", referencedColumnName = "operador", nullable = false),
+                    @JoinColumn(insertable = false,updatable = false,name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)},
+            inverseJoinColumns = @JoinColumn(name = "interes", referencedColumnName = "nombre", nullable = false))
+    public Set<InteresEntity> getIntereses() {
+        return intereses;
+    }
+
+    public void setIntereses(Set<InteresEntity> intereses) {
+        this.intereses = intereses;
+    }
+
+    @OneToMany(mappedBy = "experiencia", fetch = FetchType.EAGER)
+    public Set<ImagenEntity> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(Set<ImagenEntity> imagens) {
+        this.imagens = imagens;
+    }
+
+    @OneToMany(mappedBy = "experiencia", fetch = FetchType.EAGER)
+    public Set<VideoEntity> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(Set<VideoEntity> videos) {
+        this.videos = videos;
+    }
+
+    @OneToMany(targetEntity = ReservaEntity.class, fetch = FetchType.EAGER)
+    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = "operador_experiencia", referencedColumnName = "operador", nullable = false),
+            @JoinColumn(insertable = false,updatable = false,name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+    public Set<ReservaEntity> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Set<ReservaEntity> reservas) {
+        this.reservas = reservas;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,7 +151,7 @@ public class ExperienciaEntity {
         if (conReserva != that.conReserva) return false;
         if (latitud != that.latitud) return false;
         if (longitud != that.longitud) return false;
-        if (operador_turistico != null ? !operador_turistico.equals(that.operador_turistico) : that.operador_turistico != null)
+        if (operador != null ? !operador.equals(that.operador) : that.operador != null)
             return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
         if (descripcion != null ? !descripcion.equals(that.descripcion) : that.descripcion != null) return false;
@@ -109,7 +162,7 @@ public class ExperienciaEntity {
 
     @Override
     public int hashCode() {
-        int result = operador_turistico != null ? operador_turistico.hashCode() : 0;
+        int result = operador != null ? operador.hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
         result = 31 * result + (aforo != null ? aforo.hashCode() : 0);
@@ -121,49 +174,64 @@ public class ExperienciaEntity {
 
     @Override
     public String toString() {
-        return "ExperienciaEntity{" +
-                "operador_turistico='" + operador_turistico + '\'' +
+        String str = "ExperienciaEntity{" +
+                "operador_turistico='" + operador + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", aforo='" + aforo + '\'' +
                 ", conReserva=" + conReserva +
                 ", latitud=" + latitud +
-                ", longitud=" + longitud + '}';
+                ", longitud=" + longitud +
+                ",idsImágenes:{";
+        for (ImagenEntity imagen:this.getImagens()) {
+            str += "," + imagen.getIdimagen();
+        }
+        str += "}, intereses:{ ";
+        for (InteresEntity interes: intereses){
+            str += "," + interes.getNombre();
+        }
+        str += "}, videos:{ ";
+        for (VideoEntity video: videos){
+            str += "," + video.getUrl();
+        }
+        str += "}, calificaciones:{ ";
+        for (CalificacionEntity calificacion: calificaciones){
+            str += "," + calificacion;
+        }
+        str += "}, reservas:{ ";
+        for (ReservaEntity reserva: reservas){
+            str += "," + reserva;
+        }
+        str += "}}";
+        return str;
     }
 
-    //    @OneToMany(mappedBy = "experiencia")
-    public Collection<ImagenEntity> getImagens() {
-        return imagens;
-    }
 
-    public void setImagens(Collection<ImagenEntity> imagens) {
-        this.imagens = imagens;
-    }
 //
 //    @OneToMany(mappedBy = "experiencia")
-//    public Collection<InteresExperienciaEntity> getInteresExperiencias() {
+//    public Set<InteresExperienciaEntity> getInteresExperiencias() {
 //        return interesExperiencias;
 //    }
 //
-//    public void setInteresExperiencias(Collection<InteresExperienciaEntity> interesExperiencias) {
+//    public void setInteresExperiencias(Set<InteresExperienciaEntity> interesExperiencias) {
 //        this.interesExperiencias = interesExperiencias;
 //    }
 //
 //    @OneToMany(mappedBy = "experiencia")
-//    public Collection<ReservaEntity> getReservas() {
+//    public Set<ReservaEntity> getReservas() {
 //        return reservas;
 //    }
 //
-//    public void setReservas(Collection<ReservaEntity> reservas) {
+//    public void setReservas(Set<ReservaEntity> reservas) {
 //        this.reservas = reservas;
 //    }
 //
 //    @OneToMany(mappedBy = "experiencia")
-//    public Collection<VideoEntity> getVideos() {
+//    public Set<VideoEntity> getVideos() {
 //        return videos;
 //    }
 //
-//    public void setVideos(Collection<VideoEntity> videos) {
+//    public void setVideos(Set<VideoEntity> videos) {
 //        this.videos = videos;
 //    }
 }

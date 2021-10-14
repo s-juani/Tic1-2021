@@ -11,7 +11,7 @@ public class ReservaEntity {
     private String operadorExperiencia;
     private String nombreExperiencia;
     private Date fecha;
-    private ExperienciaEntity experiencia;
+//    private ExperienciaEntity experiencia;
 
     @Id
     @Column(name = "mail_turista")

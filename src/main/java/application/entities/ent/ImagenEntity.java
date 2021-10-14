@@ -1,6 +1,13 @@
 package application.entities.ent;
 
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.WritableImage;
+
+import javax.imageio.ImageIO;
 import javax.persistence.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 @Entity
@@ -18,6 +25,16 @@ public class ImagenEntity {
 
     public void setIdimagen(int idimagen) {
         this.idimagen = idimagen;
+    }
+
+    public WritableImage getJavaFxImage(final int width, final int height){
+        WritableImage image = new WritableImage(width, height);
+        try{
+            ByteArrayInputStream bis = new ByteArrayInputStream(imagen);
+            BufferedImage read = ImageIO.read(bis);
+            image = SwingFXUtils.toFXImage(read,null);
+        }catch (IOException e){}
+        return image;
     }
 
     @Basic
@@ -51,7 +68,7 @@ public class ImagenEntity {
     }
 
     @ManyToOne
-    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
     public ExperienciaEntity getExperiencia() {
         return experiencia;
     }

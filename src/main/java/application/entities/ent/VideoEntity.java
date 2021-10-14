@@ -36,7 +36,7 @@ public class VideoEntity {
     }
 
     @ManyToOne
-    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador_turistico", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
+    @JoinColumns({@JoinColumn(name = "operador_experiencia", referencedColumnName = "operador", nullable = false), @JoinColumn(name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
     public ExperienciaEntity getExperiencia() {
         return experiencia;
     }

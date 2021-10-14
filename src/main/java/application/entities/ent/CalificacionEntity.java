@@ -103,4 +103,16 @@ public class CalificacionEntity {
         result = 31 * result + (fechaHora != null ? fechaHora.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "CalificacionEntity{" +
+                "operadorExperiencia='" + operadorExperiencia + '\'' +
+                ", nombreExperiencia='" + nombreExperiencia + '\'' +
+                ", mailTurista='" + mailTurista + '\'' +
+                ", puntaje=" + puntaje +
+                ", comentario='" + comentario + '\'' +
+                ", fechaHora=" + fechaHora +
+                '}';
+    }
 }

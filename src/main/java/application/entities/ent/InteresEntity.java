@@ -9,8 +9,8 @@ public class InteresEntity {
     private String nombre;
     private InteresEntity interesByEsSubinteresDe;
     private Collection<InteresEntity> interesByNombre;
-    private Collection<InteresExperienciaEntity> interesExperienciasByNombre;
-    private Collection<InteresTuristaEntity> interesTuristasByNombre;
+//    private Collection<InteresExperienciaEntity> interesExperienciasByNombre;
+//    private Collection<InteresTuristaEntity> interesTuristasByNombre;
 
     @Id
     @Column(name = "nombre")
