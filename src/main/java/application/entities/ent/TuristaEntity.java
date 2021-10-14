@@ -23,7 +23,7 @@ public class TuristaEntity extends UsuarioEntity {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    //    @Id
+//    @Id
 //    @GeneratedValue(generator = "client_id")
 //    @GenericGenerator(name = "clien_id", strategy = "increment")
     private long id;

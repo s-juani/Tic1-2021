@@ -49,7 +49,12 @@ public class InteresEntity {
         this.interesByEsSubinteresDe = interesByEsSubinteresDe;
     }
 
-//    @OneToMany(mappedBy = "interesByEsSubinteresDe")
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
+    //    @OneToMany(mappedBy = "interesByEsSubinteresDe")
 //    public Collection<InteresEntity> getInteresByNombre() {
 //        return interesByNombre;
 //    }

@@ -33,6 +33,11 @@ public class PaisEntity {
     }
 
     @Override
+    public String toString() {
+        return nombre;
+    }
+
+    @Override
     public int hashCode() {
         return nombre != null ? nombre.hashCode() : 0;
     }
