@@ -23,7 +23,10 @@ public class MainController {
     private Button btnPgAnterior;
 
     @FXML
-    private Button btnPgAnterior1;
+    private Button btnPgSiguiente;
+
+
+    // ---- EXPERIENCIAS ----//
 
     @FXML
     private ImageView imagenExperiencia0;
@@ -168,4 +171,7 @@ public class MainController {
 
     }
 
+    @FXML
+    public void irAPgSiguiente(ActionEvent actionEvent) {
+    }
 }
