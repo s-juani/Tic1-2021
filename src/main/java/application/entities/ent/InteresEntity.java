@@ -34,6 +34,15 @@ public class InteresEntity {
         return true;
     }
 
+    @OneToMany(mappedBy = "interesByEsSubinteresDe")
+    public Collection<InteresEntity> getInteresPadre() {
+        return interesPadre;
+    }
+
+    public void setInteresPadre(Collection<InteresEntity> interesPadre) {
+        this.interesPadre = interesPadre;
+    }
+
     @Override
     public int hashCode() {
         return nombre != null ? nombre.hashCode() : 0;

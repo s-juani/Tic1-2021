@@ -3,6 +3,7 @@ package application.project.ingresar;
 import application.Main;
 import application.entities.ent.TuristaEntity;
 import application.entities.ent.TuristaRepository;
+import application.entities.session.currentSession;
 import application.project.main.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,11 +61,10 @@ public class LoginUserController {
                             "La contraseña ingresada es incorrecta, intentelo de nuevo."
                     );
                 } else {
+                    Main.setCurrentSession(new currentSession(turista));
                     gotoMain();
                 }
             }
-
-
         }
     }
 

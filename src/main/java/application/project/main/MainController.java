@@ -1,5 +1,10 @@
 package application.project.main;
 
+import application.Main;
+import application.entities.ent.ExperienciaEntity;
+import application.entities.ent.TuristaEntity;
+import application.project.utils.utilities;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,6 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Controller
 public class MainController {
@@ -82,6 +90,23 @@ public class MainController {
 
     @FXML
     private Text nombreExperiencia10;
+
+    // ----------------------//
+
+    private TuristaEntity user;
+
+    private ObservableList<ExperienciaEntity> sugerencias;
+
+    public void initialize() {
+        user = Main.getCurrentSession().getActiveUser();
+        sugerencias = utilities.getSugerencias(user);
+
+
+    }
+
+
+
+
 
     @FXML
     void irAExperiencia0(MouseEvent event) {
