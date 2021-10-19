@@ -8,7 +8,8 @@ import javafx.collections.ObservableList;
 
 import java.util.Collection;
 
-public class utilities {
+@Component
+public class Utilities {
 
 
     public static ObservableList<ExperienciaEntity> getSugerencias(TuristaEntity user){
@@ -16,9 +17,7 @@ public class utilities {
          * Este es el famoso "algoritmo de sugerencias".
          */
 
-        ExperienciaRepository experienciaRepository;
-
-        Collection<ExperienciaEntity> experiencias;
+        Collection<ExperienciaEntity> experiencias = experienciaRepository.findAll();
 
         Collection<InteresEntity> userInterests = user.getIntereses();
 

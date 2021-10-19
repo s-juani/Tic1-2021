@@ -7,14 +7,21 @@ import application.project.utils.utilities;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 @Controller
 public class MainController {
@@ -98,7 +105,12 @@ public class MainController {
 
     private TuristaEntity user;
 
-    private ObservableList<ExperienciaEntity> sugerencias;
+    private ArrayList<ExperienciaEntity> sugerencias;
+
+    private int start_index = 0;
+
+    @Autowired
+    private Utilities utilities;
 
     public void initialize() {
         user = Main.getCurrentSession().getActiveUser();
@@ -107,9 +119,34 @@ public class MainController {
 
     }
 
-
-
-
+    private void refresh_experiencias(){
+        try {
+            txtPag.setText("Página " + start_index/11+1 + " de " + sugerencias.size()/11+1);
+            nombreExperiencia0.setText(sugerencias.get(start_index).getNombre());
+            imagenExperiencia0.setImage(sugerencias.get(start_index).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia1.setText(sugerencias.get(start_index + 1).getNombre());
+            imagenExperiencia1.setImage(sugerencias.get(start_index + 1).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia2.setText(sugerencias.get(start_index + 2).getNombre());
+            imagenExperiencia2.setImage(sugerencias.get(start_index + 2).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia3.setText(sugerencias.get(start_index + 3).getNombre());
+            imagenExperiencia3.setImage(sugerencias.get(start_index + 3).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia4.setText(sugerencias.get(start_index + 4).getNombre());
+            imagenExperiencia4.setImage(sugerencias.get(start_index + 4).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia5.setText(sugerencias.get(start_index + 5).getNombre());
+            imagenExperiencia5.setImage(sugerencias.get(start_index + 5).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia6.setText(sugerencias.get(start_index + 6).getNombre());
+            imagenExperiencia6.setImage(sugerencias.get(start_index + 6).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia7.setText(sugerencias.get(start_index + 7).getNombre());
+            imagenExperiencia7.setImage(sugerencias.get(start_index + 7).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia8.setText(sugerencias.get(start_index + 8).getNombre());
+            imagenExperiencia8.setImage(sugerencias.get(start_index + 8).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia9.setText(sugerencias.get(start_index + 9).getNombre());
+            imagenExperiencia9.setImage(sugerencias.get(start_index + 9).getImagens().iterator().next().getJavaFxImage(159, 96));
+            nombreExperiencia10.setText(sugerencias.get(start_index + 10).getNombre());
+            imagenExperiencia10.setImage(sugerencias.get(start_index + 10).getImagens().iterator().next().getJavaFxImage(159, 96));
+        }catch (IndexOutOfBoundsException e){} catch (Exception ie){
+            ie.printStackTrace();}
+    }
 
     @FXML
     void irAExperiencia0(MouseEvent event) {
@@ -118,11 +155,6 @@ public class MainController {
 
     @FXML
     void irAExperiencia1(MouseEvent event) {
-
-    }
-
-    @FXML
-    void irAExperiencia10(MouseEvent event) {
 
     }
 
@@ -167,11 +199,40 @@ public class MainController {
     }
 
     @FXML
-    void irAPgAnterior(ActionEvent event) {
+    void irAExperiencia10(MouseEvent event) {
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+10));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void irAPgAnterior(ActionEvent event) {
+        if (start_index != 0){
+            start_index -= 11;
+            refresh_experiencias();
+        }
     }
 
     @FXML
     public void irAPgSiguiente(ActionEvent actionEvent) {
+        if (sugerencias.size() > start_index+11){
+            start_index += 11;
+            refresh_experiencias();
+        }
     }
+
+    private void irAExperienciaSeleccionada(ExperienciaEntity experiencia) throws IOException {
+        Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ExperienceController.class.getResourceAsStream("Experiencia.fxml"));
+        Stage newStage = new Stage();
+        newStage.setUserData(experiencia);
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
+
 }
