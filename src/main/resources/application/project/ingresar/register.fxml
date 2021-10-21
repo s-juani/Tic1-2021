@@ -13,14 +13,14 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.ingresar.RegisterUserController">
    <children>
       <ImageView fitHeight="685.0" fitWidth="954.0" layoutX="3.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="966.0" AnchorPane.topAnchor="200.0">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png" />
+            <Image url="@application/project/images/img0.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="txtNacionalidad" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="349.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="960.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="349.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="960.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="105.0" layoutY="350.0" text="Usuario" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="500.0">
                <font>
@@ -52,17 +52,17 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <PasswordField fx:id="txtContrasena" layoutX="105.0" layoutY="450.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="650.0" />
+            <PasswordField fx:id="txtPw" layoutX="105.0" layoutY="450.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="650.0" />
             <TextField fx:id="txtNombreCompleto" layoutX="105.0" layoutY="100.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="150.0" />
-            <TextField fx:id="txtCorreo" layoutX="105.0" layoutY="310.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="450.0" />
+            <TextField fx:id="txtMail" layoutX="105.0" layoutY="310.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="450.0" />
             <DatePicker fx:id="dateNacimiento" layoutX="105.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="250.0" />
-            <TextField fx:id="txtUsuario" layoutX="105.0" layoutY="380.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="550.0" />
+            <TextField fx:id="txtUser" layoutX="105.0" layoutY="380.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="550.0" />
             <Label layoutX="105.0" layoutY="205.0" prefHeight="44.0" prefWidth="314.0" text="Nacionalidad" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="300.0">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <ComboBox fx:id="txtNacionalidad" layoutX="105.0" layoutY="240.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="350.0" />
+            <ComboBox fx:id="cbNacionalidad" layoutX="105.0" layoutY="240.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="350.0" />
             <Label layoutX="75.0" layoutY="6.0" text="Registrarse" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font size="48.0" />
@@ -73,7 +73,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <CheckComboBox fx:id="txtIntereses" layoutX="105.0" layoutY="530.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="750.0" />
+            <CheckComboBox fx:id="ccbIntereses" layoutX="105.0" layoutY="530.0" prefHeight="40.0" prefWidth="300.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="750.0" />
             <Label layoutX="105.0" layoutY="480.0" prefHeight="50.0" prefWidth="420.0" text="Intereses" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="695.0">
                <font>
                   <Font size="36.0" />

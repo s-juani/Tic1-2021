@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.controllers.ingresar.initialController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.ingresar.InitialController">
    <children>
       <ImageView fitHeight="786.0" fitWidth="961.0" layoutX="3.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="3.0">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/application/project/images/img0.png" />
+            <Image url="@application/project/images/img0.png" />
          </image>
       </ImageView>
       <Button id="btnIngresar" fx:id="btnIngresar" layoutX="1254.0" layoutY="233.0" mnemonicParsing="false" onAction="#gotoLogin" prefHeight="80.0" prefWidth="200.0" text="Ingresar" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="300.0">

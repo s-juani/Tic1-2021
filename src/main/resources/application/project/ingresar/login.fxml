@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.ingresar.LoginUserController">
    <children>
       <ImageView fitHeight="724.0" fitWidth="959.0" layoutX="3.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="209.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="147.0">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png" />
+            <Image url="@application/project/images/img0.png" />
          </image>
       </ImageView>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="569.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="960.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
