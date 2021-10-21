@@ -101,7 +101,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </Button>
-               <Text layoutX="1058.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Página X de Y" textAlignment="RIGHT" wrappingWidth="196.609375" AnchorPane.bottomAnchor="24.98046875" AnchorPane.rightAnchor="182.390625">
+               <Text fx:id="txtPag" layoutX="1058.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Página X de Y" textAlignment="RIGHT" wrappingWidth="196.609375" AnchorPane.bottomAnchor="24.98046875" AnchorPane.rightAnchor="182.390625">
                   <font>
                      <Font size="20.0" />
                   </font>

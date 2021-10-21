@@ -4,15 +4,20 @@ import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ExperienciaRepository;
 import application.entities.ent.InteresEntity;
 import application.entities.ent.TuristaEntity;
-import javafx.collections.ObservableList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Component
 public class Utilities {
 
+    @Autowired
+    private ExperienciaRepository experienciaRepository;
 
-    public static ObservableList<ExperienciaEntity> getSugerencias(TuristaEntity user){
+    public ArrayList<ExperienciaEntity> getSugerencias(TuristaEntity user){
         /**
          * Este es el famoso "algoritmo de sugerencias".
          */
@@ -23,7 +28,7 @@ public class Utilities {
 
         //TODO terminar
 
-        return null;
+        return new ArrayList<>(experiencias);
 
     }
 

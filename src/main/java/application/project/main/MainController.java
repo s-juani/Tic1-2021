@@ -3,8 +3,8 @@ package application.project.main;
 import application.Main;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.TuristaEntity;
-import application.project.utils.utilities;
-import javafx.collections.ObservableList;
+import application.project.ingresar.InitialController;
+import application.project.utils.Utilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +25,9 @@ import java.util.ArrayList;
 
 @Controller
 public class MainController {
+
+    @FXML
+    public Text txtPag;
 
     @FXML
     private Button btnPgAnterior;
@@ -115,6 +118,7 @@ public class MainController {
     public void initialize() {
         user = Main.getCurrentSession().getActiveUser();
         sugerencias = utilities.getSugerencias(user);
+        refresh_experiencias();
 
 
     }
@@ -148,54 +152,118 @@ public class MainController {
             ie.printStackTrace();}
     }
 
+    /***
+     * Viste que le habia dicho a victoria que no cambiara las ids?
+     *
+     * Bueno creo que hubieron tipo 2 ids que no toco, despues estaban todas distintas
+     *
+     * :)
+     *
+     *
+     *Ahora iba a hacer lo de mostrar la experiencia como una función asi aparte hacemos los tries por separado(te parece?)
+     *
+     * me parece perfecto si, porque si no no se me ocurre mucha forma de hacer que solamente aparezcan experiencias que esten en el final de la lista, tipo
+     * eso del try con todas es un dolor de cabeza
+     *
+     *
+     */
+
+    private void displayExperiencia(ExperienciaEntity experiencia,int numeroExperiencia, ImageView imagenExperiencia, Text nombreExperiencia){
+        /*try{
+             nombreExperiencia.setText(sugerencias.get(start_index + 10).getNombre());
+            imagenExperiencia.setImage(sugerencias.get(start_index + 10).getImagens().iterator().next().getJavaFxImage(159, 96));
+        }catch (IndexOutOfBoundsException e){} catch (Exception ie){
+            ie.printStackTrace();}*/
+    }
+
     @FXML
     void irAExperiencia0(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia1(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+1));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia2(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+2));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia3(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+3));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia4(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+4));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia5(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+5));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia6(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+6));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia7(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+7));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia8(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+8));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void irAExperiencia9(MouseEvent event) {
-
+        try {
+            irAExperienciaSeleccionada(sugerencias.get(start_index+9));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
