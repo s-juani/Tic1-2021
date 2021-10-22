@@ -93,7 +93,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </Button>
-               <Button fx:id="btnPgAnterior1" layoutX="1345.0" layoutY="438.0" mnemonicParsing="false" onAction="#irAPgAnterior" prefHeight="50.0" prefWidth="50.0" text="🡺" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="42.0">
+               <Button fx:id="btnPgSiguiente" layoutX="1345.0" layoutY="438.0" mnemonicParsing="false" onAction="#irAPgSiguiente" prefHeight="50.0" prefWidth="50.0" text="🡺" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="42.0">
                   <font>
                      <Font size="20.0" />
                   </font>
@@ -101,7 +101,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </Button>
-               <Text layoutX="1058.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Página X de Y" textAlignment="RIGHT" wrappingWidth="196.609375" AnchorPane.bottomAnchor="24.98046875" AnchorPane.rightAnchor="182.390625">
+               <Text fx:id="txtPag" layoutX="1058.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Página X de Y" textAlignment="RIGHT" wrappingWidth="196.609375" AnchorPane.bottomAnchor="24.98046875" AnchorPane.rightAnchor="182.390625">
                   <font>
                      <Font size="20.0" />
                   </font>

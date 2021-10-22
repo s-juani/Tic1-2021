@@ -8,7 +8,7 @@ import java.util.Collection;
 public class InteresEntity {
     private String nombre;
     private InteresEntity interesByEsSubinteresDe;
-    private Collection<InteresEntity> interesByNombre;
+    private Collection<InteresEntity> interesPadre;
 //    private Collection<InteresExperienciaEntity> interesExperienciasByNombre;
 //    private Collection<InteresTuristaEntity> interesTuristasByNombre;
 
@@ -32,6 +32,15 @@ public class InteresEntity {
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
 
         return true;
+    }
+
+    @OneToMany(mappedBy = "interesByEsSubinteresDe")
+    public Collection<InteresEntity> getInteresPadre() {
+        return interesPadre;
+    }
+
+    public void setInteresPadre(Collection<InteresEntity> interesPadre) {
+        this.interesPadre = interesPadre;
     }
 
     @Override
