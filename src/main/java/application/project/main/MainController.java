@@ -152,28 +152,15 @@ public class MainController {
             ie.printStackTrace();}
     }
 
-    /***
-     * Viste que le habia dicho a victoria que no cambiara las ids?
-     *
-     * Bueno creo que hubieron tipo 2 ids que no toco, despues estaban todas distintas
-     *
-     * :)
-     *
-     *
-     *Ahora iba a hacer lo de mostrar la experiencia como una función asi aparte hacemos los tries por separado(te parece?)
-     *
-     * me parece perfecto si, porque si no no se me ocurre mucha forma de hacer que solamente aparezcan experiencias que esten en el final de la lista, tipo
-     * eso del try con todas es un dolor de cabeza
-     *
-     *
-     */
-
-    private void displayExperiencia(ExperienciaEntity experiencia,int numeroExperiencia, ImageView imagenExperiencia, Text nombreExperiencia){
-        /*try{
-             nombreExperiencia.setText(sugerencias.get(start_index + 10).getNombre());
-            imagenExperiencia.setImage(sugerencias.get(start_index + 10).getImagens().iterator().next().getJavaFxImage(159, 96));
-        }catch (IndexOutOfBoundsException e){} catch (Exception ie){
-            ie.printStackTrace();}*/
+    private void displayExperiencia(ArrayList<ExperienciaEntity> sugerencias,int index,ImageView imagenExperiencia, Text nombreExperiencia){
+        try{
+            nombreExperiencia.setText(sugerencias.get(index).getNombre());
+            imagenExperiencia.setImage(sugerencias.get(index).getImagens().iterator().next().getJavaFxImage(159, 96));
+        }catch (Exception ie){
+            nombreExperiencia.setText("");
+            imagenExperiencia.setImage(null);
+            //ie.printStackTrace();
+            }
     }
 
     @FXML
