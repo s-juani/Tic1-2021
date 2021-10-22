@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.ingresar.RegisterUserController">
+   <children>
+      <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="3.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="960.0" AnchorPane.topAnchor="200.0">
+         <image>
+            <Image url="@application/project/images/img0.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="txtNacionalidad" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="349.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="596.0" layoutY="273.0" text="Usuario" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="350.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="118.0" layoutY="159.2" text="Nombre completo" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="70.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="263.0" text="Fecha de nacimiento" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.8" layoutY="412.80000000000007" prefHeight="44.0" prefWidth="314.0" text="Correo electronico" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="275.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="125.19999999999999" layoutY="439.20000000000005" prefHeight="50.0" prefWidth="420.0" text="Contraseña" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="415.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRegistrar" layoutX="260.0" layoutY="696.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="25.0" prefWidth="100.0" text="Registrar" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="600.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="txtPw" layoutX="125.19999999999999" layoutY="479.20000000000005" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="450.0" />
+            <TextField fx:id="txtNombreCompleto" layoutX="125.19999999999999" layoutY="375.20000000000005" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0" />
+            <TextField fx:id="txtMail" layoutX="67.8" layoutY="107.8" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="310.0" />
+            <DatePicker fx:id="dateNacimiento" layoutX="40.0" layoutY="159.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="170.0" />
+            <TextField fx:id="txtUser" layoutX="249.0" layoutY="380.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="380.0" />
+            <Label layoutX="192.8" layoutY="422.80000000000007" prefHeight="44.0" prefWidth="314.0" text="Nacionalidad" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="205.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbNacionalidad" layoutX="178.0" layoutY="274.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="240.0" />
+            <Label layoutX="79.0" layoutY="6.0" text="Registrarse" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="6.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="35.0" text="←" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <CheckComboBox fx:id="ccbIntereses" layoutX="100.0" layoutY="540.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="530.0" />
+            <Label layoutX="135.2" layoutY="449.20000000000005" prefHeight="50.0" prefWidth="420.0" text="Intereses" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="480.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Text layoutX="139.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque todas las opciones que te describen" wrappingWidth="222.0230712890625" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="515.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
