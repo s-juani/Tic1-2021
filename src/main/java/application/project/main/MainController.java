@@ -124,32 +124,18 @@ public class MainController {
     }
 
     private void refresh_experiencias(){
-        try {
-            txtPag.setText("Página " + start_index/11+1 + " de " + sugerencias.size()/11+1);
-            nombreExperiencia0.setText(sugerencias.get(start_index).getNombre());
-            imagenExperiencia0.setImage(sugerencias.get(start_index).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia1.setText(sugerencias.get(start_index + 1).getNombre());
-            imagenExperiencia1.setImage(sugerencias.get(start_index + 1).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia2.setText(sugerencias.get(start_index + 2).getNombre());
-            imagenExperiencia2.setImage(sugerencias.get(start_index + 2).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia3.setText(sugerencias.get(start_index + 3).getNombre());
-            imagenExperiencia3.setImage(sugerencias.get(start_index + 3).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia4.setText(sugerencias.get(start_index + 4).getNombre());
-            imagenExperiencia4.setImage(sugerencias.get(start_index + 4).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia5.setText(sugerencias.get(start_index + 5).getNombre());
-            imagenExperiencia5.setImage(sugerencias.get(start_index + 5).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia6.setText(sugerencias.get(start_index + 6).getNombre());
-            imagenExperiencia6.setImage(sugerencias.get(start_index + 6).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia7.setText(sugerencias.get(start_index + 7).getNombre());
-            imagenExperiencia7.setImage(sugerencias.get(start_index + 7).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia8.setText(sugerencias.get(start_index + 8).getNombre());
-            imagenExperiencia8.setImage(sugerencias.get(start_index + 8).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia9.setText(sugerencias.get(start_index + 9).getNombre());
-            imagenExperiencia9.setImage(sugerencias.get(start_index + 9).getImagens().iterator().next().getJavaFxImage(159, 96));
-            nombreExperiencia10.setText(sugerencias.get(start_index + 10).getNombre());
-            imagenExperiencia10.setImage(sugerencias.get(start_index + 10).getImagens().iterator().next().getJavaFxImage(159, 96));
-        }catch (IndexOutOfBoundsException e){} catch (Exception ie){
-            ie.printStackTrace();}
+        txtPag.setText("Página " + (start_index/11 +1) + " de " + (1+(sugerencias.size()/11)));
+        displayExperiencia(sugerencias,start_index,imagenExperiencia0, nombreExperiencia0);
+        displayExperiencia(sugerencias,start_index+1,imagenExperiencia1, nombreExperiencia1);
+        displayExperiencia(sugerencias,start_index+2,imagenExperiencia2, nombreExperiencia2);
+        displayExperiencia(sugerencias,start_index+3,imagenExperiencia3, nombreExperiencia3);
+        displayExperiencia(sugerencias,start_index+4,imagenExperiencia4, nombreExperiencia4);
+        displayExperiencia(sugerencias,start_index+5,imagenExperiencia5, nombreExperiencia5);
+        displayExperiencia(sugerencias,start_index+6,imagenExperiencia6, nombreExperiencia6);
+        displayExperiencia(sugerencias,start_index+7,imagenExperiencia7, nombreExperiencia7);
+        displayExperiencia(sugerencias,start_index+8,imagenExperiencia8, nombreExperiencia8);
+        displayExperiencia(sugerencias,start_index+9,imagenExperiencia9, nombreExperiencia9);
+        displayExperiencia(sugerencias,start_index+10,imagenExperiencia10, nombreExperiencia10);
     }
 
     private void displayExperiencia(ArrayList<ExperienciaEntity> sugerencias,int index,ImageView imagenExperiencia, Text nombreExperiencia){
