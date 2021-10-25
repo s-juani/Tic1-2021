@@ -33,7 +33,7 @@
    </AnchorPane>
    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <Text fx:id="txtExperienceName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
             <font>
                <Font size="64.0" />
             </font>
@@ -46,7 +46,7 @@
                      <Font size="36.0" />
                   </font>
                </Text>
-               <Text layoutX="138.0" layoutY="101.0" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="561.71875" AnchorPane.bottomAnchor="55.8125" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="320.28125" AnchorPane.topAnchor="83.59765625">
+               <Text fx:id="txtExperiencDescription" layoutX="138.0" layoutY="101.0" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="561.71875" AnchorPane.bottomAnchor="55.8125" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="320.28125" AnchorPane.topAnchor="83.59765625">
                   <font>
                      <Font size="18.0" />
                   </font>

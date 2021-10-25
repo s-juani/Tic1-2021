@@ -1,6 +1,12 @@
 package application.project.main;
 
+import application.entities.ent.ExperienciaEntity;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Controller;
+
 
 @Controller
 public class ExperienceController {
