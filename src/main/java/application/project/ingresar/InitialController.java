@@ -1,6 +1,8 @@
 package application.project.ingresar;
 
 import application.Main;
+import application.entities.ent.ExperienciaEntity;
+import application.entities.ent.ExperienciaRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Set;
 
 @Controller
 public class InitialController {
@@ -33,8 +37,15 @@ public class InitialController {
         stage.close();
     }
 
+    @Autowired
+    private ExperienciaRepository xpRep;
+
     @FXML
     void gotoLogin(ActionEvent event) throws IOException {
+        Set<ExperienciaEntity> xps = xpRep.findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase("hotel1", "Turismo Gastronómico");
+        for (ExperienciaEntity xp: xps){
+            System.out.println(xp);
+        }
 
         Stage stage = (Stage) this.btnIngresar.getScene().getWindow();
         stage.close();
