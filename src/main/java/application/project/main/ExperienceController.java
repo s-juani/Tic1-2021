@@ -23,10 +23,14 @@ public class ExperienceController {
     private Button btnImgSiguiente;
 
     public void initialize(){
-        Stage stage = (Stage) this.btnImgSiguiente.getScene().getWindow();
-        experiencia = (ExperienciaEntity) stage.getUserData();
+        experiencia = getCurrentExperience();
         txtExperienceName.setText(experiencia.getNombre());
         txtExperienceDescription.setText(experiencia.getDescripcion());
+    }
+
+    private ExperienciaEntity getCurrentExperience(){
+        Stage stage = (Stage) this.btnImgSiguiente.getScene().getWindow();
+        return (ExperienciaEntity) stage.getUserData();
     }
 
 
