@@ -37,16 +37,8 @@ public class InitialController {
         stage.close();
     }
 
-    @Autowired
-    private ExperienciaRepository xpRep;
-
     @FXML
     void gotoLogin(ActionEvent event) throws IOException {
-        Set<ExperienciaEntity> xps = xpRep.findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase("hotel1", "Turismo Gastronómico");
-        for (ExperienciaEntity xp: xps){
-            System.out.println(xp);
-        }
-
         Stage stage = (Stage) this.btnIngresar.getScene().getWindow();
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
