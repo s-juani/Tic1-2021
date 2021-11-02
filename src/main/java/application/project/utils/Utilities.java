@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Component
 public class Utilities {
@@ -22,11 +25,14 @@ public class Utilities {
          * Este es el famoso "algoritmo de sugerencias".
          */
 
-        Collection<ExperienciaEntity> experiencias = experienciaRepository.findAll();
 
         Collection<InteresEntity> userInterests = user.getIntereses();
 
-        //TODO terminar
+        Set<ExperienciaEntity> experiencias = new HashSet<>();
+
+        for (InteresEntity interes: userInterests){
+            experiencias.addAll(experienciaRepository.findByIntereses_Nombre(interes.getNombre()));
+        }
 
         return new ArrayList<>(experiencias);
 
