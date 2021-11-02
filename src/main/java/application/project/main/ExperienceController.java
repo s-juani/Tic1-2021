@@ -37,6 +37,9 @@ public class ExperienceController {
     @FXML
     private ImageView img;
 
+    @FXML
+    private Button btnReservar;
+
     private ArrayList<ImagenEntity> imagenEntities;
 
     private int idxImg=0;
@@ -73,8 +76,6 @@ public class ExperienceController {
         showImagen();
     }
 
-
-
     private void showImagen(){
         img.setImage(imagenEntities.get(idxImg).getJavaFxImage(600, 400));
     }
@@ -89,5 +90,19 @@ public class ExperienceController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
+    }
+
+    @FXML
+    void gotoReserva(ActionEvent event)throws IOException {
+        Stage stage = (Stage) this.btnReservar.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream(""));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    } {
+
     }
 }
