@@ -44,7 +44,11 @@ dependencies {
 
     implementation 'mysql:mysql-connector-java:8.0.25'
     implementation 'org.controlsfx:controlsfx:11.1.0'
+
+    implementation 'org.springframework.security:spring-security-crypto:4.2.9.RELEASE'
+
 }
+
 
 test {
     useJUnitPlatform()

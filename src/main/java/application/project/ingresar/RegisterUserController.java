@@ -18,6 +18,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -26,6 +29,14 @@ import java.util.Collection;
 
 @Controller
 public class RegisterUserController {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Autowired
     private UsuarioManager userMgr;
@@ -95,7 +106,7 @@ public class RegisterUserController {
             try{
                 String name = txtNombreCompleto.getText();
                 String user = txtUser.getText();
-                String pw = txtPw.getText();
+                String pw = passwordEncoder.encode(txtPw.getText());
                 String mail = txtMail.getText();
                 LocalDate birth = dateNacimiento.getValue();
                 PaisEntity country = cbNacionalidad.getValue();
