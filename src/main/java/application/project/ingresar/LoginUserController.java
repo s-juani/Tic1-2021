@@ -16,7 +16,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
+
 
 import java.io.IOException;
 
@@ -55,7 +57,13 @@ public class LoginUserController {
                         "El usuario ingresado no existe."
                 );
             } else {
-                if (!turista.getPw().equals(pw)){
+                String hashedPw = turista.getPw();
+                if (!hashedPw.matches("^\\$2[ayb]\\$.{56}$")) {
+                    showAlert(
+                            "Contraseña corrupta!",
+                            "La contraseña no está en el formato correcto en la base de datos."
+                    );
+                } else if(!BCrypt.checkpw(pw,turista.getPw())){
                     showAlert(
                             "Contraseña incorrecta!",
                             "La contraseña ingresada es incorrecta, intentelo de nuevo."
