@@ -18,6 +18,23 @@ public class ExperienciaEntity {
     private String descripcion;
     private String aforo;
     private boolean conReserva;
+
+    public boolean isVacunacion() {
+        return vacunacion;
+    }
+
+    public void setVacunacion(boolean vacunacion) {
+        this.vacunacion = vacunacion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     private int latitud;
     private int longitud;
     private Set<ImagenEntity> imagens;
@@ -25,6 +42,8 @@ public class ExperienciaEntity {
     private Set<InteresEntity> intereses;
     private Set<VideoEntity> videos;
     private Set<ReservaEntity> reservas;
+    private boolean vacunacion;
+    private String direccion;
 //    @OneToMany(mappedBy = "experiencia")
 
 

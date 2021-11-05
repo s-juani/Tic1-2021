@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,9 @@ public class ExperienceController {
 
     @FXML
     private ImageView img;
+
+    @FXML
+    private Button btnReservar;
 
     private ArrayList<ImagenEntity> imagenEntities;
 
@@ -72,21 +76,29 @@ public class ExperienceController {
         showImagen();
     }
 
-
-
     private void showImagen(){
         img.setImage(imagenEntities.get(idxImg).getJavaFxImage(600, 400));
     }
 
     @FXML
-    public void volvelAlMain(MouseEvent mouseEvent) throws IOException {
+    public void volvelAlMain(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.ap.getScene().getWindow();
-        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root));
-        newStage.show();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
+    @FXML
+    void gotoReserva(ActionEvent event)throws IOException {
+        Stage stage = (Stage) this.ap.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("Reserva.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setUserData(experiencia);
+        stage.show();
+    }
+
 }

@@ -24,7 +24,7 @@ public class ClienteManager {
         }
         try {
             System.out.println("Por crear cliente");
-            TuristaEntity turista = new TuristaEntity(mail,usuario, nombre, fechaNacimiento,pw);
+            TuristaEntity turista = new TuristaEntity(mail ,usuario, nombre, fechaNacimiento, pw);
 //            ClientesEntity cliente = new ClientesEntity(mail, usuario, nombre, fechaNacimiento, pw);
             System.out.println("Cliente creado");
             turistaRepository.save(turista);

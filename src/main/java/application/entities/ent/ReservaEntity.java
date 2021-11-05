@@ -2,6 +2,7 @@ package application.entities.ent;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reserva")
@@ -10,8 +11,40 @@ public class ReservaEntity {
     private String mailTurista;
     private String operadorExperiencia;
     private String nombreExperiencia;
-    private Date fecha;
+    private Date fechaInicio;
+    private int cantidad;
+    private Date fechaFin;
+
+
+    public ReservaEntity(String mailTurista, String operadorExperiencia, String nombreExperiencia, Date fechaInicio, int cantidad, Date fechaFin) {
+        this.mailTurista = mailTurista;
+        this.operadorExperiencia = operadorExperiencia;
+        this.nombreExperiencia = nombreExperiencia;
+        this.fechaInicio = fechaInicio;
+        this.cantidad = cantidad;
+        this.fechaFin = fechaFin;
+    }
+
+    public ReservaEntity() {
+    }
+
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 //    private ExperienciaEntity experiencia;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
     @Id
     @Column(name = "mail_turista")
@@ -45,12 +78,12 @@ public class ReservaEntity {
 
     @Id
     @Column(name = "fecha")
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(Date fecha) {
+        this.fechaInicio = fecha;
     }
 
     @Override
@@ -65,7 +98,7 @@ public class ReservaEntity {
             return false;
         if (nombreExperiencia != null ? !nombreExperiencia.equals(that.nombreExperiencia) : that.nombreExperiencia != null)
             return false;
-        if (fecha != null ? !fecha.equals(that.fecha) : that.fecha != null) return false;
+        if (fechaInicio != null ? !fechaInicio.equals(that.fechaInicio) : that.fechaInicio != null) return false;
 
         return true;
     }
@@ -75,7 +108,7 @@ public class ReservaEntity {
         int result = mailTurista != null ? mailTurista.hashCode() : 0;
         result = 31 * result + (operadorExperiencia != null ? operadorExperiencia.hashCode() : 0);
         result = 31 * result + (nombreExperiencia != null ? nombreExperiencia.hashCode() : 0);
-        result = 31 * result + (fecha != null ? fecha.hashCode() : 0);
+        result = 31 * result + (fechaInicio != null ? fechaInicio.hashCode() : 0);
         return result;
     }
 
