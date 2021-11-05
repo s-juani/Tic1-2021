@@ -47,8 +47,8 @@ public class ReservaEntityPK implements Serializable {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(Date fecha) {
+        this.fechaInicio = fecha;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class ReservaEntityPK implements Serializable {
             return false;
         if (nombreExperiencia != null ? !nombreExperiencia.equals(that.nombreExperiencia) : that.nombreExperiencia != null)
             return false;
-        if (fecha != null ? !fecha.equals(that.fecha) : that.fecha != null) return false;
+        if (fechaInicio != null ? !fechaInicio.equals(that.fechaInicio) : that.fechaInicio != null) return false;
 
         return true;
     }
@@ -73,7 +73,7 @@ public class ReservaEntityPK implements Serializable {
         int result = mailTurista != null ? mailTurista.hashCode() : 0;
         result = 31 * result + (operadorExperiencia != null ? operadorExperiencia.hashCode() : 0);
         result = 31 * result + (nombreExperiencia != null ? nombreExperiencia.hashCode() : 0);
-        result = 31 * result + (fecha != null ? fecha.hashCode() : 0);
+        result = 31 * result + (fechaInicio != null ? fechaInicio.hashCode() : 0);
         return result;
     }
 }

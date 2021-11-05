@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.BusquedaController">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
             <children>
@@ -135,7 +135,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia0" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0">
+                <ImageView fx:id="imagenExperiencia0" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -145,7 +145,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia1" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
+                <ImageView fx:id="imagenExperiencia1" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia1" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -165,7 +165,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia3" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="100.0">
+                <ImageView fx:id="imagenExperiencia3" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia3" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="100.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -175,7 +175,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia4" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="850.0" AnchorPane.topAnchor="100.0">
+                <ImageView fx:id="imagenExperiencia4" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#irAExperiencia4" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="850.0" AnchorPane.topAnchor="100.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -185,7 +185,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia6" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia6" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia6" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -195,7 +195,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia7" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia7" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia7" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -205,7 +205,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia8" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia8" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia8" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -215,7 +215,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia9" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia9" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia9" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -225,7 +225,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia10" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia2" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="850.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia10" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia10" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="850.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>

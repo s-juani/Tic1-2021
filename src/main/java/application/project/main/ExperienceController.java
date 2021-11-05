@@ -81,9 +81,8 @@ public class ExperienceController {
     }
 
     @FXML
-    public void volvelAlMain(MouseEvent mouseEvent) throws IOException {
+    public void volvelAlMain(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.ap.getScene().getWindow();
-        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
@@ -94,15 +93,13 @@ public class ExperienceController {
 
     @FXML
     void gotoReserva(ActionEvent event)throws IOException {
-        Stage stage = (Stage) this.btnReservar.getScene().getWindow();
-        stage.close();
+        Stage stage = (Stage) this.ap.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream(""));
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root));
-        newStage.show();
-    } {
-
+        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("Reserva.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setUserData(experiencia);
+        stage.show();
     }
+
 }

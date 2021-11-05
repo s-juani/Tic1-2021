@@ -2,6 +2,7 @@ package application.entities.ent;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reserva")
@@ -12,6 +13,14 @@ public class ReservaEntity {
     private String nombreExperiencia;
     private Date fecha;
 //    private ExperienciaEntity experiencia;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
     @Id
     @Column(name = "mail_turista")
@@ -65,7 +74,7 @@ public class ReservaEntity {
             return false;
         if (nombreExperiencia != null ? !nombreExperiencia.equals(that.nombreExperiencia) : that.nombreExperiencia != null)
             return false;
-        if (fecha != null ? !fecha.equals(that.fecha) : that.fecha != null) return false;
+        if (fechaInicio != null ? !fechaInicio.equals(that.fechaInicio) : that.fechaInicio != null) return false;
 
         return true;
     }
@@ -75,7 +84,7 @@ public class ReservaEntity {
         int result = mailTurista != null ? mailTurista.hashCode() : 0;
         result = 31 * result + (operadorExperiencia != null ? operadorExperiencia.hashCode() : 0);
         result = 31 * result + (nombreExperiencia != null ? nombreExperiencia.hashCode() : 0);
-        result = 31 * result + (fecha != null ? fecha.hashCode() : 0);
+        result = 31 * result + (fechaInicio != null ? fechaInicio.hashCode() : 0);
         return result;
     }
 

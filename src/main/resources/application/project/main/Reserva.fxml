@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.ReservaController">
+   <children>
+      <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1500.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="334.0" layoutX="135.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="596.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@application/project/images/img1.png" />
+               </image>
+            </ImageView>
+            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
+                  <MenuItem mnemonicParsing="false" text="Preferencias" />
+                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+               </items>
+            </SplitMenuButton>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Favoritos" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="0.0" />
+            <Button layoutX="901.0" layoutY="1.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Itinerario" AnchorPane.rightAnchor="456.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <Text fx:id="txtExperienceName" layoutX="14.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="-0.0625">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="14.0" layoutY="414.0" prefHeight="251.0" prefWidth="1473.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="414.0">
+               <children>
+                  <Text layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.15234375">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtExperienceDescription" layoutX="1.0" layoutY="103.423828125" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="1455.3853759765625" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="84.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="57.0" layoutY="85.0" prefHeight="329.0" prefWidth="562.0" AnchorPane.leftAnchor="57.0" AnchorPane.topAnchor="85.0">
+               <children>
+                  <ImageView fx:id="img" fitHeight="333.0" fitWidth="527.0" layoutX="54.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="-1.0" />
+                  <Button layoutX="491.0" layoutY="153.0" mnemonicParsing="false" onAction="#siguienteImg" text="→" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="153.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="7.0" layoutY="154.0" mnemonicParsing="false" onAction="#imgAnterior" text="←" AnchorPane.topAnchor="154.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="703.0" layoutY="32.0" prefHeight="455.0" prefWidth="759.0" style="-fx-background-color: grey;">
+               <children>
+                  <Label layoutX="64.0" layoutY="5.0" text="Reservar">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnVolver" cancelButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="35.0" text="←">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="txtFechaInicio" layoutX="69.0" layoutY="194.0" text="Fecha de la reserva:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnDiasReserva" layoutX="76.0" layoutY="163.0" mnemonicParsing="false" onAction="#toggleDiasReserva" text="Reservar muliples dias" />
+                  <DatePicker fx:id="dateFechaInicio" layoutX="69.0" layoutY="229.0" prefHeight="35.0" prefWidth="234.0" />
+                  <Label fx:id="txtFechaFin" layoutX="69.0" layoutY="279.0" text="Fecha de finalizacion de la reserva:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dateFechaFin" layoutX="69.0" layoutY="314.0" prefHeight="35.0" prefWidth="234.0" />
+                  <CheckBox fx:id="checkRequisitos" layoutX="69.0" layoutY="384.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="334.0" text="Afirmo que cumplo con los requisitos solicitados." />
+                  <Button fx:id="btnReservar" layoutX="517.0" layoutY="384.0" mnemonicParsing="false" onAction="#reservar" prefHeight="50.0" prefWidth="200.0" text="Reservar">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="txtFechaInicio1" layoutX="71.0" layoutY="73.0" text="Cantidad de personas">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnMenos" cancelButton="true" layoutX="76.0" layoutY="111.0" mnemonicParsing="false" onAction="#decrementar" prefHeight="30.0" prefWidth="30.0" text="-">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnMas" cancelButton="true" layoutX="143.0" layoutY="111.0" mnemonicParsing="false" onAction="#incrementar" prefHeight="30.0" prefWidth="30.0" text="+">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="txtCantidad" layoutX="117.0" layoutY="109.0" text="1">
+                     <font>
+                        <Font name="Bodoni MT Condensed Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children></AnchorPane>
