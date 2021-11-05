@@ -11,7 +11,31 @@ public class ReservaEntity {
     private String mailTurista;
     private String operadorExperiencia;
     private String nombreExperiencia;
-    private Date fecha;
+    private Date fechaInicio;
+    private int cantidad;
+    private Date fechaFin;
+
+
+    public ReservaEntity(String mailTurista, String operadorExperiencia, String nombreExperiencia, Date fechaInicio, int cantidad, Date fechaFin) {
+        this.mailTurista = mailTurista;
+        this.operadorExperiencia = operadorExperiencia;
+        this.nombreExperiencia = nombreExperiencia;
+        this.fechaInicio = fechaInicio;
+        this.cantidad = cantidad;
+        this.fechaFin = fechaFin;
+    }
+
+    public ReservaEntity() {
+    }
+
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 //    private ExperienciaEntity experiencia;
 
     public int getCantidad() {
@@ -54,12 +78,12 @@ public class ReservaEntity {
 
     @Id
     @Column(name = "fecha")
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(Date fecha) {
+        this.fechaInicio = fecha;
     }
 
     @Override

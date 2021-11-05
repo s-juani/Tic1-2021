@@ -60,7 +60,7 @@ public class LoginUserController {
                 String hashedPw = turista.getPw();
                 if (!hashedPw.matches("^\\$2[ayb]\\$.{56}$")) {
                     showAlert(
-                            "Contraseña corrupta!",
+                            "Contraseña corrompida!",
                             "La contraseña no está en el formato correcto en la base de datos."
                     );
                 } else if(!BCrypt.checkpw(pw,turista.getPw())){

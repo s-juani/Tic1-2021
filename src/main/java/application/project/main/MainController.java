@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -28,6 +29,9 @@ public class MainController {
 
     @FXML
     public Text txtPag;
+
+    @FXML
+    public TextField campoDeBusqueda;
 
     @FXML
     private Button btnPgAnterior;
@@ -266,14 +270,22 @@ public class MainController {
 
     private void irAExperienciaSeleccionada(ExperienciaEntity experiencia) throws IOException {
         Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
-        stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(ExperienceController.class.getResourceAsStream("Experiencia.fxml"));
-        Stage newStage = new Stage();
-        newStage.setUserData(experiencia);
-        newStage.setScene(new Scene(root));
-        newStage.show();
+        stage.setUserData(experiencia);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
+    @FXML
+    private void irABusqueda(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(BusquedaController.class.getResourceAsStream("Busqueda.fxml"));
+        stage.setUserData(campoDeBusqueda.getText());
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

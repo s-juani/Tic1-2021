@@ -9,7 +9,7 @@ public class ReservaEntityPK implements Serializable {
     private String mailTurista;
     private String operadorExperiencia;
     private String nombreExperiencia;
-    private Date fecha;
+    private Date fechaInicio;
 
     @Column(name = "mail_turista")
     @Id
@@ -43,8 +43,8 @@ public class ReservaEntityPK implements Serializable {
 
     @Column(name = "fecha")
     @Id
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
     public void setFechaInicio(Date fecha) {

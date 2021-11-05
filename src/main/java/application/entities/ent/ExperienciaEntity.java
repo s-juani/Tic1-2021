@@ -42,6 +42,8 @@ public class ExperienciaEntity {
     private Set<InteresEntity> intereses;
     private Set<VideoEntity> videos;
     private Set<ReservaEntity> reservas;
+    private boolean vacunacion;
+    private String direccion;
 //    @OneToMany(mappedBy = "experiencia")
 
 

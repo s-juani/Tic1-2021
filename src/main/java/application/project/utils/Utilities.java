@@ -38,4 +38,8 @@ public class Utilities {
 
     }
 
+    public ArrayList<ExperienciaEntity> getBusqueda(String busqueda) {
+        return new ArrayList<>(experienciaRepository.findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(busqueda,busqueda));
+    }
+
 }

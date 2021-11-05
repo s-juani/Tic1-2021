@@ -86,9 +86,8 @@ public class ExperienceController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root));
-        newStage.show();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
