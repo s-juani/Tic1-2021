@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="187.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear una experiencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0">
@@ -21,8 +20,8 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="57.0" layoutY="248.0" prefHeight="40.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="235.0" />
-      <TextArea layoutX="131.0" layoutY="327.0" prefHeight="300.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="330.0" />
+      <TextField fx:id="txtNombreExp" layoutX="57.0" layoutY="248.0" prefHeight="40.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="235.0" />
+      <TextArea fx:id="txtDescripcion" layoutX="131.0" layoutY="327.0" prefHeight="300.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="330.0" />
       <Text layoutX="149.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="300.0">
          <font>
             <Font size="24.0" />
@@ -33,7 +32,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button layoutX="687.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Cargar imagenes" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="240.0">
+      <Button fx:id="btnImagenes" layoutX="687.0" layoutY="216.0" mnemonicParsing="false" onAction="#AgregarImagenes" prefHeight="25.0" prefWidth="200.0" text="Cargar imagenes" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="240.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -43,8 +42,8 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <CheckComboBox layoutX="675.0" layoutY="387.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="330.0" />
-      <Button layoutX="277.0" layoutY="316.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Cargar experiencia" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="450.0">
+      <CheckComboBox fx:id="ccbIntereses" layoutX="675.0" layoutY="387.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="330.0" />
+      <Button fx:id="btnCargarExp" layoutX="277.0" layoutY="316.0" mnemonicParsing="false" onAction="#CrearExperiencia" prefHeight="30.0" prefWidth="200.0" text="Cargar experiencia" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="450.0">
          <font>
             <Font size="18.0" />
          </font>
