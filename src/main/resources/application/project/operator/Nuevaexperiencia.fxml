@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.operator.NuevaExperienciaController">
+   <Text layoutX="50.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear una experiencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="87.203125">
+      <font>
+         <Font size="48.0" />
+      </font>
+   </Text>
+   <Text layoutX="50.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la experiencia (*)" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="220.0">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <TextField fx:id="txtNombreExp" layoutX="50.0" layoutY="255.0" prefHeight="40.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="255.0" />
+   <TextArea fx:id="txtDescripcion" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0" />
+   <Text layoutX="50.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion (*)" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="320.0">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <Text layoutX="541.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagenes (*)" AnchorPane.leftAnchor="541.0" AnchorPane.topAnchor="220.0">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <Button fx:id="btnImagenes" layoutX="538.0" layoutY="256.0" mnemonicParsing="false" onAction="#AgregarImagenes" prefHeight="25.0" prefWidth="200.0" text="Cargar imagenes" AnchorPane.leftAnchor="538.0" AnchorPane.topAnchor="256.0">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Text layoutX="1017.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intereses (*)" AnchorPane.leftAnchor="1017.0" AnchorPane.topAnchor="219.0">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <CheckComboBox fx:id="ccbIntereses" layoutX="1018.0" layoutY="255.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="1018.0" AnchorPane.topAnchor="255.0" />
+   <Button fx:id="btnCargarExp" layoutX="1017.0" layoutY="610.0" mnemonicParsing="false" onAction="#CrearExperiencia" prefHeight="30.0" prefWidth="200.0" text="Cargar experiencia" AnchorPane.leftAnchor="1017.0" AnchorPane.topAnchor="610.0">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Text layoutX="1017.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aforo">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <TextField fx:id="txtAforo" layoutX="1017.0" layoutY="349.0" prefHeight="40.0" prefWidth="166.0" />
+   <CheckBox fx:id="cbAdmiteReserva" layoutX="1017.0" layoutY="432.0" mnemonicParsing="false" text="Admite reserva">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </CheckBox>
+   <TextArea fx:id="txtDireccion" layoutX="541.0" layoutY="349.0" prefHeight="178.0" prefWidth="400.0" />
+   <Text layoutX="539.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccion (*)">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
+   <CheckBox fx:id="cbRequiereVacunacion" layoutX="1017.0" layoutY="482.0" mnemonicParsing="false" text="Requiere Vacunacion">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </CheckBox>
+   <Text layoutX="58.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*) campos obligatorios">
+      <font>
+         <Font size="17.0" />
+      </font>
+   </Text>
+</AnchorPane>
