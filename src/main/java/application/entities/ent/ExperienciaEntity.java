@@ -1,9 +1,5 @@
 package application.entities.ent;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,8 +12,17 @@ public class ExperienciaEntity {
 
     private String nombre;
     private String descripcion;
-    private String aforo;
+    private Integer aforo;
     private boolean conReserva;
+
+    public void setDatos(String nombre, String direccion, String descripcion, Integer aforo, boolean conReserva, boolean vacunacion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.aforo = aforo;
+        this.conReserva = conReserva;
+        this.vacunacion = vacunacion;
+        this.direccion = direccion;
+    }
 
     public boolean isVacunacion() {
         return vacunacion;
@@ -76,11 +81,11 @@ public class ExperienciaEntity {
         this.descripcion = descripcion;
     }
 
-    public String getAforo() {
+    public Integer getAforo() {
         return aforo;
     }
 
-    public void setAforo(String aforo) {
+    public void setAforo(Integer aforo) {
         this.aforo = aforo;
     }
 
@@ -131,7 +136,7 @@ public class ExperienciaEntity {
         this.intereses = intereses;
     }
 
-    @OneToMany(mappedBy = "experiencia", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "experiencia", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Set<ImagenEntity> getImagens() {
         return imagens;
     }
@@ -174,7 +179,6 @@ public class ExperienciaEntity {
             return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
         if (descripcion != null ? !descripcion.equals(that.descripcion) : that.descripcion != null) return false;
-        if (aforo != null ? !aforo.equals(that.aforo) : that.aforo != null) return false;
 
         return true;
     }

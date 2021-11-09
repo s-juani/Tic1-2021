@@ -17,7 +17,7 @@
       </font>
    </Text>
    <TextField fx:id="txtNombreExp" layoutX="50.0" layoutY="255.0" prefHeight="40.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="255.0" />
-   <TextArea fx:id="txtDescripcion" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0" />
+   <TextArea fx:id="txtDescripcion" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="400.0" wrapText="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0" />
    <Text layoutX="50.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion (*)" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="320.0">
       <font>
          <Font size="24.0" />
@@ -55,7 +55,7 @@
          <Font size="24.0" />
       </font>
    </CheckBox>
-   <TextArea fx:id="txtDireccion" layoutX="541.0" layoutY="349.0" prefHeight="178.0" prefWidth="400.0" />
+   <TextArea fx:id="txtDireccion" layoutX="541.0" layoutY="349.0" prefHeight="178.0" prefWidth="400.0" wrapText="true" />
    <Text layoutX="539.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccion (*)">
       <font>
          <Font size="24.0" />
