@@ -26,7 +26,6 @@ public class UsuarioManager {
         try{
             System.out.println("****BEGIN CREAR TURISTA****");
             System.out.println("*Crear entidad*");
-            //TODO crear una entity de turista llamando al constructor
             TuristaEntity turista = new TuristaEntity(mail,user,name,birth,pw);
             turista.setIntereses(interest);
             turista.setNacionalidad(country);

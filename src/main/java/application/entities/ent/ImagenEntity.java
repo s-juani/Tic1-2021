@@ -17,7 +17,17 @@ public class ImagenEntity {
     private byte[] imagen;
     private ExperienciaEntity experiencia;
 
+    public ImagenEntity(byte[] imagen, ExperienciaEntity experiencia) {
+        this.imagen = imagen;
+        this.experiencia = experiencia;
+    }
+
+    public ImagenEntity() {
+
+    }
+
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "idimagen")
     public int getIdimagen() {
         return idimagen;
@@ -52,18 +62,18 @@ public class ImagenEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ImagenEntity that = (ImagenEntity) o;
+        ImagenEntity imagen1 = (ImagenEntity) o;
 
-        if (idimagen != that.idimagen) return false;
-        if (!Arrays.equals(imagen, that.imagen)) return false;
-
-        return true;
+        if (idimagen != imagen1.idimagen) return false;
+        if (!Arrays.equals(imagen, imagen1.imagen)) return false;
+        return experiencia != null ? experiencia.equals(imagen1.experiencia) : imagen1.experiencia == null;
     }
 
     @Override
     public int hashCode() {
         int result = idimagen;
         result = 31 * result + Arrays.hashCode(imagen);
+        result = 31 * result + (experiencia != null ? experiencia.hashCode() : 0);
         return result;
     }
 
