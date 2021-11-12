@@ -132,6 +132,8 @@ public class ReservaController {
             }
         });
 
+
+
         toggleDiasReserva(new ActionEvent());
 
         dateFechaFin.setDayCellFactory(picker -> new DateCell() {

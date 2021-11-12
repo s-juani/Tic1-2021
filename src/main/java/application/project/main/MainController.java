@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,6 +33,9 @@ public class MainController {
 
     @FXML
     public TextField campoDeBusqueda;
+
+    @FXML
+    public MenuItem btnCerrarSesion;
 
     @FXML
     private Button btnPgAnterior;
@@ -127,30 +131,30 @@ public class MainController {
 
     }
 
-    private void refresh_experiencias(){
-        txtPag.setText("Página " + (start_index/11 +1) + " de " + (1+(sugerencias.size()/11)));
-        displayExperiencia(sugerencias,start_index,imagenExperiencia0, nombreExperiencia0);
-        displayExperiencia(sugerencias,start_index+1,imagenExperiencia1, nombreExperiencia1);
-        displayExperiencia(sugerencias,start_index+2,imagenExperiencia2, nombreExperiencia2);
-        displayExperiencia(sugerencias,start_index+3,imagenExperiencia3, nombreExperiencia3);
-        displayExperiencia(sugerencias,start_index+4,imagenExperiencia4, nombreExperiencia4);
-        displayExperiencia(sugerencias,start_index+5,imagenExperiencia5, nombreExperiencia5);
-        displayExperiencia(sugerencias,start_index+6,imagenExperiencia6, nombreExperiencia6);
-        displayExperiencia(sugerencias,start_index+7,imagenExperiencia7, nombreExperiencia7);
-        displayExperiencia(sugerencias,start_index+8,imagenExperiencia8, nombreExperiencia8);
-        displayExperiencia(sugerencias,start_index+9,imagenExperiencia9, nombreExperiencia9);
-        displayExperiencia(sugerencias,start_index+10,imagenExperiencia10, nombreExperiencia10);
+    private void refresh_experiencias() {
+        txtPag.setText("Página " + (start_index / 11 + 1) + " de " + (1 + (sugerencias.size() / 11)));
+        displayExperiencia(sugerencias, start_index, imagenExperiencia0, nombreExperiencia0);
+        displayExperiencia(sugerencias, start_index + 1, imagenExperiencia1, nombreExperiencia1);
+        displayExperiencia(sugerencias, start_index + 2, imagenExperiencia2, nombreExperiencia2);
+        displayExperiencia(sugerencias, start_index + 3, imagenExperiencia3, nombreExperiencia3);
+        displayExperiencia(sugerencias, start_index + 4, imagenExperiencia4, nombreExperiencia4);
+        displayExperiencia(sugerencias, start_index + 5, imagenExperiencia5, nombreExperiencia5);
+        displayExperiencia(sugerencias, start_index + 6, imagenExperiencia6, nombreExperiencia6);
+        displayExperiencia(sugerencias, start_index + 7, imagenExperiencia7, nombreExperiencia7);
+        displayExperiencia(sugerencias, start_index + 8, imagenExperiencia8, nombreExperiencia8);
+        displayExperiencia(sugerencias, start_index + 9, imagenExperiencia9, nombreExperiencia9);
+        displayExperiencia(sugerencias, start_index + 10, imagenExperiencia10, nombreExperiencia10);
     }
 
-    private void displayExperiencia(ArrayList<ExperienciaEntity> sugerencias,int index,ImageView imagenExperiencia, Text nombreExperiencia){
-        try{
+    private void displayExperiencia(ArrayList<ExperienciaEntity> sugerencias, int index, ImageView imagenExperiencia, Text nombreExperiencia) {
+        try {
             nombreExperiencia.setText(sugerencias.get(index).getNombre());
             imagenExperiencia.setImage(sugerencias.get(index).getImagens().iterator().next().getJavaFxImage(159, 96));
-        }catch (Exception ie){
+        } catch (Exception ie) {
             nombreExperiencia.setText("");
             imagenExperiencia.setImage(null);
             //ie.printStackTrace();
-            }
+        }
     }
 
     @FXML
@@ -165,7 +169,7 @@ public class MainController {
     @FXML
     void irAExperiencia1(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+1));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -174,7 +178,7 @@ public class MainController {
     @FXML
     void irAExperiencia2(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+2));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 2));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -183,7 +187,7 @@ public class MainController {
     @FXML
     void irAExperiencia3(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+3));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 3));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -192,7 +196,7 @@ public class MainController {
     @FXML
     void irAExperiencia4(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+4));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 4));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -201,7 +205,7 @@ public class MainController {
     @FXML
     void irAExperiencia5(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+5));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 5));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -210,7 +214,7 @@ public class MainController {
     @FXML
     void irAExperiencia6(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+6));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 6));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -219,7 +223,7 @@ public class MainController {
     @FXML
     void irAExperiencia7(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+7));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 7));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -228,7 +232,7 @@ public class MainController {
     @FXML
     void irAExperiencia8(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+8));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 8));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -237,7 +241,7 @@ public class MainController {
     @FXML
     void irAExperiencia9(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+9));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 9));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -246,7 +250,7 @@ public class MainController {
     @FXML
     void irAExperiencia10(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(sugerencias.get(start_index+10));
+            irAExperienciaSeleccionada(sugerencias.get(start_index + 10));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -254,7 +258,7 @@ public class MainController {
 
     @FXML
     void irAPgAnterior(ActionEvent event) {
-        if (start_index != 0){
+        if (start_index != 0) {
             start_index -= 11;
             refresh_experiencias();
         }
@@ -262,7 +266,7 @@ public class MainController {
 
     @FXML
     public void irAPgSiguiente(ActionEvent actionEvent) {
-        if (sugerencias.size() > start_index+11){
+        if (sugerencias.size() > start_index + 11) {
             start_index += 11;
             refresh_experiencias();
         }
@@ -288,4 +292,19 @@ public class MainController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
 }
+
+

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -57,6 +58,9 @@ public class ExperienceController {
                         txtExperienceDescription.setText(experiencia.getDescripcion());
                         imagenEntities = new ArrayList<>(experiencia.getImagens());
                         showImagen();
+                        if (!experiencia.isConReserva()){
+                            btnReservar.setVisible(false);
+                        }
                     }
                 });
             }
@@ -99,6 +103,14 @@ public class ExperienceController {
         stage.setScene(new Scene(root));
         stage.setUserData(experiencia);
         stage.show();
+    }
+
+    private void showAlert(String title, String contextText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 
 }
