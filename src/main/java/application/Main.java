@@ -32,4 +32,8 @@ public class Main {
     public static void setCurrentSession(application.entities.session.currentSession currentSession) {
         Main.currentSession = currentSession;
     }
+
+    public static void closeCurrentSession(){
+        Main.currentSession = null;
+    }
 }

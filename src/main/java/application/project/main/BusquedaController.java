@@ -2,6 +2,7 @@ package application.project.main;
 
 import application.Main;
 import application.entities.ent.ExperienciaEntity;
+import application.project.ingresar.InitialController;
 import application.project.utils.Utilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +25,9 @@ import java.util.ArrayList;
 
 @Controller
 public class BusquedaController {
+
+    @FXML
+    public MenuItem btnCerrarSesion;
 
     @FXML
     private AnchorPane ap;
@@ -287,4 +292,15 @@ public class BusquedaController {
         stage.show();
     }
 
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
 }
