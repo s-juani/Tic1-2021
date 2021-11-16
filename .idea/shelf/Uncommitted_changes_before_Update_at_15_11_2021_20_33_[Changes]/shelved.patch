@@ -1,0 +1,504 @@
+Index: src/main/java/application/entities/ent/ExperienciaEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.entities.ent;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.Set;\r\n\r\n@Entity\r\n@Table(name = \"experiencia\")\r\n@IdClass(ExperienciaEntityPK.class)\r\npublic class ExperienciaEntity {\r\n\r\n    private String operador;\r\n\r\n    private String nombre;\r\n    private String descripcion;\r\n    private Integer aforo;\r\n    private boolean conReserva;\r\n\r\n    public void setDatos(String nombre, String direccion, String descripcion, Integer aforo, boolean conReserva, boolean vacunacion) {\r\n        this.nombre = nombre;\r\n        this.descripcion = descripcion;\r\n        this.aforo = aforo;\r\n        this.conReserva = conReserva;\r\n        this.vacunacion = vacunacion;\r\n        this.direccion = direccion;\r\n    }\r\n\r\n    public boolean isVacunacion() {\r\n        return vacunacion;\r\n    }\r\n\r\n    public void setVacunacion(boolean vacunacion) {\r\n        this.vacunacion = vacunacion;\r\n    }\r\n\r\n    public String getDireccion() {\r\n        return direccion;\r\n    }\r\n\r\n    public void setDireccion(String direccion) {\r\n        this.direccion = direccion;\r\n    }\r\n\r\n    private int latitud;\r\n    private int longitud;\r\n    private Set<ImagenEntity> imagens;\r\n    private Set<CalificacionEntity> calificaciones;\r\n    private Set<InteresEntity> intereses;\r\n    private Set<VideoEntity> videos;\r\n    private Set<ReservaEntity> reservas;\r\n    private boolean vacunacion;\r\n    private String direccion;\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n\r\n\r\n//    @Id\r\n//    @GeneratedValue(generator = \"experiencia_id\")\r\n//    @GenericGenerator(name = \"xp_id\", strategy = \"increment\")\r\n//    public long id;\r\n    @Id\r\n    public String getOperador() {\r\n        return operador;\r\n    }\r\n\r\n    public void setOperador(String operador_turistico) {\r\n        this.operador = operador_turistico;\r\n    }\r\n    @Id\r\n    public String getNombre() {\r\n        return nombre;\r\n    }\r\n\r\n    public void setNombre(String nombre) {\r\n        this.nombre = nombre;\r\n    }\r\n\r\n    public String getDescripcion() {\r\n        return descripcion;\r\n    }\r\n\r\n    public void setDescripcion(String descripcion) {\r\n        this.descripcion = descripcion;\r\n    }\r\n\r\n    public Integer getAforo() {\r\n        return aforo;\r\n    }\r\n\r\n    public void setAforo(Integer aforo) {\r\n        this.aforo = aforo;\r\n    }\r\n\r\n    public boolean isConReserva() {\r\n        return conReserva;\r\n    }\r\n\r\n    public void setConReserva(boolean conReserva) {\r\n        this.conReserva = conReserva;\r\n    }\r\n\r\n    public int getLatitud() {\r\n        return latitud;\r\n    }\r\n\r\n    public void setLatitud(int latitud) {\r\n        this.latitud = latitud;\r\n    }\r\n\r\n    public int getLongitud() {\r\n        return longitud;\r\n    }\r\n\r\n    public void setLongitud(int longitud) {\r\n        this.longitud = longitud;\r\n    }\r\n\r\n    @OneToMany(targetEntity = CalificacionEntity.class, fetch = FetchType.EAGER)\r\n    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false), @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)})\r\n    public Set<CalificacionEntity> getCalificaciones() {\r\n        return calificaciones;\r\n    }\r\n\r\n    public void setCalificaciones(Set<CalificacionEntity> calificaciones) {\r\n        this.calificaciones = calificaciones;\r\n    }\r\n\r\n    @ManyToMany(targetEntity = InteresEntity.class,fetch = FetchType.EAGER)\r\n    @JoinTable(name=\"interes_experiencia\",\r\n            joinColumns = {@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false),\r\n                    @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)},\r\n            inverseJoinColumns = @JoinColumn(name = \"interes\", referencedColumnName = \"nombre\", nullable = false))\r\n    public Set<InteresEntity> getIntereses() {\r\n        return intereses;\r\n    }\r\n\r\n    public void setIntereses(Set<InteresEntity> intereses) {\r\n        this.intereses = intereses;\r\n    }\r\n\r\n    @OneToMany(mappedBy = \"experiencia\", fetch = FetchType.EAGER, cascade = CascadeType.ALL)\r\n    public Set<ImagenEntity> getImagens() {\r\n        return imagens;\r\n    }\r\n\r\n    public void setImagens(Set<ImagenEntity> imagens) {\r\n        this.imagens = imagens;\r\n    }\r\n\r\n    @OneToMany(mappedBy = \"experiencia\", fetch = FetchType.EAGER)\r\n    public Set<VideoEntity> getVideos() {\r\n        return videos;\r\n    }\r\n\r\n    public void setVideos(Set<VideoEntity> videos) {\r\n        this.videos = videos;\r\n    }\r\n\r\n    @OneToMany(targetEntity = ReservaEntity.class, fetch = FetchType.EAGER)\r\n    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false),\r\n            @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)})\r\n    public Set<ReservaEntity> getReservas() {\r\n        return reservas;\r\n    }\r\n\r\n    public void setReservas(Set<ReservaEntity> reservas) {\r\n        this.reservas = reservas;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n\r\n        ExperienciaEntity that = (ExperienciaEntity) o;\r\n\r\n        if (conReserva != that.conReserva) return false;\r\n        if (latitud != that.latitud) return false;\r\n        if (longitud != that.longitud) return false;\r\n        if (operador != null ? !operador.equals(that.operador) : that.operador != null)\r\n            return false;\r\n        if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;\r\n        if (descripcion != null ? !descripcion.equals(that.descripcion) : that.descripcion != null) return false;\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        int result = operador != null ? operador.hashCode() : 0;\r\n        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);\r\n        result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);\r\n        result = 31 * result + (aforo != null ? aforo.hashCode() : 0);\r\n        result = 31 * result + (conReserva ? 1 : 0);\r\n        result = 31 * result + latitud;\r\n        result = 31 * result + longitud;\r\n        return result;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        String str = \"ExperienciaEntity{\" +\r\n                \"operador_turistico='\" + operador + '\\'' +\r\n                \", nombre='\" + nombre + '\\'' +\r\n                \", descripcion='\" + descripcion + '\\'' +\r\n                \", aforo='\" + aforo + '\\'' +\r\n                \", conReserva=\" + conReserva +\r\n                \", latitud=\" + latitud +\r\n                \", longitud=\" + longitud +\r\n                \",idsImágenes:{\";\r\n        for (ImagenEntity imagen:this.getImagens()) {\r\n            str += \",\" + imagen.getIdimagen();\r\n        }\r\n        str += \"}, intereses:{ \";\r\n        for (InteresEntity interes: intereses){\r\n            str += \",\" + interes.getNombre();\r\n        }\r\n        str += \"}, videos:{ \";\r\n        for (VideoEntity video: videos){\r\n            str += \",\" + video.getUrl();\r\n        }\r\n        str += \"}, calificaciones:{ \";\r\n        for (CalificacionEntity calificacion: calificaciones){\r\n            str += \",\" + calificacion;\r\n        }\r\n        str += \"}, reservas:{ \";\r\n        for (ReservaEntity reserva: reservas){\r\n            str += \",\" + reserva;\r\n        }\r\n        str += \"}}\";\r\n        return str;\r\n    }\r\n\r\n\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<InteresExperienciaEntity> getInteresExperiencias() {\r\n//        return interesExperiencias;\r\n//    }\r\n//\r\n//    public void setInteresExperiencias(Set<InteresExperienciaEntity> interesExperiencias) {\r\n//        this.interesExperiencias = interesExperiencias;\r\n//    }\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<ReservaEntity> getReservas() {\r\n//        return reservas;\r\n//    }\r\n//\r\n//    public void setReservas(Set<ReservaEntity> reservas) {\r\n//        this.reservas = reservas;\r\n//    }\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<VideoEntity> getVideos() {\r\n//        return videos;\r\n//    }\r\n//\r\n//    public void setVideos(Set<VideoEntity> videos) {\r\n//        this.videos = videos;\r\n//    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/entities/ent/ExperienciaEntity.java b/src/main/java/application/entities/ent/ExperienciaEntity.java
+--- a/src/main/java/application/entities/ent/ExperienciaEntity.java	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/src/main/java/application/entities/ent/ExperienciaEntity.java	(date 1637017767519)
+@@ -22,6 +22,7 @@
+         this.conReserva = conReserva;
+         this.vacunacion = vacunacion;
+         this.direccion = direccion;
++        this.aprovada = false;
+     }
+ 
+     public boolean isVacunacion() {
+@@ -49,6 +50,15 @@
+     private Set<ReservaEntity> reservas;
+     private boolean vacunacion;
+     private String direccion;
++    private boolean aprovada;
++
++    public boolean isAprovada() {
++        return aprovada;
++    }
++
++    public void setAprovada(boolean aprovada) {
++        this.aprovada = aprovada;
++    }
+ //    @OneToMany(mappedBy = "experiencia")
+ 
+ 
+Index: src/main/java/application/project/operator/NuevaExperienciaController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.project.operator;\r\nimport application.Main;\r\nimport application.entities.ExperienciaManager;\r\nimport application.entities.ent.*;\r\nimport application.entities.exceptions.ExperienceAlreadyInUse;\r\nimport application.entities.exceptions.InvalidInformation;\r\nimport application.entities.exceptions.UserAlreadyInUse;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.*;\r\nimport javafx.stage.FileChooser;\r\nimport org.controlsfx.control.CheckComboBox;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport javafx.stage.Stage;\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.nio.file.Files;\r\n\r\nimport java.time.LocalDate;\r\nimport java.util.ArrayList;\r\nimport java.util.Collection;\r\nimport java.util.HashSet;\r\nimport java.util.Set;\r\n\r\n@Controller\r\npublic class NuevaExperienciaController {\r\n\r\n    @FXML\r\n    public TextField txtAforo;\r\n\r\n    @FXML\r\n    public CheckBox cbAdmiteReserva;\r\n\r\n    @FXML\r\n    public TextArea txtDireccion;\r\n\r\n    @FXML\r\n    public CheckBox cbRequiereVacunacion;\r\n\r\n    @FXML\r\n    private TextField txtNombreExp;\r\n\r\n    @FXML\r\n    private TextArea txtDescripcion;\r\n\r\n    @FXML\r\n    private Button btnImagenes;\r\n\r\n    @FXML\r\n    private CheckComboBox<InteresEntity> ccbIntereses;\r\n\r\n    @FXML\r\n    private Button btnCargarExp;\r\n\r\n    private Set<ImagenEntity> imagenes = new HashSet<>();\r\n\r\n    private final FileChooser fc = new FileChooser();\r\n\r\n    @Autowired\r\n    private ExperienciaManager experienciaMgr;\r\n\r\n    @Autowired\r\n    private InteresRepository interesRep;\r\n\r\n    private ExperienciaEntity nuevaExperiencia=new ExperienciaEntity();\r\n\r\n    @FXML\r\n    private void initialize(){\r\n        FileChooser.ExtensionFilter imageFilter\r\n                = new FileChooser.ExtensionFilter(\"Imagen\", \"*.jpg\", \"*.png\");\r\n        fc.getExtensionFilters().add(imageFilter);\r\n        addInterest();\r\n        nuevaExperiencia.setOperador(((OperadorEntity) Main.getCurrentSession().getActiveUser()).getMail());\r\n    }\r\n\r\n    public void addInterest(){\r\n        Collection<InteresEntity> interesEntities = interesRep.findAll();\r\n        for (InteresEntity interes: interesEntities){\r\n            ccbIntereses.getItems().add(interes);\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    void AgregarImagenes(ActionEvent event) throws IOException {\r\n        Stage stage = (Stage) this.btnImagenes.getScene().getWindow();\r\n        File file = fc.showOpenDialog(stage);\r\n        if (file.exists()){\r\n            byte[] imagen = Files.readAllBytes(file.toPath());\r\n            if (imagen.length <= 16777215) {\r\n                if (imagenes.add(new ImagenEntity(imagen, nuevaExperiencia))){\r\n                showAlert(\r\n                        \"Imagen subida.\",\r\n                        \"La imagen fue cargada exitosamente.\"\r\n                );\r\n                }else{\r\n                    showAlert(\r\n                            \"Imagen repetida.\",\r\n                            \"La imagen ya está en el conjunto de imagenes de esta experiencia.\"\r\n                    );\r\n                }\r\n            }else{\r\n                showAlert(\r\n                        \"Imagen demasiado pesada.\",\r\n                        \"Solo se soporta agregar imágenes de hasta 14MB.\"\r\n                );\r\n            }\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    void CrearExperiencia(ActionEvent event) {\r\n        if (txtDescripcion.getText() == null || txtDireccion.getText() == null || txtNombreExp.getText() == null\r\n                || ccbIntereses.getCheckModel().getCheckedItems().size() == 0 || imagenes.size()==0){\r\n            showAlert(\r\n                    \"Datos faltantes.\",\r\n                    \"Se deben completar todos los campos obligatorios.\"\r\n            );\r\n        } else {\r\n            try{\r\n                String nombre = txtNombreExp.getText();\r\n                String direccion = txtDireccion.getText();\r\n                String descripcion = txtDescripcion.getText();\r\n                Integer aforo = (txtAforo.getText().equals(\"\")) ? null : Integer.parseInt(txtAforo.getText());\r\n                boolean conReserva = cbAdmiteReserva.isSelected();\r\n                boolean vacunacion = cbRequiereVacunacion.isSelected();\r\n                Set<InteresEntity> intereses = new HashSet<>(ccbIntereses.getCheckModel().getCheckedItems());\r\n\r\n                try{\r\n                    experienciaMgr.addExperiencia(nuevaExperiencia,nombre,direccion,descripcion,aforo,conReserva,vacunacion,intereses,imagenes);\r\n                    showAlert(\"Experiencia registrada.\",\"Experiencia registrada exitosamente.\");\r\n                    //TODO volver al main del operador\r\n\r\n                }\r\n                catch (ExperienceAlreadyInUse experienceAlreadyInUse) {\r\n                    showAlert(\r\n                            \"Experiencia no disponible.\",\r\n                            \"El nombre de experiencia ingresado ya esta en uso.\"\r\n                    );\r\n                }\r\n                catch (InvalidInformation invalidInformation) {\r\n                    showAlert(\r\n                            \"Informacion invalida.\",\r\n                            \"Se encontro un error al ingresar los datos.\"\r\n                    );\r\n                }\r\n            } catch (Exception e){\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n\r\n\r\n    }\r\n\r\n    private void showAlert(String title, String contextText){\r\n        Alert alert = new Alert(Alert.AlertType.INFORMATION);\r\n        alert.setTitle(title);\r\n        alert.setHeaderText(null);\r\n        alert.setContentText(contextText);\r\n        alert.showAndWait();\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/project/operator/NuevaExperienciaController.java b/src/main/java/application/project/operator/NuevaExperienciaController.java
+--- a/src/main/java/application/project/operator/NuevaExperienciaController.java	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/src/main/java/application/project/operator/NuevaExperienciaController.java	(date 1637018817603)
+@@ -8,6 +8,9 @@
+ import javafx.collections.ObservableList;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
++import javafx.fxml.FXMLLoader;
++import javafx.scene.Parent;
++import javafx.scene.Scene;
+ import javafx.scene.control.*;
+ import javafx.stage.FileChooser;
+ import org.controlsfx.control.CheckComboBox;
+@@ -130,7 +133,13 @@
+                 try{
+                     experienciaMgr.addExperiencia(nuevaExperiencia,nombre,direccion,descripcion,aforo,conReserva,vacunacion,intereses,imagenes);
+                     showAlert("Experiencia registrada.","Experiencia registrada exitosamente.");
+-                    //TODO volver al main del operador
++
++                    Stage stage = (Stage) this.btnImagenes.getScene().getWindow();
++                    FXMLLoader fxmlLoader = new FXMLLoader();
++                    fxmlLoader.setControllerFactory(Main.getContext()::getBean);
++                    Parent root = fxmlLoader.load(MainOperador.class.getResourceAsStream("MainOperador.fxml"));
++                    stage.setScene(new Scene(root));
++                    stage.show();
+ 
+                 }
+                 catch (ExperienceAlreadyInUse experienceAlreadyInUse) {
+Index: build/resources/main/application/project/main/Reservas.fxml
+===================================================================
+diff --git a/build/resources/main/application/project/main/Reservas.fxml b/build/resources/main/application/project/main/Reservas.fxml
+deleted file mode 100644
+--- a/build/resources/main/application/project/main/Reservas.fxml	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ /dev/null	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
+@@ -1,54 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.Cursor?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.control.SplitMenuButton?>
+-<?import javafx.scene.control.TableColumn?>
+-<?import javafx.scene.control.TableView?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
+-
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
+-         <children>
+-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0" />
+-            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">
+-               <items>
+-                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
+-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
+-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+-               </items>
+-               <font>
+-                  <Font size="18.0" />
+-               </font>
+-               <cursor>
+-                  <Cursor fx:constant="HAND" />
+-               </cursor>
+-            </SplitMenuButton>
+-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="2.0">
+-               <font>
+-                  <Font size="18.0" />
+-               </font>
+-            </Button>
+-         </children>
+-      </AnchorPane>
+-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservas" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="120.0">
+-         <font>
+-            <Font size="36.0" />
+-         </font>
+-      </Text>
+-      <TableView layoutX="528.0" layoutY="503.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+-        <columns>
+-          <TableColumn prefWidth="375.0" text="Fecha de inicio" />
+-          <TableColumn prefWidth="375.0" text="Fecha de fin" />
+-            <TableColumn prefWidth="375.0" text="Experiencia" />
+-            <TableColumn prefWidth="375.0" text="Cantidad de personas" />
+-        </columns>
+-      </TableView>
+-   </children>
+-</AnchorPane>
+Index: src/main/java/application/project/operator/MainOperador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/project/operator/MainOperador.java b/src/main/java/application/project/operator/MainOperador.java
+new file mode 100644
+--- /dev/null	(date 1637019121047)
++++ b/src/main/java/application/project/operator/MainOperador.java	(date 1637019121047)
+@@ -0,0 +1,60 @@
++package application.project.operator;
++
++import javafx.event.ActionEvent;
++import javafx.scene.input.MouseEvent;
++import org.springframework.stereotype.Controller;
++import javafx.scene.control.Button;
++import javafx.scene.image.ImageView;
++import javafx.scene.text.Text;
++import javafx.fxml.FXML;
++
++@Controller
++public class MainOperador {
++
++    @FXML
++    private Button btnCrearExperiencia;
++
++    @FXML
++    private Button btnVerExperiencias;
++
++    @FXML
++    private Button btnReservas;
++
++    @FXML
++    private Text nombreExperiencia0;
++
++    @FXML
++    private ImageView imagenExperiencia0;
++
++    @FXML
++    private Text nombreExperiencia2;
++
++    @FXML
++    private ImageView imagenExperiencia2;
++
++    @FXML
++    private Text nombreExperiencia1;
++
++    @FXML
++    private ImageView imagenExperiencia1;
++
++    @FXML
++    void goToCrearExperencia(ActionEvent event) {
++
++    }
++
++    @FXML
++    void goToExperiencias(ActionEvent event) {
++
++    }
++
++    @FXML
++    void goToReservas(ActionEvent event) {
++
++    }
++
++    @FXML
++    void irAExperiencia1(MouseEvent event) {
++
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b0593581-9d3c-4dd7-aa89-0ebe5e1b8937\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/dependencies-accessors.lock\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/gc.properties\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/fileChanges/last-build.bin\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/7.1.1/gc.properties\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/checksums/checksums.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/checksums/checksums.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/workspace-id.txt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/workspace-id.txt.lock\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.gitignore\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/gradle.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/gradle.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/jpa-buddy.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules/META-INF/persistence.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build.gradle\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build.gradle\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ClienteRepository.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ClientesEntity.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/application/entities/ent/InteresExperienciaEntityPK.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/application/project/Menu/Controllers/LoginController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/application/project/admin/NuevaExperienciaController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/libs/Sprint0-1.0-SNAPSHOT-plain.jar\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/libs/Sprint0-1.0-SNAPSHOT.jar\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/resources/main/application/project/admin/Nuevaexperiencia.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/gradlew\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/gradlew\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/gradlew.bat\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/gradlew.bat\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/application.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/application.properties\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"20nF0bFORDvpdslzr0Z2BFJ52oD\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Libraries\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.11904764\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settingsdialog.project.gradle\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"application.Main\" />\r\n      <module name=\"Sprint0.main\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"application.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"Tic1-2021\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"Tic1-2021\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"b0593581-9d3c-4dd7-aa89-0ebe5e1b8937\" name=\"Changes\" comment=\"\" />\r\n      <created>1636672225539</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1636672225539</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/.idea/workspace.xml	(date 1637019180533)
+@@ -5,49 +5,29 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/gc.properties" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileChanges/last-build.bin" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/gc.properties" beforeDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules/META-INF/persistence.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ClienteRepository.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ClientesEntity.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/InteresExperienciaEntityPK.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/Menu/Controllers/LoginController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/admin/NuevaExperienciaController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/libs/Sprint0-1.0-SNAPSHOT-plain.jar" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/libs/Sprint0-1.0-SNAPSHOT.jar" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/admin/Nuevaexperiencia.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/BusquedaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/BusquedaController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/Busqueda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/main/Busqueda.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/Reservas.fxml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaEntity.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/NuevaExperienciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/NuevaExperienciaController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
++    </list>
++    <list id="afaf0ea0-94ea-4f4f-aed7-347743a2aab0" name="Changes by Ari 2.0" comment="">
++      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ReservaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ReservaManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaRepository.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -61,27 +41,62 @@
+     <projectState path="$PROJECT_DIR$">
+       <ProjectState />
+     </projectState>
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="JpbToolWindowState">
++    <option name="myId2FirstActivated">
++      <map>
++        <entry key="JPA Inspector" value="true" />
++        <entry key="JPA Palette" value="true" />
++        <entry key="JPA Structure" value="true" />
++      </map>
++    </option>
++    <option name="myId2Visible">
++      <map>
++        <entry key="JPA Inspector" value="false" />
++        <entry key="JPA Palette" value="false" />
++        <entry key="JPA Structure" value="false" />
++      </map>
++    </option>
++  </component>
+   <component name="ProjectCodeStyleSettingsMigration">
+     <option name="version" value="1" />
+   </component>
+   <component name="ProjectId" id="20nF0bFORDvpdslzr0Z2BFJ52oD" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
++    <property name="RequestMappingsPanelOrder0" value="0" />
++    <property name="RequestMappingsPanelOrder1" value="1" />
++    <property name="RequestMappingsPanelWidth0" value="75" />
++    <property name="RequestMappingsPanelWidth1" value="75" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="node.js.detected.package.eslint" value="true" />
++    <property name="node.js.detected.package.tslint" value="true" />
++    <property name="node.js.selected.package.eslint" value="(autodetect)" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="project.structure.last.edited" value="Libraries" />
+     <property name="project.structure.proportion" value="0.11904764" />
+     <property name="project.structure.side.proportion" value="0.2" />
+-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
++    <property name="settings.editor.selected.configurable" value="Errors" />
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="Spring Boot.Main">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="application.Main" />
+       <module name="Sprint0.main" />
+@@ -108,6 +123,13 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
++      <module name="Sprint0.main" />
++      <option name="SPRING_BOOT_MAIN_CLASS" value="application.Main" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.Main" />
+@@ -125,4 +147,20 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
++  </component>
+ </project>
+\ No newline at end of file
+Index: build/resources/main/application/project/main/Busqueda.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Rectangle2D?>\r\n<?import javafx.scene.Cursor?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.CheckBox?>\r\n<?import javafx.scene.control.MenuItem?>\r\n<?import javafx.scene.control.SplitMenuButton?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<AnchorPane fx:id=\"ap\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"800.0\" prefWidth=\"1500.0\" xmlns=\"http://javafx.com/javafx/16\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"application.project.main.BusquedaController\">\r\n    <children>\r\n        <AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"100.0\" prefWidth=\"1500.0\" style=\"-fx-background-color: 0;\">\r\n            <children>\r\n                <ImageView fitHeight=\"150.0\" fitWidth=\"200.0\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.bottomAnchor=\"497.4651184082031\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"1552.0\" AnchorPane.topAnchor=\"0.0\">\r\n                </ImageView>\r\n                <Button layoutX=\"1630.0\" layoutY=\"10.0\" mnemonicParsing=\"false\" prefHeight=\"100.0\" prefWidth=\"70.0\" style=\"-fx-background-color: 0;\" text=\"Favoritos\" AnchorPane.rightAnchor=\"380.0\" AnchorPane.topAnchor=\"0.0\" />\r\n                <SplitMenuButton alignment=\"CENTER\" mnemonicParsing=\"false\" prefHeight=\"100.0\" prefWidth=\"150.0\" text=\"Cuenta\" AnchorPane.rightAnchor=\"10.0\" AnchorPane.topAnchor=\"2.0\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Editar perfil\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Preferencias\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Cerrar sesion\" />\r\n                    </items>\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"HAND\" />\r\n                    </cursor>\r\n                </SplitMenuButton>\r\n                <Button mnemonicParsing=\"false\" prefHeight=\"100.0\" prefWidth=\"150.0\" text=\"Notificaciones\" AnchorPane.rightAnchor=\"175.0\" AnchorPane.topAnchor=\"2.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Button>\r\n                <Button layoutX=\"1185.0\" layoutY=\"10.0\" mnemonicParsing=\"false\" prefHeight=\"100.0\" prefWidth=\"150.0\" text=\"Itinerario\" AnchorPane.rightAnchor=\"515.0\" AnchorPane.topAnchor=\"2.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Button>\r\n                <Button layoutX=\"1185.0\" layoutY=\"10.0\" mnemonicParsing=\"false\" prefHeight=\"100.0\" prefWidth=\"150.0\" text=\"Favoritos\" AnchorPane.rightAnchor=\"340.0\" AnchorPane.topAnchor=\"2.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Button>\r\n            </children>\r\n        </AnchorPane>\r\n        <AnchorPane prefHeight=\"200.0\" prefWidth=\"350.0\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.topAnchor=\"100.0\">\r\n            <children>\r\n                <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Filtros\" AnchorPane.leftAnchor=\"5.0\" AnchorPane.topAnchor=\"5.0\">\r\n                    <font>\r\n                        <Font name=\"System Bold\" size=\"36.0\" />\r\n                    </font>\r\n                </Text>\r\n                <CheckBox fx:id=\"chbFiltro1\" layoutX=\"1.0\" layoutY=\"100.0\" mnemonicParsing=\"false\" text=\"Filtro 1\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro2\" layoutX=\"11.0\" layoutY=\"110.0\" mnemonicParsing=\"false\" text=\"Filtro 2\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"150.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro3\" layoutX=\"11.0\" layoutY=\"110.0\" mnemonicParsing=\"false\" text=\"Filtro 3\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"200.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro4\" layoutX=\"11.0\" layoutY=\"110.0\" mnemonicParsing=\"false\" text=\"Filtro 4\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"250.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro5\" layoutX=\"11.0\" layoutY=\"110.0\" mnemonicParsing=\"false\" text=\"Filtro 5\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"300.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro6\" layoutX=\"11.0\" layoutY=\"110.0\" mnemonicParsing=\"false\" text=\"Filtro 6\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro7\" layoutX=\"21.0\" layoutY=\"120.0\" mnemonicParsing=\"false\" text=\"Filtro 7\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"400.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro8\" layoutX=\"21.0\" layoutY=\"120.0\" mnemonicParsing=\"false\" text=\"Filtro 8\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"450.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n                <CheckBox fx:id=\"chbFiltro9\" layoutX=\"21.0\" layoutY=\"120.0\" mnemonicParsing=\"false\" text=\"Filtro 9\" AnchorPane.leftAnchor=\"30.0\" AnchorPane.topAnchor=\"500.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </CheckBox>\r\n            </children>\r\n        </AnchorPane>\r\n        <AnchorPane prefHeight=\"459.0\" prefWidth=\"1437.0\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"350.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"100.0\">\r\n            <children>\r\n                <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Resultado de busqueda\" AnchorPane.leftAnchor=\"25.0\" AnchorPane.topAnchor=\"15.0\">\r\n                    <font>\r\n                        <Font size=\"36.0\" />\r\n                    </font>\r\n                </Text>\r\n                <Button fx:id=\"btnPgAnterior\" layoutX=\"1278.0\" layoutY=\"439.0\" mnemonicParsing=\"false\" onAction=\"#irAPgAnterior\" prefHeight=\"50.0\" prefWidth=\"50.0\" text=\"\uD83E\uDC78\" AnchorPane.bottomAnchor=\"10.0\" AnchorPane.rightAnchor=\"109.0\">\r\n                    <font>\r\n                        <Font size=\"20.0\" />\r\n                    </font>\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"HAND\" />\r\n                    </cursor>\r\n                </Button>\r\n                <Button fx:id=\"btnPgSiguiente\" layoutX=\"1345.0\" layoutY=\"438.0\" mnemonicParsing=\"false\" onAction=\"#irAPgSiguiente\" prefHeight=\"50.0\" prefWidth=\"50.0\" text=\"\uD83E\uDC7A\" AnchorPane.bottomAnchor=\"11.0\" AnchorPane.rightAnchor=\"42.0\">\r\n                    <font>\r\n                        <Font size=\"20.0\" />\r\n                    </font>\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"HAND\" />\r\n                    </cursor>\r\n                </Button>\r\n                <Text fx:id=\"txtPag\" layoutX=\"1058.0\" layoutY=\"429.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Página X de Y\" textAlignment=\"RIGHT\" wrappingWidth=\"196.609375\" AnchorPane.bottomAnchor=\"24.98046875\" AnchorPane.rightAnchor=\"182.390625\">\r\n                    <font>\r\n                        <Font size=\"20.0\" />\r\n                    </font>\r\n                </Text>\r\n                <Text fx:id=\"nombreExperiencia0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 0\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"50.0\" AnchorPane.topAnchor=\"260.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia0\" fitHeight=\"100.0\" fitWidth=\"150.0\" onMouseClicked=\"#irAExperiencia0\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"50.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia1\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 1\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"250.0\" AnchorPane.topAnchor=\"260.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia1\" fitHeight=\"100.0\" fitWidth=\"150.0\" onMouseClicked=\"#irAExperiencia1\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"250.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia2\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 2\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"450.0\" AnchorPane.topAnchor=\"260.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia2\" fitHeight=\"100.0\" fitWidth=\"150.0\" onMouseClicked=\"#irAExperiencia2\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"450.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia3\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 3\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"650.0\" AnchorPane.topAnchor=\"260.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia3\" fitHeight=\"100.0\" fitWidth=\"150.0\" onMouseClicked=\"#irAExperiencia3\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"650.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia4\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 4\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"850.0\" AnchorPane.topAnchor=\"260.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia4\" fitHeight=\"100.0\" fitWidth=\"150.0\" onMouseClicked=\"#irAExperiencia4\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"850.0\" AnchorPane.topAnchor=\"100.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia6\" layoutX=\"10.0\" layoutY=\"10.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 6\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"50.0\" AnchorPane.topAnchor=\"510.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia6\" fitHeight=\"100.0\" fitWidth=\"150.0\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#irAExperiencia6\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"50.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia7\" layoutX=\"10.0\" layoutY=\"10.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 7\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"250.0\" AnchorPane.topAnchor=\"510.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia7\" fitHeight=\"100.0\" fitWidth=\"150.0\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#irAExperiencia7\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"250.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia8\" layoutX=\"10.0\" layoutY=\"10.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 8\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"450.0\" AnchorPane.topAnchor=\"510.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia8\" fitHeight=\"100.0\" fitWidth=\"150.0\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#irAExperiencia8\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"450.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia9\" layoutX=\"10.0\" layoutY=\"10.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 9\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"650.0\" AnchorPane.topAnchor=\"510.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia9\" fitHeight=\"100.0\" fitWidth=\"150.0\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#irAExperiencia9\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"650.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n                <Text fx:id=\"nombreExperiencia10\" layoutX=\"10.0\" layoutY=\"10.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Experiencia 10\" wrappingWidth=\"195.654296875\" AnchorPane.leftAnchor=\"850.0\" AnchorPane.topAnchor=\"510.0\">\r\n                    <font>\r\n                        <Font size=\"18.0\" />\r\n                    </font>\r\n                </Text>\r\n                <ImageView fx:id=\"imagenExperiencia10\" fitHeight=\"100.0\" fitWidth=\"150.0\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#irAExperiencia10\" pickOnBounds=\"true\" preserveRatio=\"true\" AnchorPane.leftAnchor=\"850.0\" AnchorPane.topAnchor=\"350.0\">\r\n                    <viewport>\r\n                        <Rectangle2D />\r\n                    </viewport>\r\n                </ImageView>\r\n            </children>\r\n        </AnchorPane>\r\n    </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build/resources/main/application/project/main/Busqueda.fxml b/build/resources/main/application/project/main/Busqueda.fxml
+--- a/build/resources/main/application/project/main/Busqueda.fxml	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/build/resources/main/application/project/main/Busqueda.fxml	(date 1637017079946)
+@@ -1,17 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import javafx.geometry.Rectangle2D?>
+-<?import javafx.scene.Cursor?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.CheckBox?>
+-<?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.control.SplitMenuButton?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
++<?import javafx.geometry.*?>
++<?import javafx.scene.*?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
++<?import javafx.scene.layout.*?>
++<?import javafx.scene.text.*?>
+ 
+-<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.BusquedaController">
++<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.BusquedaController">
+     <children>
+         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
+             <children>
+@@ -22,7 +18,7 @@
+                     <items>
+                         <MenuItem mnemonicParsing="false" text="Editar perfil" />
+                         <MenuItem mnemonicParsing="false" text="Preferencias" />
+-                        <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
++                        <MenuItem fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
+                     </items>
+                     <font>
+                         <Font size="18.0" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_16\" default=\"true\" project-jdk-name=\"16\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/.idea/misc.xml	(date 1637017007338)
+@@ -1,5 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK" />
++  <component name="FrameworkDetectionExcludesConfiguration">
++    <file type="web" url="file://$PROJECT_DIR$" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1637017569542)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1637017569542)
+@@ -0,0 +1,10 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
++      <option name="processCode" value="true" />
++      <option name="processLiterals" value="true" />
++      <option name="processComments" value="true" />
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring.application.name=Sprint0\r\nspring.datasource.url=jdbc:mysql://localhost:3306/tic1sch\r\nspring.datasource.driverClassName=com.mysql.cj.jdbc.Driver\r\nspring.datasource.username=root\r\nspring.datasource.password=hola1234\r\nspring.jpa.show-sql=true\r\nspring.jpa.hibernate.ddl-auto=update\r\nspring.jpa.properties.hibernate.formatsql=true
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/src/main/resources/application.properties	(date 1637017079207)
+@@ -2,7 +2,7 @@
+ spring.datasource.url=jdbc:mysql://localhost:3306/tic1sch
+ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+ spring.datasource.username=root
+-spring.datasource.password=hola1234
++spring.datasource.password=root
+ spring.jpa.show-sql=true
+ spring.jpa.hibernate.ddl-auto=update
+ spring.jpa.properties.hibernate.formatsql=true
+\ No newline at end of file
+Index: .idea/jpa-buddy.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jpa-buddy.xml b/.idea/jpa-buddy.xml
+new file mode 100644
+--- /dev/null	(date 1637016934250)
++++ b/.idea/jpa-buddy.xml	(date 1637016934250)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JpaBuddyIdeaProjectConfig">
++    <option name="defaultUnitInitialized" value="true" />
++  </component>
++</project>
+\ No newline at end of file

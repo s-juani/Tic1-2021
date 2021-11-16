@@ -184,7 +184,7 @@ public class ReservaController {
     }
 
     @FXML
-    void reservar(ActionEvent event) throws IOException {
+    void reservar(ActionEvent event) throws IOException, AforoCompleto {
         if (checkRequisitos.isSelected() ){
             if (dateFechaInicio.getValue() != null){
                 if (reservaMultiplesDias){
@@ -202,10 +202,16 @@ public class ReservaController {
                     }
                 }
                 else {
-                    reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), null, cantidad);
-                    showAlert("Felicitaciones!",
-                            "Su reserva se registro con exito!"
-                    );
+                    try{
+                        reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), null, cantidad);
+                        showAlert("Felicitaciones!",
+                                "Su reserva se registro con exito!"
+                        );
+                    } catch (AforoCompleto e){
+                        showAlert("ERROR!",
+                                "No hay suficiente aforo"
+                        );
+                    }
                     volver(new ActionEvent());
                 }
             }

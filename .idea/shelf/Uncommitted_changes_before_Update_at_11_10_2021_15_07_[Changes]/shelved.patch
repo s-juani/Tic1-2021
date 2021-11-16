@@ -1,0 +1,217 @@
+Index: src/main/java/application/entities/ent/ClientesEntity.java
+===================================================================
+diff --git a/src/main/java/application/entities/ent/ClientesEntity.java b/src/main/java/application/entities/ent/ClientesEntity.java
+deleted file mode 100644
+--- a/src/main/java/application/entities/ent/ClientesEntity.java	(revision 68e6de01aa0b19266dcce23f0765fe4af110a8d0)
++++ /dev/null	(revision 68e6de01aa0b19266dcce23f0765fe4af110a8d0)
+@@ -1,115 +0,0 @@
+-package application.entities.ent;
+-
+-import org.hibernate.annotations.GenericGenerator;
+-
+-import javax.persistence.*;
+-import java.time.LocalDate;
+-
+-//@Entity
+-//@Table(name = "clientes", schema = "tic1sch")
+-//public class ClientesEntity {
+-//
+-//    @Id
+-//    @GeneratedValue(generator = "client_id")
+-//    @GenericGenerator(name = "clien_id", strategy = "increment")
+-//    public long id;
+-//
+-//    private String usuario;
+-//
+-//    private String mail;
+-//
+-//    private String nombre;
+-//
+-//    private LocalDate fechaNacimiento;
+-//
+-//    private String pw;
+-//
+-//    public ClientesEntity(String mail, String usuario, String nombre, LocalDate fechaNacimiento, String pw) {
+-//        this.mail = mail;
+-//        this.usuario = usuario;
+-//        this.nombre = nombre;
+-//        this.fechaNacimiento = fechaNacimiento;
+-//        this.pw = pw;
+-//    }
+-//
+-//    public ClientesEntity() {}
+-//
+-//    public long getId() {
+-//        return id;
+-//    }
+-//
+-//    public void setId(long id) {
+-//        this.id = id;
+-//    }
+-//
+-//    public String getMail() {
+-//        return mail;
+-//    }
+-//
+-//    public void setMail(String mail) {
+-//        this.mail = mail;
+-//    }
+-//
+-//
+-//    public String getUsuario() {
+-//        return usuario;
+-//    }
+-//
+-//    public void setUsuario(String usuario) {
+-//        this.usuario = usuario;
+-//    }
+-//
+-//
+-//    public String getNombre() {
+-//        return nombre;
+-//    }
+-//
+-//    public void setNombre(String nombre) {
+-//        this.nombre = nombre;
+-//    }
+-//
+-//
+-//    public LocalDate getFechaNacimiento() {
+-//        return fechaNacimiento;
+-//    }
+-//
+-//    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+-//        this.fechaNacimiento = fechaNacimiento;
+-//    }
+-//
+-//
+-//    public String getPw() {
+-//        return pw;
+-//    }
+-//
+-//    public void setPw(String pw) {
+-//        this.pw = pw;
+-//    }
+-//
+-//    @Override
+-//    public boolean equals(Object o) {
+-//        if (this == o) return true;
+-//        if (o == null || getClass() != o.getClass()) return false;
+-//
+-//        ClientesEntity that = (ClientesEntity) o;
+-//
+-//        if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
+-//        if (usuario != null ? !usuario.equals(that.usuario) : that.usuario != null) return false;
+-//        if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
+-//        if (fechaNacimiento != null ? !fechaNacimiento.equals(that.fechaNacimiento) : that.fechaNacimiento != null)
+-//            return false;
+-//        if (pw != null ? !pw.equals(that.pw) : that.pw != null) return false;
+-//
+-//        return true;
+-//    }
+-//
+-//    @Override
+-//    public int hashCode() {
+-//        int result = mail != null ? mail.hashCode() : 0;
+-//        result = 31 * result + (usuario != null ? usuario.hashCode() : 0);
+-//        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
+-//        result = 31 * result + (fechaNacimiento != null ? fechaNacimiento.hashCode() : 0);
+-//        result = 31 * result + (pw != null ? pw.hashCode() : 0);
+-//        return result;
+-//    }
+-//}
+Index: src/main/java/application/project/Menu/Controllers/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/project/Menu/Controllers/LoginController.java b/src/main/java/application/project/Menu/Controllers/LoginController.java
+new file mode 100644
+--- /dev/null	(date 1633646478002)
++++ b/src/main/java/application/project/Menu/Controllers/LoginController.java	(date 1633646478002)
+@@ -0,0 +1,27 @@
++package application.project.Menu.Controllers;
++import javafx.fxml.FXML;
++import javafx.scene.control.Alert;
++import org.springframework.stereotype.Controller;
++
++import java.awt.event.ActionEvent;
++
++
++@Controller
++public class LoginController {
++
++    @FXML
++    public void registerUser(javafx.event.ActionEvent actionEvent) {
++        showAlert("Function call.","Register");
++    }
++
++    // image url not present @../../../Captura%20de%20Pantalla%202021-09-30%20a%20la(s)%2020.55.17.png
++
++    private void showAlert(String title, String contextText){
++        Alert alert = new Alert(Alert.AlertType.INFORMATION);
++        alert.setTitle(title);
++        alert.setHeaderText(null);
++        alert.setContentText(contextText);
++        alert.showAndWait();
++    }
++
++}
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"delegatedBuild\" value=\"true\" />\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"11\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 68e6de01aa0b19266dcce23f0765fe4af110a8d0)
++++ b/.idea/gradle.xml	(date 1633645676668)
+@@ -8,7 +8,7 @@
+         <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="11" />
++        <option name="gradleJvm" value="openjdk-16" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: src/main/java/application/project/StarterApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.project;\r\n\r\n\r\nimport application.Main;\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class StarterApplication extends Application {\r\n\r\n    private Parent root;\r\n\r\n    @Override\r\n    public void init() throws Exception{}\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader();\r\n        fxmlLoader.setControllerFactory(Main.getContext()::getBean);\r\n        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream(\"menu.fxml\"));\r\n        stage.setScene(new Scene(root));\r\n        stage.show();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/project/StarterApplication.java b/src/main/java/application/project/StarterApplication.java
+--- a/src/main/java/application/project/StarterApplication.java	(revision 68e6de01aa0b19266dcce23f0765fe4af110a8d0)
++++ b/src/main/java/application/project/StarterApplication.java	(date 1633648179505)
+@@ -21,7 +21,7 @@
+     public void start(Stage stage) throws IOException {
+         FXMLLoader fxmlLoader = new FXMLLoader();
+         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+-        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream("menu.fxml"));
++        root = fxmlLoader.load(application.project.StarterApplication.class.getResourceAsStream("Login.fxml"));
+         stage.setScene(new Scene(root));
+         stage.show();
+     }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"FrameworkDetectionExcludesConfiguration\">\r\n    <file type=\"web\" url=\"file://$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_16\" project-jdk-name=\"openjdk-16\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 68e6de01aa0b19266dcce23f0765fe4af110a8d0)
++++ b/.idea/misc.xml	(date 1633645727759)
+@@ -4,7 +4,7 @@
+   <component name="FrameworkDetectionExcludesConfiguration">
+     <file type="web" url="file://$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

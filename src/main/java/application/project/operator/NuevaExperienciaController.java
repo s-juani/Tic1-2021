@@ -8,6 +8,9 @@ import application.entities.exceptions.UserAlreadyInUse;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import org.controlsfx.control.CheckComboBox;
@@ -130,7 +133,13 @@ public class NuevaExperienciaController {
                 try{
                     experienciaMgr.addExperiencia(nuevaExperiencia,nombre,direccion,descripcion,aforo,conReserva,vacunacion,intereses,imagenes);
                     showAlert("Experiencia registrada.","Experiencia registrada exitosamente.");
-                    //TODO volver al main del operador
+
+                    Stage stage = (Stage) this.btnImagenes.getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                    Parent root = fxmlLoader.load(MainOperador.class.getResourceAsStream("MainOperador.fxml"));
+                    stage.setScene(new Scene(root));
+                    stage.show();
 
                 }
                 catch (ExperienceAlreadyInUse experienceAlreadyInUse) {

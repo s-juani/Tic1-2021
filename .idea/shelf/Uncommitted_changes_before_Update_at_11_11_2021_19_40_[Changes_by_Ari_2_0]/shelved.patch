@@ -1,0 +1,133 @@
+Index: src/main/java/application/project/operator/NuevaExperienciaController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.project.operator;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.CheckBox;\r\nimport javafx.scene.control.TextArea;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.stage.FileChooser;\r\nimport org.controlsfx.control.CheckComboBox;\r\nimport org.springframework.stereotype.Controller;\r\nimport javafx.stage.Stage;\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.nio.file.Files;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Collection;\r\n\r\n@Controller\r\npublic class NuevaExperienciaController {\r\n\r\n    @FXML\r\n    public TextField txtAforo;\r\n\r\n    @FXML\r\n    public CheckBox cbAdmiteReserva;\r\n\r\n    @FXML\r\n    public TextArea txtDireccion;\r\n\r\n    @FXML\r\n    public CheckBox cbRequiereVacunacion;\r\n\r\n    @FXML\r\n    private TextField txtNombreExp;\r\n\r\n    @FXML\r\n    private TextArea txtDescripcion;\r\n\r\n    @FXML\r\n    private Button btnImagenes;\r\n\r\n    @FXML\r\n    private CheckComboBox<?> ccbIntereses;\r\n\r\n    @FXML\r\n    private Button btnCargarExp;\r\n\r\n    private Collection<byte[]> imagenes = new ArrayList<>();\r\n\r\n    private final FileChooser fc = new FileChooser();\r\n\r\n    @FXML\r\n    private void initialize(){\r\n        FileChooser.ExtensionFilter imageFilter\r\n                = new FileChooser.ExtensionFilter(\"Imagen\", \"*.jpg\", \"*.png\");\r\n        fc.getExtensionFilters().add(imageFilter);\r\n    }\r\n\r\n    @FXML\r\n    void AgregarImagenes(ActionEvent event) throws IOException {\r\n        Stage stage = (Stage) this.btnImagenes.getScene().getWindow();\r\n        File file = fc.showOpenDialog(stage);\r\n        if (file.exists()){\r\n            byte[] imagen = Files.readAllBytes(file.toPath());\r\n            imagenes.add(imagen);\r\n        };\r\n    }\r\n\r\n    @FXML\r\n    void CrearExperiencia(ActionEvent event) {\r\n\r\n\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/project/operator/NuevaExperienciaController.java b/src/main/java/application/project/operator/NuevaExperienciaController.java
+--- a/src/main/java/application/project/operator/NuevaExperienciaController.java	(revision 4d41652a8299975f73e088758c7e578f450fdbee)
++++ b/src/main/java/application/project/operator/NuevaExperienciaController.java	(date 1636417344949)
+@@ -1,4 +1,8 @@
+ package application.project.operator;
++import application.entities.ent.InteresEntity;
++import application.entities.ent.InteresRepository;
++import application.project.ingresar.RegisterUserController;
++import javafx.collections.ObservableList;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+ import javafx.scene.control.Button;
+@@ -7,11 +11,13 @@
+ import javafx.scene.control.TextField;
+ import javafx.stage.FileChooser;
+ import org.controlsfx.control.CheckComboBox;
++import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+ import javafx.stage.Stage;
+ import java.io.File;
+ import java.io.IOException;
+ import java.nio.file.Files;
++import javafx.scene.control.*;
+ 
+ import java.util.ArrayList;
+ import java.util.Collection;
+@@ -41,7 +47,7 @@
+     private Button btnImagenes;
+ 
+     @FXML
+-    private CheckComboBox<?> ccbIntereses;
++    private CheckComboBox<InteresEntity> ccbIntereses;
+ 
+     @FXML
+     private Button btnCargarExp;
+@@ -49,12 +55,19 @@
+     private Collection<byte[]> imagenes = new ArrayList<>();
+ 
+     private final FileChooser fc = new FileChooser();
++    
++    @Autowired
++    private InteresRepository interesRep;
+ 
+     @FXML
+     private void initialize(){
+         FileChooser.ExtensionFilter imageFilter
+                 = new FileChooser.ExtensionFilter("Imagen", "*.jpg", "*.png");
+         fc.getExtensionFilters().add(imageFilter);
++        Collection<InteresEntity> interesEntities = interesRep.findAll();
++        for (InteresEntity interes: interesEntities){
++            ccbIntereses.getItems().add(interes);
++        }
+     }
+ 
+     @FXML
+@@ -69,9 +82,37 @@
+ 
+     @FXML
+     void CrearExperiencia(ActionEvent event) {
++        if (txtDireccion.getText()==null ||txtDescripcion.getText()==null || txtNombreExp.getText()==null||imagenes.size()==0){
++            showAlert(
++                    "Datos faltantes.",
++                    "Se deben completar todos los campos obligatorios."
++            );
++        }else {
++            try {
++                String nombre = txtNombreExp.getText();
++                String descripcion = txtDescripcion.getText();
++                Integer aforo = Integer.parseInt(txtAforo.getText());
++                boolean vacunacion = cbRequiereVacunacion.isSelected();
++                boolean reservable = cbAdmiteReserva.isSelected();
++                ObservableList<InteresEntity> interesEntities = ccbIntereses.getCheckModel().getCheckedItems();
+ 
++            } catch (Exception e) {
++                showAlert(
++                        "Datos mal ingresados.",
++                        "Algún dato se ingresó mal."
++                );
++            }
++        }
++    }
+ 
++    private void showAlert(String title, String contextText){
++        Alert alert = new Alert(Alert.AlertType.INFORMATION);
++        alert.setTitle(title);
++        alert.setHeaderText(null);
++        alert.setContentText(contextText);
++        alert.showAndWait();
+     }
++
+ 
+ }
+ 
+Index: src/main/java/application/entities/ent/ExperienciaEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.entities.ent;\r\n\r\nimport org.hibernate.annotations.Fetch;\r\nimport org.hibernate.annotations.FetchMode;\r\n\r\n\r\nimport javax.persistence.*;\r\nimport java.util.Set;\r\n\r\n@Entity\r\n@Table(name = \"experiencia\")\r\n@IdClass(ExperienciaEntityPK.class)\r\npublic class ExperienciaEntity {\r\n\r\n    private String operador;\r\n\r\n    private String nombre;\r\n    private String descripcion;\r\n    private String aforo;\r\n    private boolean conReserva;\r\n\r\n    public boolean isVacunacion() {\r\n        return vacunacion;\r\n    }\r\n\r\n    public void setVacunacion(boolean vacunacion) {\r\n        this.vacunacion = vacunacion;\r\n    }\r\n\r\n    public String getDireccion() {\r\n        return direccion;\r\n    }\r\n\r\n    public void setDireccion(String direccion) {\r\n        this.direccion = direccion;\r\n    }\r\n\r\n    private int latitud;\r\n    private int longitud;\r\n    private Set<ImagenEntity> imagens;\r\n    private Set<CalificacionEntity> calificaciones;\r\n    private Set<InteresEntity> intereses;\r\n    private Set<VideoEntity> videos;\r\n    private Set<ReservaEntity> reservas;\r\n    private boolean vacunacion;\r\n    private String direccion;\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n\r\n\r\n//    @Id\r\n//    @GeneratedValue(generator = \"experiencia_id\")\r\n//    @GenericGenerator(name = \"xp_id\", strategy = \"increment\")\r\n//    public long id;\r\n    @Id\r\n    public String getOperador() {\r\n        return operador;\r\n    }\r\n\r\n    public void setOperador(String operador_turistico) {\r\n        this.operador = operador_turistico;\r\n    }\r\n    @Id\r\n    public String getNombre() {\r\n        return nombre;\r\n    }\r\n\r\n    public void setNombre(String nombre) {\r\n        this.nombre = nombre;\r\n    }\r\n\r\n    public String getDescripcion() {\r\n        return descripcion;\r\n    }\r\n\r\n    public void setDescripcion(String descripcion) {\r\n        this.descripcion = descripcion;\r\n    }\r\n\r\n    public String getAforo() {\r\n        return aforo;\r\n    }\r\n\r\n    public void setAforo(String aforo) {\r\n        this.aforo = aforo;\r\n    }\r\n\r\n    public boolean isConReserva() {\r\n        return conReserva;\r\n    }\r\n\r\n    public void setConReserva(boolean conReserva) {\r\n        this.conReserva = conReserva;\r\n    }\r\n\r\n    public int getLatitud() {\r\n        return latitud;\r\n    }\r\n\r\n    public void setLatitud(int latitud) {\r\n        this.latitud = latitud;\r\n    }\r\n\r\n    public int getLongitud() {\r\n        return longitud;\r\n    }\r\n\r\n    public void setLongitud(int longitud) {\r\n        this.longitud = longitud;\r\n    }\r\n\r\n    @OneToMany(targetEntity = CalificacionEntity.class, fetch = FetchType.EAGER)\r\n    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false), @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)})\r\n    public Set<CalificacionEntity> getCalificaciones() {\r\n        return calificaciones;\r\n    }\r\n\r\n    public void setCalificaciones(Set<CalificacionEntity> calificaciones) {\r\n        this.calificaciones = calificaciones;\r\n    }\r\n\r\n    @ManyToMany(targetEntity = InteresEntity.class,fetch = FetchType.EAGER)\r\n    @JoinTable(name=\"interes_experiencia\",\r\n            joinColumns = {@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false),\r\n                    @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)},\r\n            inverseJoinColumns = @JoinColumn(name = \"interes\", referencedColumnName = \"nombre\", nullable = false))\r\n    public Set<InteresEntity> getIntereses() {\r\n        return intereses;\r\n    }\r\n\r\n    public void setIntereses(Set<InteresEntity> intereses) {\r\n        this.intereses = intereses;\r\n    }\r\n\r\n    @OneToMany(mappedBy = \"experiencia\", fetch = FetchType.EAGER)\r\n    public Set<ImagenEntity> getImagens() {\r\n        return imagens;\r\n    }\r\n\r\n    public void setImagens(Set<ImagenEntity> imagens) {\r\n        this.imagens = imagens;\r\n    }\r\n\r\n    @OneToMany(mappedBy = \"experiencia\", fetch = FetchType.EAGER)\r\n    public Set<VideoEntity> getVideos() {\r\n        return videos;\r\n    }\r\n\r\n    public void setVideos(Set<VideoEntity> videos) {\r\n        this.videos = videos;\r\n    }\r\n\r\n    @OneToMany(targetEntity = ReservaEntity.class, fetch = FetchType.EAGER)\r\n    @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = \"operador_experiencia\", referencedColumnName = \"operador\", nullable = false),\r\n            @JoinColumn(insertable = false,updatable = false,name = \"nombre_experiencia\", referencedColumnName = \"nombre\", nullable = false)})\r\n    public Set<ReservaEntity> getReservas() {\r\n        return reservas;\r\n    }\r\n\r\n    public void setReservas(Set<ReservaEntity> reservas) {\r\n        this.reservas = reservas;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n\r\n        ExperienciaEntity that = (ExperienciaEntity) o;\r\n\r\n        if (conReserva != that.conReserva) return false;\r\n        if (latitud != that.latitud) return false;\r\n        if (longitud != that.longitud) return false;\r\n        if (operador != null ? !operador.equals(that.operador) : that.operador != null)\r\n            return false;\r\n        if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;\r\n        if (descripcion != null ? !descripcion.equals(that.descripcion) : that.descripcion != null) return false;\r\n        if (aforo != null ? !aforo.equals(that.aforo) : that.aforo != null) return false;\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        int result = operador != null ? operador.hashCode() : 0;\r\n        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);\r\n        result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);\r\n        result = 31 * result + (aforo != null ? aforo.hashCode() : 0);\r\n        result = 31 * result + (conReserva ? 1 : 0);\r\n        result = 31 * result + latitud;\r\n        result = 31 * result + longitud;\r\n        return result;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        String str = \"ExperienciaEntity{\" +\r\n                \"operador_turistico='\" + operador + '\\'' +\r\n                \", nombre='\" + nombre + '\\'' +\r\n                \", descripcion='\" + descripcion + '\\'' +\r\n                \", aforo='\" + aforo + '\\'' +\r\n                \", conReserva=\" + conReserva +\r\n                \", latitud=\" + latitud +\r\n                \", longitud=\" + longitud +\r\n                \",idsImágenes:{\";\r\n        for (ImagenEntity imagen:this.getImagens()) {\r\n            str += \",\" + imagen.getIdimagen();\r\n        }\r\n        str += \"}, intereses:{ \";\r\n        for (InteresEntity interes: intereses){\r\n            str += \",\" + interes.getNombre();\r\n        }\r\n        str += \"}, videos:{ \";\r\n        for (VideoEntity video: videos){\r\n            str += \",\" + video.getUrl();\r\n        }\r\n        str += \"}, calificaciones:{ \";\r\n        for (CalificacionEntity calificacion: calificaciones){\r\n            str += \",\" + calificacion;\r\n        }\r\n        str += \"}, reservas:{ \";\r\n        for (ReservaEntity reserva: reservas){\r\n            str += \",\" + reserva;\r\n        }\r\n        str += \"}}\";\r\n        return str;\r\n    }\r\n\r\n\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<InteresExperienciaEntity> getInteresExperiencias() {\r\n//        return interesExperiencias;\r\n//    }\r\n//\r\n//    public void setInteresExperiencias(Set<InteresExperienciaEntity> interesExperiencias) {\r\n//        this.interesExperiencias = interesExperiencias;\r\n//    }\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<ReservaEntity> getReservas() {\r\n//        return reservas;\r\n//    }\r\n//\r\n//    public void setReservas(Set<ReservaEntity> reservas) {\r\n//        this.reservas = reservas;\r\n//    }\r\n//\r\n//    @OneToMany(mappedBy = \"experiencia\")\r\n//    public Set<VideoEntity> getVideos() {\r\n//        return videos;\r\n//    }\r\n//\r\n//    public void setVideos(Set<VideoEntity> videos) {\r\n//        this.videos = videos;\r\n//    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/entities/ent/ExperienciaEntity.java b/src/main/java/application/entities/ent/ExperienciaEntity.java
+--- a/src/main/java/application/entities/ent/ExperienciaEntity.java	(revision 4d41652a8299975f73e088758c7e578f450fdbee)
++++ b/src/main/java/application/entities/ent/ExperienciaEntity.java	(date 1636417156789)
+@@ -16,7 +16,7 @@
+ 
+     private String nombre;
+     private String descripcion;
+-    private String aforo;
++    private Integer aforo;
+     private boolean conReserva;
+ 
+     public boolean isVacunacion() {
+@@ -76,11 +76,11 @@
+         this.descripcion = descripcion;
+     }
+ 
+-    public String getAforo() {
++    public Integer getAforo() {
+         return aforo;
+     }
+ 
+-    public void setAforo(String aforo) {
++    public void setAforo(Integer aforo) {
+         this.aforo = aforo;
+     }
+ 

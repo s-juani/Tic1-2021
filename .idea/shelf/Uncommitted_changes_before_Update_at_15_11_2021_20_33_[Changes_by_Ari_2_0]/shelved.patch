@@ -1,0 +1,41 @@
+Index: src/main/java/application/entities/ReservaManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.entities;\r\n\r\nimport application.entities.ent.ExperienciaEntity;\r\nimport application.entities.ent.ReservaEntity;\r\nimport application.entities.ent.ReservaRepository;\r\nimport application.entities.ent.UsuarioEntity;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Component;\r\n\r\nimport java.sql.Date;\r\nimport java.time.LocalDate;\r\n\r\n@Component\r\npublic class ReservaManager {\r\n\r\n    @Autowired\r\n    private ReservaRepository reservaRepository;\r\n\r\n    public void createReserva(UsuarioEntity user, ExperienciaEntity experiencia, LocalDate fechaInicio, LocalDate fechaFin, Integer cantidad) {\r\n\r\n        try {\r\n\r\n            Date inicio = Date.valueOf(fechaInicio);\r\n            Date fin = null;\r\n            if (fechaFin != null){\r\n                fin = Date.valueOf(fechaFin);\r\n            }\r\n\r\n            System.out.println(\"Por crear reserva\");\r\n            ReservaEntity reserva = new ReservaEntity(user.getMail(), experiencia.getOperador(), experiencia.getNombre(), inicio, cantidad, fin);\r\n            System.out.println(\"Reserva creada\");\r\n            reservaRepository.save(reserva);\r\n            System.out.println(\"Reserva guardada\");\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/entities/ReservaManager.java b/src/main/java/application/entities/ReservaManager.java
+--- a/src/main/java/application/entities/ReservaManager.java	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/src/main/java/application/entities/ReservaManager.java	(date 1637019186722)
+@@ -24,7 +24,11 @@
+             Date fin = null;
+             if (fechaFin != null){
+                 fin = Date.valueOf(fechaFin);
++                for (int i = 0; i < ; i++) {
++                    
++                }
+             }
++
+ 
+             System.out.println("Por crear reserva");
+             ReservaEntity reserva = new ReservaEntity(user.getMail(), experiencia.getOperador(), experiencia.getNombre(), inicio, cantidad, fin);
+Index: src/main/java/application/entities/ent/ExperienciaRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application.entities.ent;\r\n\r\nimport org.springframework.data.jpa.repository.Query;\r\nimport org.springframework.data.repository.CrudRepository;\r\n\r\nimport java.util.Collection;\r\nimport java.util.Set;\r\n\r\npublic interface ExperienciaRepository extends CrudRepository<ExperienciaEntity,ExperienciaEntityPK> {\r\n    @Query(name=\"select * from experiencia where nombre=?1 and operador=?2\", nativeQuery = true)\r\n    ExperienciaEntity findOneByNombreAndOperador(String nombre, String operador);\r\n\r\n    Collection<ExperienciaEntity> findAll();\r\n\r\n    Set<ExperienciaEntity> findByIntereses_Nombre(String nombre);\r\n\r\n    Set<ExperienciaEntity> findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(String experiencia, String interes);\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/application/entities/ent/ExperienciaRepository.java b/src/main/java/application/entities/ent/ExperienciaRepository.java
+--- a/src/main/java/application/entities/ent/ExperienciaRepository.java	(revision 695d44b73a37840e9477327c0fcd6943a06b6def)
++++ b/src/main/java/application/entities/ent/ExperienciaRepository.java	(date 1637018573651)
+@@ -12,6 +12,8 @@
+ 
+     Collection<ExperienciaEntity> findAll();
+ 
++    Collection<ExperienciaEntity> findByAprovada(boolean aprovada);
++
+     Set<ExperienciaEntity> findByIntereses_Nombre(String nombre);
+ 
+     Set<ExperienciaEntity> findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(String experiencia, String interes);

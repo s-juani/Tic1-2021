@@ -49,7 +49,7 @@
          <Font size="24.0" />
       </font>
    </Text>
-   <TextField fx:id="txtAforo" layoutX="1017.0" layoutY="349.0" prefHeight="40.0" prefWidth="166.0" />
+   <TextField fx:id="txtAforo" disable="true" layoutX="1017.0" layoutY="349.0" prefHeight="40.0" prefWidth="166.0" />
    <CheckBox fx:id="cbAdmiteReserva" layoutX="1017.0" layoutY="432.0" mnemonicParsing="false" text="Admite reserva">
       <font>
          <Font size="24.0" />

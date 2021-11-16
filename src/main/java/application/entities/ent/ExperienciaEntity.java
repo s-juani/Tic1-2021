@@ -22,6 +22,7 @@ public class ExperienciaEntity {
         this.conReserva = conReserva;
         this.vacunacion = vacunacion;
         this.direccion = direccion;
+        this.aprovada = false;
     }
 
     public boolean isVacunacion() {
@@ -49,6 +50,15 @@ public class ExperienciaEntity {
     private Set<ReservaEntity> reservas;
     private boolean vacunacion;
     private String direccion;
+    private boolean aprovada;
+
+    public boolean isAprovada() {
+        return aprovada;
+    }
+
+    public void setAprovada(boolean aprovada) {
+        this.aprovada = aprovada;
+    }
 //    @OneToMany(mappedBy = "experiencia")
 
 

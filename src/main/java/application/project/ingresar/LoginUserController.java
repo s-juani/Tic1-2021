@@ -4,6 +4,7 @@ import application.Main;
 import application.entities.ent.*;
 import application.entities.session.currentSession;
 import application.project.main.MainController;
+import application.project.operator.MainOperador;
 import application.project.operator.NuevaExperienciaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -147,12 +148,11 @@ public class LoginUserController {
     }
 
     private void gotoMainOperador () throws IOException {
-        // TODO agregar ir al main operador cuando este pronto
         Stage stage = (Stage) this.btnVolver.getScene().getWindow();
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(NuevaExperienciaController.class.getResourceAsStream("NuevaExperiencia.fxml"));
+        Parent root = fxmlLoader.load(MainOperador.class.getResourceAsStream("MainOperador.fxml"));
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();

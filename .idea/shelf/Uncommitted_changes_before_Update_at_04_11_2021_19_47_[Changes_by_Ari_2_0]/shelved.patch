@@ -1,0 +1,32 @@
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'java'\r\n    id 'application'\r\n    id 'org.openjfx.javafxplugin' version '0.0.10'\r\n    id 'org.springframework.boot' version '2.5.4'\r\n    id 'io.spring.dependency-management' version '1.0.11.RELEASE'\r\n}\r\n\r\ngroup 'com.example'\r\nversion '1.0-SNAPSHOT'\r\n\r\nrepositories {\r\n    mavenCentral()\r\n}\r\n\r\next {\r\n    junitVersion = '5.7.2'\r\n}\r\n\r\nsourceCompatibility = '16'\r\ntargetCompatibility = '16'\r\n\r\ntasks.withType(JavaCompile) {\r\n    options.encoding = 'UTF-8'\r\n}\r\n\r\napplication {\r\n    mainModule = 'com.example.sprint0'\r\n    mainClass = 'com.example.sprint0.HelloApplication'\r\n}\r\n\r\njavafx {\r\n    version = '16'\r\n    modules = ['javafx.controls', 'javafx.fxml', 'javafx.swing']\r\n}\r\n\r\ndependencies {\r\n    implementation 'org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0'\r\n    implementation 'org.hibernate:hibernate-core:5.5.7.Final'\r\n    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'\r\n\r\n    testImplementation \"org.junit.jupiter:junit-jupiter-api:${junitVersion}\"\r\n    testRuntimeOnly \"org.junit.jupiter:junit-jupiter-engine:${junitVersion}\"\r\n\r\n    implementation 'mysql:mysql-connector-java:8.0.25'\r\n    implementation 'org.controlsfx:controlsfx:11.1.0'\r\n}\r\n\r\ntest {\r\n    useJUnitPlatform()\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	
++++ b/build.gradle	
+@@ -34,6 +34,7 @@
+     modules = ['javafx.controls', 'javafx.fxml', 'javafx.swing']
+ }
+ 
++
+ dependencies {
+     implementation 'org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0'
+     implementation 'org.hibernate:hibernate-core:5.5.7.Final'
+@@ -44,8 +45,11 @@
+ 
+     implementation 'mysql:mysql-connector-java:8.0.25'
+     implementation 'org.controlsfx:controlsfx:11.1.0'
++
++    implementation 'org.springframework.security:spring-security-crypto:4.2.9.RELEASE'
+ }
+ 
+ test {
+     useJUnitPlatform()
+-}
+\ No newline at end of file
++}
++
