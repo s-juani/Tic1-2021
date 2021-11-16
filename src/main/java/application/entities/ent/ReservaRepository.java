@@ -11,4 +11,12 @@ import java.util.List;
 
 public interface ReservaRepository extends CrudRepository<ReservaEntity,ReservaEntityPK> {
 
+    @Query("select SUM (r.cantidad) from ReservaEntity r where r.operadorExperiencia = ?1 and r.nombreExperiencia = ?2 and r.fechaInicio < ?3 and r.fechaFin > ?4")
+    long countByOperadorExperienciaAndNombreExperienciaAndFechaInicioBeforeAndFechaFinAfter(String operadorExperiencia, String nombreExperiencia, Date fechaInicio, Date fechaFin);
+
+    Collection<ReservaEntity> findByMailTurista(String mailTurista);
+
+    @Query("select r from ReservaEntity r where r.operadorExperiencia = ?1")
+    List<ReservaEntity> findByOperadorExperiencia(String operadorExperiencia);
+
 }

@@ -5,6 +5,7 @@ import application.Main;
 import application.entities.ReservaManager;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
+import application.entities.exceptions.AforoCompleto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -189,11 +190,17 @@ public class ReservaController {
             if (dateFechaInicio.getValue() != null){
                 if (reservaMultiplesDias){
                     if (dateFechaFin.getValue() != null){
-                           reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
-                           showAlert("Felicitaciones!",
-                                   "Su reserva se registro con exito!"
-                           );
-                           volver(new ActionEvent());
+                        try {
+                            reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
+                            showAlert("Felicitaciones!",
+                                    "Su reserva se registro con exito!"
+                            );
+                        } catch (AforoCompleto e) {
+                            showAlert("ERROR!",
+                                    "No hay suficiente aforo"
+                            );
+                        }
+                        volver(new ActionEvent());
                     }
                     else{
                         showAlert("ERROR!",
