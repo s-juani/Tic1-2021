@@ -3,6 +3,7 @@ package application.project.ingresar;
 import application.Main;
 import application.entities.ent.*;
 import application.entities.session.currentSession;
+import application.project.admin.MainAdminController;
 import application.project.main.MainController;
 import application.project.operator.MainOperador;
 import application.project.operator.NuevaExperienciaController;
@@ -121,7 +122,15 @@ public class LoginUserController {
         }
     }
 
-    private void gotoMainAdmin() {
+    private void gotoMainAdmin() throws IOException {
+        Stage stage = (Stage) this.btnVolver.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainAdminController.class.getResourceAsStream("MainAdmin.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
     }
 
     @FXML

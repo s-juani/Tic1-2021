@@ -7,8 +7,18 @@ import java.util.Collection;
 @PrimaryKeyJoinColumn(name="mail")
 @Table(name = "operador")
 public class OperadorEntity extends UsuarioEntity {
-    private Collection<FormaContactoEntity> formaContactosByMail;
-    private UsuarioEntity usuarioByMail;
+    private String formaContactosByMail;
+    //private UsuarioEntity usuarioByMail;
+
+    public OperadorEntity(String mail, String usuario, String pw, String formaContactosByMail){ //, UsuarioEntity usuarioByMail) {
+        super(mail, usuario, pw);
+        this.formaContactosByMail = formaContactosByMail;
+        //this.usuarioByMail = usuarioByMail;
+    }
+
+    public OperadorEntity() {
+
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -36,7 +46,7 @@ public class OperadorEntity extends UsuarioEntity {
 //        this.formaContactosByMail = formaContactosByMail;
 //    }
 
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name = "mail", referencedColumnName = "mail", nullable = false)
     public UsuarioEntity getUsuarioByMail() {
         return usuarioByMail;
@@ -44,5 +54,5 @@ public class OperadorEntity extends UsuarioEntity {
 
     public void setUsuarioByMail(UsuarioEntity usuarioByMail) {
         this.usuarioByMail = usuarioByMail;
-    }
+    }*/
 }

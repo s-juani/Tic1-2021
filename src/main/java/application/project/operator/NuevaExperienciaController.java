@@ -5,6 +5,7 @@ import application.entities.ent.*;
 import application.entities.exceptions.ExperienceAlreadyInUse;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
+import application.project.main.MainController;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -158,8 +159,6 @@ public class NuevaExperienciaController {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     private void showAlert(String title, String contextText){
@@ -170,6 +169,14 @@ public class NuevaExperienciaController {
         alert.showAndWait();
     }
 
+    public void volver(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnImagenes.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainOperador.class.getResourceAsStream("MainOperador.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
 
 
