@@ -50,10 +50,12 @@ public class ReservaManager {
             reservaRepository.save(reserva);
             System.out.println("Reserva guardada");
         }
+        catch (AforoCompleto e2){
+            throw e2;
+        }
         catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }

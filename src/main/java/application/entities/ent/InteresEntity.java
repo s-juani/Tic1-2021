@@ -12,6 +12,13 @@ public class InteresEntity {
 //    private Collection<InteresExperienciaEntity> interesExperienciasByNombre;
 //    private Collection<InteresTuristaEntity> interesTuristasByNombre;
 
+    public InteresEntity(){}
+
+    public InteresEntity(String nombre, InteresEntity interesByEsSubinteresDe) {
+        this.nombre = nombre;
+        this.interesByEsSubinteresDe = interesByEsSubinteresDe;
+    }
+
     @Id
     @Column(name = "nombre")
     public String getNombre() {

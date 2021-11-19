@@ -132,11 +132,7 @@ public class ReservaController {
                 });
             }
         });
-
-
-
         toggleDiasReserva(new ActionEvent());
-
         dateFechaFin.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
@@ -153,7 +149,7 @@ public class ReservaController {
                 setDisable(empty || date.compareTo(today) < 0 );
             }
         });
-
+        txtCantidad.setText(cantidad.toString());
     }
 
     private void showImagen(){
@@ -185,7 +181,7 @@ public class ReservaController {
     }
 
     @FXML
-    void reservar(ActionEvent event) throws IOException, AforoCompleto {
+    void reservar(ActionEvent event) throws IOException {
         if (checkRequisitos.isSelected() ){
             if (dateFechaInicio.getValue() != null){
                 if (reservaMultiplesDias){
@@ -195,7 +191,7 @@ public class ReservaController {
                             showAlert("Felicitaciones!",
                                     "Su reserva se registro con exito!"
                             );
-                        } catch (AforoCompleto e) {
+                        } catch(AforoCompleto e) {
                             showAlert("ERROR!",
                                     "No hay suficiente aforo"
                             );
@@ -214,7 +210,7 @@ public class ReservaController {
                         showAlert("Felicitaciones!",
                                 "Su reserva se registro con exito!"
                         );
-                    } catch (AforoCompleto e){
+                    } catch(AforoCompleto e){
                         showAlert("ERROR!",
                                 "No hay suficiente aforo"
                         );
