@@ -19,7 +19,7 @@ public class ReservaManager {
         Calendar c = Calendar.getInstance();
         c.setTime(fecha);
         c.add(Calendar.DATE, days);
-        return (Date) c.getTime();
+        return new java.sql.Date(c.getTime().getTime());
     }
 
     @Autowired
@@ -35,10 +35,13 @@ public class ReservaManager {
             if (fechaFin != null){
                 fin = Date.valueOf(fechaFin);
             }
-            for (Date i = inicio; i.before(addDaysToFecha(fin,1)) ; addDaysToFecha(i,1)) {
-                if (reservaRepository.countByOperadorExperienciaAndNombreExperienciaAndFechaInicioBeforeAndFechaFinAfter(
-                        experiencia.getOperador(), experiencia.getNombre(), addDaysToFecha(i,1),addDaysToFecha(i,-1))
-                        > experiencia.getAforo()){
+            for (Date i = inicio; i.before(addDaysToFecha(fin,1)) ; i=addDaysToFecha(i,1)) {
+                Long cantidad_reservada_otros = reservaRepository.countByOperadorExperienciaAndNombreExperienciaAndFechaInicioBeforeAndFechaFinAfter(
+                        experiencia.getOperador(), experiencia.getNombre(), addDaysToFecha(i,1),addDaysToFecha(i,-1));
+                if (cantidad_reservada_otros == null){
+                    cantidad_reservada_otros = 0L;
+                }
+                if (experiencia.getAforo() != null && cantidad_reservada_otros + cantidad > experiencia.getAforo()){
                     throw new AforoCompleto();
                 }
 

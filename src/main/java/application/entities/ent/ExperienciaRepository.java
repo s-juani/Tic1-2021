@@ -16,7 +16,11 @@ public interface ExperienciaRepository extends CrudRepository<ExperienciaEntity,
 
     Set<ExperienciaEntity> findByIntereses_Nombre(String nombre);
 
+    Set<ExperienciaEntity> findByIntereses_NombreAndAprovadaIsTrue(String nombre);
+
     Set<ExperienciaEntity> findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(String experiencia, String interes);
+
+    Set<ExperienciaEntity> findByAprovadaIsTrueAndNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCaseAndAprovadaIsTrue(String experiencia, String interes);
 
 
 }
