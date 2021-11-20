@@ -116,6 +116,9 @@ public class LoginUserController {
                     );
                 } else {
                     Main.setCurrentSession(new currentSession(turista));
+                    System.out.println("Sesion:");
+                    TuristaEntity t = Main.getCurrentSession().getActiveUser();
+                    System.out.println(turista.getMail());
                     gotoMain();
                 }
             }

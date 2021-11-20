@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.ReservasController">
    <children>
       <TableView fx:id="TablaReservas" layoutX="343.0" layoutY="281.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="780.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <columns>
-            <TableColumn fx:id="CExperiencia" prefWidth="130.0" text="Experiencia" />
-            <TableColumn fx:id="COperador" prefWidth="130.0" text="Operador" />
-            <TableColumn fx:id="CFechaInicio" prefWidth="130.0" text="Fecha de inicio" />
-          <TableColumn fx:id="CFechaF" prefWidth="130.0" text="Fecha de fin" />
-          <TableColumn fx:id="CPersonas" prefWidth="130.0" text="Cant de personas" />
-            <TableColumn fx:id="CVerExp" prefWidth="130.0" text="Ver Experiencia">
-               <graphic>
-                  <Button fx:id="btnExperiencia" mnemonicParsing="false" onAction="#gotoExperiencia" text="Experiencia" />
-               </graphic>
-            </TableColumn>
+            <TableColumn fx:id="CExperiencia" prefWidth="150.0" text="Experiencia" />
+            <TableColumn fx:id="COperador" prefWidth="150.0" text="Operador" />
+            <TableColumn fx:id="CFechaInicio" prefWidth="150.0" text="Fecha de inicio" />
+          <TableColumn fx:id="CFechaF" prefWidth="150.0" text="Fecha de fin" />
+          <TableColumn fx:id="CPersonas" prefWidth="150.0" text="Cant de personas" />
         </columns>
       </TableView>
-      <Text layoutX="124.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservas" AnchorPane.leftAnchor="50.0">
+      <Text layoutX="160.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservas" AnchorPane.leftAnchor="160.0">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
+      <Button fx:id="btnVerExp" mnemonicParsing="false" onAction="#verExp" text="Ver experiencia seleccionada" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0" />
+      <Button fx:id="btnVolver" layoutY="2.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
    </children>
 </AnchorPane>

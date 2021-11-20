@@ -18,7 +18,6 @@
                      <Image url="@application/project/images/img1.png" />
                   </image>
                </ImageView>
-               <Button layoutX="1630.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="70.0" style="-fx-background-color: 0;" text="Favoritos" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="0.0" />
                <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <items>
                      <MenuItem mnemonicParsing="false" text="Editar perfil" />
@@ -32,17 +31,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </SplitMenuButton>
-               <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </Button>
-               <Button layoutX="1185.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Itinerario" AnchorPane.rightAnchor="456.0" AnchorPane.topAnchor="0.0">
-                  <font>
-                     <Font size="18.0" />
-                  </font>
-               </Button>
-               <Button layoutX="1185.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Favoritos" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="0.0">
+               <Button fx:id="btnReservas" layoutX="1200.0" mnemonicParsing="false" onAction="#irAReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0">
                   <font>
                      <Font size="18.0" />
                   </font>

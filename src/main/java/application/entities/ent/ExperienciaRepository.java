@@ -2,6 +2,7 @@ package application.entities.ent;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.lang.NonNull;
 
 import java.util.Collection;
 import java.util.Set;
@@ -21,6 +22,11 @@ public interface ExperienciaRepository extends CrudRepository<ExperienciaEntity,
     Set<ExperienciaEntity> findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(String experiencia, String interes);
 
     Set<ExperienciaEntity> findByAprovadaIsTrueAndNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCaseAndAprovadaIsTrue(String experiencia, String interes);
+
+    @NonNull
+    ExperienciaEntity findByNombreAndOperador(String nombre, String operador);
+
+
 
 
 }

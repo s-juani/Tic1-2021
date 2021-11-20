@@ -53,30 +53,46 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="500.0">
+            <AnchorPane layoutY="525.0" prefHeight="159.0" prefWidth="1400.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="525.0">
                <children>
-                  <Text layoutX="181.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reseñas" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Text layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reseñas" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.15234375">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text layoutX="7.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calificacion ★★★★★" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="10.0">
+                  <Text fx:id="txtDescCalificacionPromedio" layoutX="166.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calificacion promedio:" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="7.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="116.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                  <Text fx:id="txtRes1Nombre" layoutX="34.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referencia de la persona" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="1076.048828125" AnchorPane.topAnchor="57.576171875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="137.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="625.883544921875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.1298828125" AnchorPane.topAnchor="70.0" />
-                  <Text layoutX="126.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="★★★★★ Referencia de la persona" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                  <Text fx:id="txtRes1Desc" layoutX="34.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="625.883544921875" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="740.116455078125" AnchorPane.topAnchor="70.0" />
+                  <Text fx:id="txtRes2Nombre" layoutX="708.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referencia de la persona" AnchorPane.rightAnchor="496.9794921875" AnchorPane.topAnchor="58.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="147.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="652.5890888574019" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
+                  <Text fx:id="txtRes2Desc" layoutX="708.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="652.5890888574019" AnchorPane.rightAnchor="39.41091114259825" AnchorPane.topAnchor="70.0" />
+                  <Button fx:id="btnDejarComentario" layoutX="1242.0" layoutY="11.0" mnemonicParsing="false" onAction="#nuevoComentario" text="Deja tu comentario" />
+                  <Text fx:id="txtCalificacionPromedio" layoutX="408.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ★★★★★">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtRes1Calificacion" layoutX="241.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ★★★★★" wrappingWidth="150.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtRes2Calificacion" layoutX="915.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ★★★★★">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
@@ -90,7 +106,7 @@
                   <Button mnemonicParsing="false" onAction="#imgAnterior" text="←" AnchorPane.topAnchor="200.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="380.0">
+            <AnchorPane prefHeight="140.0" prefWidth="650.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="380.0">
                <children>
                   <Text fx:id="txtInformacionSanitaria" strokeType="OUTSIDE" strokeWidth="0.0" text="•Se debe presentar certificado de vacunación completa •Aforo " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
                      <font>
@@ -104,6 +120,8 @@
                   </Text>
                </children>
             </AnchorPane>
+            <Button fx:id="btnResMenos" layoutX="23.0" layoutY="605.0" mnemonicParsing="false" onAction="#decRes" text="←" />
+            <Button fx:id="btnResMas" layoutX="1450.0" layoutY="610.0" mnemonicParsing="false" onAction="#incRes" text="→" />
          </children>
       </AnchorPane>
    </children></AnchorPane>

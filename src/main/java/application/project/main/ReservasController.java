@@ -19,12 +19,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.sql.Date;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 public class ReservasController{
-/*
+
+    @FXML
+    public Button btnVolver;
+
     @FXML
     private TableView<ReservaEntity> TablaReservas;
 
@@ -52,6 +58,11 @@ public class ReservasController{
     @Autowired
     private ReservaRepository reservaRepository;
 
+    List<ReservaEntity> reservas;
+
+    private TuristaEntity turista;
+
+
     @FXML
     void initialize(){
         CFechaInicio.setCellValueFactory(new MapValueFactory<>("fechaini"));
@@ -77,9 +88,32 @@ public class ReservasController{
     }
 
     @FXML
-    void gotoExperiencia(ActionEvent event) {
+    public void verExp(ActionEvent actionEvent) throws IOException {
+        String expSeleccionada = TablaReservas.getSelectionModel().getSelectedItem().getNombreExperiencia();
+        String opSeleccionado=TablaReservas.getSelectionModel().getSelectedItem().getOperadorExperiencia();
 
-
+        irAExperiencia(experienciaRepository.findByNombreAndOperador(expSeleccionada,opSeleccionado));
     }
-*/
+
+    private void irAExperiencia(ExperienciaEntity experiencia) throws IOException{
+        Stage stage = (Stage) this.btnVerExp.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ExperienceController.class.getResourceAsStream("Experiencia.fxml"));
+        stage.setUserData(experiencia);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void volver(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnVolver.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
 }

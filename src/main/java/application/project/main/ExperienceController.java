@@ -1,6 +1,8 @@
 package application.project.main;
 
 import application.Main;
+import application.entities.ent.CalificacionEntity;
+import application.entities.ent.CalificacionRepository;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
 import application.project.ingresar.InitialController;
@@ -16,14 +18,49 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
 public class ExperienceController {
+
+    @FXML
+    public Text txtRes1Nombre;
+
+    @FXML
+    public Text txtRes1Desc;
+
+    @FXML
+    public Text txtRes2Nombre;
+
+    @FXML
+    public Text txtRes2Desc;
+
+    @FXML
+    public Button btnDejarComentario;
+
+    @FXML
+    public Text txtCalificacionPromedio;
+
+    @FXML
+    public Text txtRes1Calificacion;
+
+    @FXML
+    public Text txtRes2Calificacion;
+
+    @FXML
+    public Button btnResMenos;
+
+    @FXML
+    public Button btnResMas;
+
+    @FXML
+    public Text txtDescCalificacionPromedio;
 
     ExperienciaEntity experiencia;
 
@@ -52,6 +89,11 @@ public class ExperienceController {
 
     private int idxImg=0;
 
+    @Autowired
+    private CalificacionRepository calificacionRepository;
+
+    List<CalificacionEntity> calificaciones;
+
     @FXML
     public void initialize(){
         ap.sceneProperty().addListener((observableScene, oldScene, newScene) -> {
@@ -79,11 +121,40 @@ public class ExperienceController {
                         if (textoInfoSanitaria.equals("")){
                             tituloInformacionSanitaria.setText("");
                         }
+
+                        calificaciones = calificacionRepository.findByNombreExperienciaAndOperadorExperienciaOrderByPuntajeDesc(experiencia.getNombre(), experiencia.getOperador());
+
+                        if (calificaciones.size() == 0){
+                            txtCalificacionPromedio.setText("Aun no se hicieron calificaciones");
+                            txtRes1Calificacion.setVisible(false);
+                            txtRes1Nombre.setVisible(false);
+                            txtRes1Desc.setVisible(false);
+
+                            txtRes2Nombre.setVisible(false);
+                            txtRes2Calificacion.setVisible(false);
+                            txtRes2Desc.setVisible(false);
+
+                            btnResMas.setVisible(false);
+                            btnResMenos.setVisible(false);
+                        } else {
+                            // TODO init cuando si hay comentarios
+                        }
                     }
                 });
             }
         });
 
+        // TODO armar estructura por "sets" para ver mas comentarios
+
+    }
+
+    public void decRes(ActionEvent actionEvent) {
+    }
+
+    public void incRes(ActionEvent actionEvent) {
+    }
+
+    public void nuevoComentario(ActionEvent actionEvent) {
     }
 
     @FXML
@@ -142,4 +213,6 @@ public class ExperienceController {
         newStage.setScene(new Scene(root));
         newStage.show();
     }
+
+
 }

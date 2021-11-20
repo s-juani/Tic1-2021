@@ -38,6 +38,9 @@ public class MainController {
     public MenuItem btnCerrarSesion;
 
     @FXML
+    public Button btnReservas;
+
+    @FXML
     private Button btnPgAnterior;
 
     @FXML
@@ -301,6 +304,17 @@ public class MainController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
+
+    public void irAReservas(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnPgSiguiente.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ReservasController.class.getResourceAsStream("Reservas.fxml"));
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
