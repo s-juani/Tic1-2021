@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.admin.AproveExperienceController">
+   <children>
+      <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1500.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="334.0" layoutX="135.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="596.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@application/project/images/img1.png" />
+               </image>
+            </ImageView>
+            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
+                  <MenuItem mnemonicParsing="false" text="Preferencias" />
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
+               </items>
+            </SplitMenuButton>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Favoritos" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="0.0" />
+            <Button layoutX="901.0" layoutY="1.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Itinerario" AnchorPane.rightAnchor="456.0" AnchorPane.topAnchor="0.0" />
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="380.0">
+               <children>
+                  <Text fx:id="txtInformacionSanitaria" strokeType="OUTSIDE" strokeWidth="0.0" text="•Se debe presentar certificado de vacunación completa •Aforo " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tituloInformacionSanitaria" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion sanitaria" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text fx:id="txtExperienceName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <AnchorPane prefHeight="291.0" prefWidth="700.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtExperienceDescription" layoutX="1.0" layoutY="99.40234375" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="660.3853759765625" AnchorPane.bottomAnchor="74.80859375" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="38.6146240234375" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="500.0">
+               <children>
+                  <Button layoutX="1136.0" layoutY="26.0" mnemonicParsing="false" onAction="#denegarExperiencia" prefHeight="102.0" prefWidth="113.0" text="×" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1279.0" layoutY="26.0" mnemonicParsing="false" onAction="#aprovarExperiencia" prefHeight="102.0" prefWidth="113.0" text="✓" textFill="#008011">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <ImageView fx:id="img" fitHeight="400.0" fitWidth="600.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0" />
+                  <Button mnemonicParsing="false" onAction="#siguienteImg" text="→" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#imgAnterior" text="←" AnchorPane.topAnchor="200.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children></AnchorPane>
