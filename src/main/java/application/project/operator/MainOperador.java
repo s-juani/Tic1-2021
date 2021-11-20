@@ -28,6 +28,8 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,7 +92,9 @@ public class MainOperador {
         tcExperiencia.setCellValueFactory(new MapValueFactory<>("nombre"));
         tcCantPersonas.setCellValueFactory(new MapValueFactory<>("cantidad"));
 
-        reservas = reservaRepository.findByOperadorExperiencia(operador.getMail());
+
+
+        reservas = reservaRepository.findByOperadorExperienciaAndFechaFinAfterOrderByFechaInicioAsc(operador.getMail(), new Date(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)).getTime()));
 
         ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
 

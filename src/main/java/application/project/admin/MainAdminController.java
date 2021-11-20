@@ -100,7 +100,6 @@ public class MainAdminController {
             cbSubinteresDe.getItems().add(interes);
         }
 
-        // TODO pasar datos a tv
         tcNombre.setCellValueFactory(
                 new PropertyValueFactory<ExperienciaEntity, String>("nombre")
         );

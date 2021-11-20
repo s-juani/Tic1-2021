@@ -24,7 +24,7 @@ import java.util.Map;
 
 @Controller
 public class ReservasController{
-
+/*
     @FXML
     private TableView<ReservaEntity> TablaReservas;
 
@@ -81,5 +81,5 @@ public class ReservasController{
 
 
     }
-
+*/
 }
