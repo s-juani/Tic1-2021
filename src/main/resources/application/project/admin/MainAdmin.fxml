@@ -15,7 +15,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Editar perfil" />
                   <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" onAction="#cerrarSesion"/>
                </items>
                <font>
                   <Font size="18.0" />

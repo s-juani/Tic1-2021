@@ -10,6 +10,7 @@ import application.entities.ent.InteresRepository;
 import application.entities.exceptions.InteresAlreadyExists;
 import application.entities.exceptions.InvalidInformation;
 import application.entities.exceptions.UserAlreadyInUse;
+import application.project.ingresar.InitialController;
 import application.project.main.ExperienceController;
 import application.project.operator.NuevaExperienciaController;
 import javafx.collections.ObservableList;
@@ -116,7 +117,6 @@ public class MainAdminController {
         Label placeholder = new Label();
         placeholder.setText("No hay solicitudes de aprovacion.");
         tvSolicitudes.setPlaceholder(placeholder);
-        tvSolicitudes.getSelectionModel().setCellSelectionEnabled(true);
     }
 
     private void irAExperiencia(ExperienciaEntity experiencia) throws IOException{
@@ -225,5 +225,17 @@ public class MainAdminController {
     public void verExp(ActionEvent actionEvent) throws IOException {
         ExperienciaEntity expSeleccionada = tvSolicitudes.getSelectionModel().getSelectedItem();
         irAExperiencia(expSeleccionada);
+    }
+
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnCrearOperador.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
     }
 }

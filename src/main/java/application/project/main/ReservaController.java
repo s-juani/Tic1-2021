@@ -6,6 +6,7 @@ import application.entities.ReservaManager;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
 import application.entities.exceptions.AforoCompleto;
+import application.project.ingresar.InitialController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -239,4 +240,15 @@ public class ReservaController {
         alert.showAndWait();
     }
 
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnReservar.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+    }
 }

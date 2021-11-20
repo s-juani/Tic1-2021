@@ -22,7 +22,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Editar perfil" />
                   <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" onAction="#cerrarSesion"/>
                </items>
             </SplitMenuButton>
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />

@@ -4,6 +4,7 @@ import application.Main;
 import application.entities.ent.OperadorEntity;
 import application.entities.ent.ReservaEntity;
 import application.entities.ent.ReservaRepository;
+import application.project.ingresar.InitialController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -140,6 +141,18 @@ public class MainOperador {
     @FXML
     void irAExperiencia2(MouseEvent event) {
 
+    }
+
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnCrearExperiencia.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
     }
 
 }

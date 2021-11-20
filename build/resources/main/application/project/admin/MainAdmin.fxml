@@ -15,7 +15,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Editar perfil" />
                   <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" onAction="#cerrarSesion"/>
                </items>
                <font>
                   <Font size="18.0" />
@@ -96,21 +96,15 @@
                         <Button fx:id="btnCrearInteres" layoutX="345.0" layoutY="92.0" mnemonicParsing="false" onAction="#crearInteres" prefHeight="25.0" prefWidth="97.0" text="Crear interes" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="128.0" layoutY="531.0" mnemonicParsing="false" onAction="#refreshPage" text="Button" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="619.0" layoutY="42.0" prefHeight="621.0" prefWidth="790.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="619.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="42.0">
                <children>
-                  <TableView fx:id="tvSolicitudes" layoutY="63.0" prefHeight="558.0" prefWidth="790.0">
+                  <TableView fx:id="tvSolicitudes" layoutY="63.0" prefHeight="558.0" prefWidth="634.0">
                     <columns>
                       <TableColumn fx:id="tcNombre" prefWidth="161.0" text="Nombre" />
                       <TableColumn fx:id="tcOperador" prefWidth="148.0" text="Operador" />
                         <TableColumn fx:id="tcDetalles" prefWidth="323.0" text="Detalles" />
-                        <TableColumn fx:id="tcVerExperiencia" prefWidth="157.0" text="Ver experiencia">
-                           <graphic>
-                              <Button mnemonicParsing="false" text="Ver exp" />
-                           </graphic>
-                        </TableColumn>
                     </columns>
                   </TableView>
                   <Text layoutX="7.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solicitudes de experiencias por aprobar">
@@ -118,6 +112,7 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
+                  <Button fx:id="btnVerExp" layoutX="638.0" layoutY="104.0" mnemonicParsing="false" onAction="#verExp" prefHeight="33.0" prefWidth="170.0" text="Ir a experiencia seleccionada" />
                </children>
             </AnchorPane>
          </children>

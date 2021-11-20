@@ -16,6 +16,10 @@ public interface ReservaRepository extends CrudRepository<ReservaEntity,ReservaE
 
     Collection<ReservaEntity> findByMailTurista(String mailTurista);
 
+    List<ReservaEntity> findByMailTuristaOrderByFechaInicioDesc(String mailTurista);
+
+
+
     @Query("select r from ReservaEntity r where r.operadorExperiencia = ?1")
     List<ReservaEntity> findByOperadorExperiencia(String operadorExperiencia);
 
