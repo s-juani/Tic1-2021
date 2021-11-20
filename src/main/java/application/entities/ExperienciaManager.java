@@ -37,4 +37,12 @@ public class ExperienciaManager {
             throw new ExperienceAlreadyInUse();
         }
     }
+
+    public void eliminarExperiencia(ExperienciaEntity experiencia){
+        xpRep.delete(experiencia);
+    }
+
+    public void actualizarExperiencia(ExperienciaEntity experiencia){
+        xpRep.save(experiencia);
+    }
 }

@@ -123,7 +123,7 @@ public class MainAdminController {
         Stage stage = (Stage) this.btnCrearInteres.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(ExperienceController.class.getResourceAsStream("Experiencia.fxml"));
+        Parent root = fxmlLoader.load(AproveExperienceController.class.getResourceAsStream("AprovarExperiencia.fxml"));
         stage.setUserData(experiencia);
         stage.setScene(new Scene(root));
         stage.show();

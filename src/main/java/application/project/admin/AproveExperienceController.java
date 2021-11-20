@@ -1,9 +1,11 @@
-package application.project.main;
+package application.project.admin;
 
 import application.Main;
+import application.entities.ExperienciaManager;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
 import application.project.ingresar.InitialController;
+import application.project.main.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,21 +13,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Optional;
 
 @Controller
-public class ExperienceController {
+public class AproveExperienceController {
+    @Autowired
+    ExperienciaManager experienciaManager;
 
     ExperienciaEntity experiencia;
+
+    @FXML
+    private Text txtInformacionSanitaria;
+
+    @FXML
+    private Text tituloInformacionSanitaria;
 
     @FXML
     private Text txtExperienceName;
@@ -41,12 +52,6 @@ public class ExperienceController {
 
     @FXML
     private Button btnReservar;
-
-    @FXML
-    private Text txtInformacionSanitaria;
-
-    @FXML
-    private Text tituloInformacionSanitaria;
 
     private ArrayList<ImagenEntity> imagenEntities;
 
@@ -65,9 +70,6 @@ public class ExperienceController {
                         txtExperienceDescription.setText(experiencia.getDescripcion());
                         imagenEntities = new ArrayList<>(experiencia.getImagens());
                         showImagen();
-                        if (!experiencia.isConReserva()){
-                            btnReservar.setVisible(false);
-                        }
                         String textoInfoSanitaria = "";
                         if (experiencia.isVacunacion()){
                             textoInfoSanitaria += "•Se debe presentar certificado de vacunación completa ";
@@ -107,28 +109,18 @@ public class ExperienceController {
         Stage stage = (Stage) this.ap.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
+        Parent root = fxmlLoader.load(MainAdminController.class.getResourceAsStream("MainAdmin.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }
 
-    @FXML
-    void gotoReserva(ActionEvent event)throws IOException {
-        Stage stage = (Stage) this.ap.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("Reserva.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setUserData(experiencia);
-        stage.show();
-    }
 
-    private void showAlert(String title, String contextText){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    private Optional<ButtonType> showConfirmationAlert(String title, String contextText){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(contextText);
-        alert.showAndWait();
+        return alert.showAndWait();
     }
 
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
@@ -141,5 +133,22 @@ public class ExperienceController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
+    }
+
+    public void denegarExperiencia(ActionEvent actionEvent) throws IOException {
+        Optional<ButtonType> resultado = showConfirmationAlert("IMPORTANTE","Denegar la experiencia la eliminará completamente, ¿seguro que quiere hacerlo?");
+        if (resultado.isPresent() && resultado.get()==ButtonType.OK){
+            experienciaManager.eliminarExperiencia(experiencia);
+            volvelAlMain(new ActionEvent());
+        }
+    }
+
+    public void aprovarExperiencia(ActionEvent actionEvent) throws IOException {
+        Optional<ButtonType> resultado = showConfirmationAlert("IMPORTANTE","¿Seguro que quiere aprovar la experiencia?");
+        if (resultado.isPresent() && resultado.get()==ButtonType.OK){
+            experiencia.setAprovada(true);
+            experienciaManager.actualizarExperiencia(experiencia);
+            volvelAlMain(new ActionEvent());
+        }
     }
 }

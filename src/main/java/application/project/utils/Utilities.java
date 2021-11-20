@@ -31,7 +31,7 @@ public class Utilities {
         Set<ExperienciaEntity> experiencias = new HashSet<>();
 
         for (InteresEntity interes: userInterests){
-            experiencias.addAll(experienciaRepository.findByIntereses_Nombre(interes.getNombre()));
+            experiencias.addAll(experienciaRepository.findByIntereses_NombreAndAprovadaIsTrue(interes.getNombre()));
         }
 
         return new ArrayList<>(experiencias);
@@ -39,7 +39,7 @@ public class Utilities {
     }
 
     public ArrayList<ExperienciaEntity> getBusqueda(String busqueda) {
-        return new ArrayList<>(experienciaRepository.findByNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCase(busqueda,busqueda));
+        return new ArrayList<>(experienciaRepository.findByAprovadaIsTrueAndNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCaseAndAprovadaIsTrue(busqueda,busqueda));
     }
 
 }

@@ -18,9 +18,10 @@
             </Text>
             <TableView fx:id="tvReservas" layoutX="125.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
               <columns>
-                <TableColumn fx:id="tcFecha" prefWidth="150.0" text="Fecha" />
+                <TableColumn fx:id="tcFecha" prefWidth="150.0" text="Fecha inicial" />
                 <TableColumn fx:id="tcExperiencia" prefWidth="150.0" text="Experiencia" />
                   <TableColumn fx:id="tcCantPersonas" prefWidth="150.0" text="Cantidad de Personas" />
+                  <TableColumn fx:id="tcFecha1" prefWidth="150.0" text="Fecha inicial" />
               </columns>
             </TableView>
          </children>
@@ -32,7 +33,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Editar perfil" />
                   <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" onAction="#cerrarSesion"/>
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                </items>
                <font>
                   <Font size="18.0" />
