@@ -50,9 +50,6 @@ public class AproveExperienceController {
     @FXML
     private ImageView img;
 
-    @FXML
-    private Button btnReservar;
-
     private ArrayList<ImagenEntity> imagenEntities;
 
     private int idxImg=0;
@@ -124,7 +121,7 @@ public class AproveExperienceController {
     }
 
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) this.btnReservar.getScene().getWindow();
+        Stage stage = (Stage) this.ap.getScene().getWindow();
         stage.close();
         Main.closeCurrentSession();
         FXMLLoader fxmlLoader = new FXMLLoader();
