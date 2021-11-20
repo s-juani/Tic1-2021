@@ -1,23 +1,24 @@
 package application.project.main;
 
-import application.entities.ent.ExperienciaEntity;
-import application.entities.ent.OperadorEntity;
-import application.entities.ent.ReservaEntity;
-import application.entities.ent.ReservaRepository;
+import application.Main;
+import application.entities.ent.*;
+import application.project.admin.AproveExperienceController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -50,13 +51,13 @@ public class ReservasController{
     private TableColumn<ReservaEntity, Integer> CPersonas;
 
     @FXML
-    private TableColumn<ReservaEntity, Button> CVerExp;
-
-    @FXML
-    private Button btnExperiencia;
+    private Button btnVerExp;
 
     @Autowired
     private ReservaRepository reservaRepository;
+
+    @Autowired
+    private ExperienciaRepository experienciaRepository;
 
     List<ReservaEntity> reservas;
 
@@ -65,26 +66,22 @@ public class ReservasController{
 
     @FXML
     void initialize(){
-        CFechaInicio.setCellValueFactory(new MapValueFactory<>("fechaini"));
-        tcExperiencia.setCellValueFactory(new MapValueFactory<>("nombre"));
-        tcCantPersonas.setCellValueFactory(new MapValueFactory<>("cantidad"));
 
-        reservas = reservaRepository.findByOperadorExperiencia(operador.getMail());
+        CExperiencia.setCellValueFactory(new PropertyValueFactory<ReservaEntity,String>("nombreExperiencia"));
+        COperador.setCellValueFactory(new PropertyValueFactory<ReservaEntity,String>("operadorExperiencia"));
+        CFechaInicio.setCellValueFactory(new PropertyValueFactory<ReservaEntity,Date>("fechaInicio"));
+        CFechaF.setCellValueFactory(new PropertyValueFactory<ReservaEntity,Date>("fechaFin"));
+        CPersonas.setCellValueFactory(new PropertyValueFactory<ReservaEntity,Integer>("cantidad"));
 
-        ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
+        turista = Main.getCurrentSession().getActiveUser();
 
-        for (ReservaEntity res : reservas){
-            Map<String, Object> item = new HashMap<>();
-            item.put("fechaini", res.getFechaInicio());
-            item.put("nombre", res.getNombreExperiencia());
-            item.put("cantidad", res.getCantidad());
-            items.add(item);
-        }
-        TablaReservas.getItems().addAll(items);
+        reservas = reservaRepository.findByMailTuristaAndFechaFinAfterOrderByFechaInicioAsc(turista.getMail(), new Date(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)).getTime()));
+
+        TablaReservas.getItems().addAll(reservas);
 
         Label placeholder = new Label();
-        placeholder.setText("No hay reservas proximas");
-        tvReservas.setPlaceholder(placeholder);
+        placeholder.setText("No hay reservas proximas.");
+        TablaReservas.setPlaceholder(placeholder);
     }
 
     @FXML
