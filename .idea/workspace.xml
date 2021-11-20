@@ -8,26 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/project/admin/AproveExperienceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/project/admin/AprovarExperiencia.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ExperienciaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ExperienciaManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/utils/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/utils/Utilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/Experiencia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/main/Experiencia.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ExperienciaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ExperienciaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/admin/MainAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/admin/MainAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/main/ExperienceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/main/ExperienceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/utils/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/main/Experiencia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/main/Experiencia.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/main/ReservasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/main/ReservasController.java" afterDir="false" />
     </list>
     <list id="afaf0ea0-94ea-4f4f-aed7-347743a2aab0" name="Changes by Ari 2.0" comment="Changes by Ari 2.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +113,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/application/project/admin" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/application/project/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -215,7 +204,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637410693575</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Agregada aprobacion de experiencias y funcionalidad con Información Sanitaria">
+      <created>1637418255320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1637418255320</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".">
+      <created>1637418488854</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1637418488854</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +241,7 @@
     <MESSAGE value="Changes by Ari 2.0" />
     <MESSAGE value="Agregados cerrar sesión en experiencia, main del operador y main del admin" />
     <MESSAGE value="Agregada aprobación y denegación de experiencias y cuando se muestran las experiencias agregada funcionalidad con información sanitaria" />
+    <MESSAGE value="Agregada aprobacion de experiencias y funcionalidad con Información Sanitaria" />
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
