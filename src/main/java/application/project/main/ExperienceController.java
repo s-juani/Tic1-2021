@@ -1,10 +1,7 @@
 package application.project.main;
 
 import application.Main;
-import application.entities.ent.CalificacionEntity;
-import application.entities.ent.CalificacionRepository;
-import application.entities.ent.ExperienciaEntity;
-import application.entities.ent.ImagenEntity;
+import application.entities.ent.*;
 import application.project.ingresar.InitialController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -97,6 +94,10 @@ public class ExperienceController {
 
     List<CalificacionEntity> calificaciones;
 
+    private int idx1 = 0;
+    private int idx2 = 1;
+
+
     @FXML
     public void initialize(){
         ap.sceneProperty().addListener((observableScene, oldScene, newScene) -> {
@@ -140,24 +141,77 @@ public class ExperienceController {
                             btnResMas.setVisible(false);
                             btnResMenos.setVisible(false);
                         } else {
-                            // TODO init cuando si hay comentarios
+                            displayRating();
+                            Long prom = Math.round((calificacionRepository.countByNombreExperienciaAndOperadorExperiencia(experiencia.getNombre(), experiencia.getOperador())/Double.valueOf(calificaciones.size())));
+                            String estrellas = "";
+                            for (int i=0; i<prom; i++){
+                                estrellas = estrellas.concat("★");
+                            }
+
+                            txtCalificacionPromedio.setText(estrellas);
+
                         }
                     }
                 });
             }
         });
+    }
 
-        // TODO armar estructura por "sets" para ver mas comentarios
+    @Autowired
+    private TuristaRepository turistaRepository;
 
+    private void displayRating(){
+        txtRes1Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx1).getMailTurista()).getNombre());
+        txtRes1Desc.setText(calificaciones.get(idx1).getComentario());
+        String estrellas1 = "";
+        for (int i=0; i<calificaciones.get(idx1).getPuntaje(); i++){
+             estrellas1 = estrellas1.concat("★");
+        }
+        txtRes1Calificacion.setText(estrellas1);
+        try{
+            txtRes2Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx2).getMailTurista()).getNombre());
+            txtRes2Desc.setText(calificaciones.get(idx2).getComentario());
+            String estrellas2 = "";
+            for (int i=0; i<calificaciones.get(idx2).getPuntaje(); i++){
+                estrellas2 = estrellas2.concat("★");
+            }
+            txtRes2Calificacion.setText(estrellas2);
+            txtRes2Nombre.setVisible(true);
+            txtRes2Calificacion.setVisible(true);
+            txtRes2Desc.setVisible(true);
+        } catch (Exception e) {
+            txtRes2Nombre.setVisible(false);
+            txtRes2Calificacion.setVisible(false);
+            txtRes2Desc.setVisible(false);
+        }
     }
 
     public void decRes(ActionEvent actionEvent) {
+        if (idx1 != 0){
+            idx1 -= 2;
+            idx2 -= 2;
+            displayRating();
+        }
     }
 
     public void incRes(ActionEvent actionEvent) {
+        if (calificaciones.size() > idx1 + 2){
+            idx1 += 2;
+            idx2 += 2;
+            displayRating();
+        }
     }
 
-    public void nuevoComentario(ActionEvent actionEvent) {
+    public void nuevoComentario(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(DejarComentarioController.class.getResourceAsStream("DejarComentario.fxml"));
+        Stage newStage = new Stage();
+        newStage.setUserData(experiencia);
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+        refresh();
     }
 
     @FXML
@@ -230,5 +284,13 @@ public class ExperienceController {
 
     }
 
-
+    private void refresh() throws IOException{
+        Stage stage = (Stage) this.btnResMenos.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ExperienceController.class.getResourceAsStream("Experiencia.fxml"));
+        stage.setUserData(experiencia);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
