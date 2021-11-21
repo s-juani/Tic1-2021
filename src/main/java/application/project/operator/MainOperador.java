@@ -133,7 +133,13 @@ public class MainOperador {
     }
 
     @FXML
-    void goToReservas(ActionEvent event) {
+    void goToReservas(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.btnReservas.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ReservasOperador.class.getResourceAsStream("Reservas.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 

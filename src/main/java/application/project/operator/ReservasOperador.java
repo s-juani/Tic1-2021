@@ -89,7 +89,7 @@ public class ReservasOperador {
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root = fxmlLoader.load(ExperienciaController.class.getResourceAsStream("Experiencia.fxml"));
+        Parent root = fxmlLoader.load(VerExperienciaControler.class.getResourceAsStream("VerExperiencia.fxml"));
         stage.setUserData(experiencia);
         stage.setScene(new Scene(root));
         stage.show();
@@ -117,5 +117,17 @@ public class ReservasOperador {
         newStage.setScene(new Scene(root));
         newStage.show();
 
+    }
+
+    public void cerrarsesion(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.btnVolver.getScene().getWindow();
+        stage.close();
+        Main.closeCurrentSession();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(InitialController.class.getResourceAsStream("initial.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
     }
 }

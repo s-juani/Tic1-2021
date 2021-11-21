@@ -11,17 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.operator.ReservasOperador">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0" />
             <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarsesion" text="Cerrar sesion" />
                </items>
                <font>
                   <Font size="18.0" />
@@ -30,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </SplitMenuButton>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="2.0">
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="-10.0" mnemonicParsing="false" onAction="#volverAlMain" prefHeight="100.0" prefWidth="150.0" text="Volver" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1336.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -42,13 +39,18 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <TableView layoutX="528.0" layoutY="503.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+      <TableView fx:id="TablaReservas" layoutX="528.0" layoutY="503.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
         <columns>
-          <TableColumn prefWidth="375.0" text="Fecha de inicio" />
-          <TableColumn prefWidth="375.0" text="Fecha de fin" />
-            <TableColumn prefWidth="375.0" text="Experiencia" />
-            <TableColumn prefWidth="375.0" text="Cantidad de personas" />
+          <TableColumn fx:id="CFechaInicio" prefWidth="375.0" text="Fecha de inicio" />
+          <TableColumn fx:id="CFechaFin" prefWidth="375.0" text="Fecha de fin" />
+            <TableColumn fx:id="CExperiencia" prefWidth="375.0" text="Experiencia" />
+            <TableColumn fx:id="CPersonas" prefWidth="375.0" text="Cantidad de personas" />
         </columns>
       </TableView>
+      <Button fx:id="btnVerExp" layoutX="963.0" layoutY="102.0" mnemonicParsing="false" onAction="#verExp" text="Ver experienica seleccionada">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

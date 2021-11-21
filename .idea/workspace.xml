@@ -7,38 +7,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/VerExperienciaControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/VerExperiencia.fxml" afterDir="false" />
+    <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment="dejo guardado cambios que se solaparían">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2021_19_47__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2021_19_47__Changes_by_Ari_2_0_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_15_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_15_07__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_by_Ari_2_0_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_by_Ari_2_0_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ExperienciaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ExperienciaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ReservaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ReservaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/ingresar/LoginUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/ingresar/LoginUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ExperienciasOperador.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ExperienciasOperador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/utils/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/utils/Utilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/admin/AprovarExperiencia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/admin/AprovarExperiencia.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/ingresar/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/ingresar/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/main/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/Experiencias.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/Experiencias.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/Reservas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/Reservas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ent/ExperienciaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciasOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciasOperador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/utils/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/Experiencias.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/Experiencias.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/Experiencia.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" afterDir="false" />
     </list>
     <list id="afaf0ea0-94ea-4f4f-aed7-347743a2aab0" name="Changes by Ari 2.0" comment="Changes by Ari 2.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +126,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/application/project/operator" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/application/project/operator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciasOperador.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -147,6 +135,7 @@
     <property name="project.structure.proportion" value="0.11904764" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciasOperador.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -242,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637418488854</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dejo guardado cambios que se solaparían">
+      <created>1637454355400</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1637454355400</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +263,8 @@
     <MESSAGE value="Agregada aprobación y denegación de experiencias y cuando se muestran las experiencias agregada funcionalidad con información sanitaria" />
     <MESSAGE value="Agregada aprobacion de experiencias y funcionalidad con Información Sanitaria" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="dejo guardado cambios que se solaparían" />
+    <option name="LAST_COMMIT_MESSAGE" value="dejo guardado cambios que se solaparían" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
