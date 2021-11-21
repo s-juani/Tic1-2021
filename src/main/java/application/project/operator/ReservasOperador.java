@@ -67,12 +67,12 @@ public class ReservasOperador {
 
         operador = Main.getCurrentSession().getActiveUser();
 
-        reservas = reservaRepository.findByOperadorExperienciaAndFechaFinAfterOrderByFechaInicioAsc(operador.getMail(), new Date(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)).getTime()));
+        reservas = reservaRepository.findByOperadorExperienciaAndFechaFinBeforeOrderByFechaFinDesc(operador.getMail(), new Date(java.util.Date.from(Instant.now()).getTime()));
 
         TablaReservas.getItems().addAll(reservas);
 
         Label placeholder = new Label();
-        placeholder.setText("No hay reservas proximas.");
+        placeholder.setText("No hay reservas históricas.");
         TablaReservas.setPlaceholder(placeholder);
     }
 

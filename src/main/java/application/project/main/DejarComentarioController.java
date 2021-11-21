@@ -50,7 +50,7 @@ public class DejarComentarioController {
     void enviarComentario(ActionEvent event) {
         String comentario = campoComentario.getText();
         Stage stage = (Stage) star2.getScene().getWindow();
-        ExperienciaEntity experiencia = (ExperienciaEntity) stage.getUserData();
+        ExperienciaEntity experiencia=(ExperienciaEntity) stage.getUserData();
         try {
             calificacionManager.addCalificacion(comentario,stars,experiencia, (TuristaEntity) Main.getCurrentSession().getActiveUser());
             showAlert(
@@ -58,7 +58,6 @@ public class DejarComentarioController {
                     "El comentario ha sido registrado exitosamente"
             );
             stage.close();
-
         } catch (InvalidInformation e) {
             showAlert(
                     "Datos faltantes",

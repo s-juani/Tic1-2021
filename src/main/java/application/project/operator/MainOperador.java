@@ -1,9 +1,7 @@
 package application.project.operator;
 
 import application.Main;
-import application.entities.ent.OperadorEntity;
-import application.entities.ent.ReservaEntity;
-import application.entities.ent.ReservaRepository;
+import application.entities.ent.*;
 import application.project.ingresar.InitialController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -38,16 +36,19 @@ import java.util.Map;
 public class MainOperador {
 
     @FXML
-    private TableView tvReservas;
+    private TableView<ReservaEntity> tvReservas;
 
     @FXML
-    private TableColumn<Map, String> tcFecha;
+    private TableColumn<ReservaEntity, Date> tcFecha;
 
     @FXML
-    private TableColumn<Map, String> tcExperiencia;
+    private TableColumn<ReservaEntity, Date> tcFechaF;
 
     @FXML
-    private TableColumn<Map, String> tcCantPersonas;
+    private TableColumn<ReservaEntity, String> tcExperiencia;
+
+    @FXML
+    private TableColumn<ReservaEntity, Integer> tcCantPersonas;
 
     @FXML
     private Button btnCrearExperiencia;
@@ -57,24 +58,6 @@ public class MainOperador {
 
     @FXML
     private Button btnReservas;
-
-    @FXML
-    private Text nombreExperiencia0;
-
-    @FXML
-    private ImageView imagenExperiencia0;
-
-    @FXML
-    private Text nombreExperiencia2;
-
-    @FXML
-    private ImageView imagenExperiencia2;
-
-    @FXML
-    private Text nombreExperiencia1;
-
-    @FXML
-    private ImageView imagenExperiencia1;
 
     private OperadorEntity operador;
 
@@ -88,28 +71,42 @@ public class MainOperador {
 
         operador = Main.getCurrentSession().getActiveUser();
 
-        tcFecha.setCellValueFactory(new MapValueFactory<>("fecha"));
-        tcExperiencia.setCellValueFactory(new MapValueFactory<>("nombre"));
-        tcCantPersonas.setCellValueFactory(new MapValueFactory<>("cantidad"));
+        tcExperiencia.setCellValueFactory(new PropertyValueFactory<ReservaEntity,String>("nombreExperiencia"));
+        tcFecha.setCellValueFactory(new PropertyValueFactory<ReservaEntity, Date>("fechaInicio"));
+        tcFechaF.setCellValueFactory(new PropertyValueFactory<ReservaEntity,Date>("fechaFin"));
+        tcCantPersonas.setCellValueFactory(new PropertyValueFactory<ReservaEntity,Integer>("cantidad"));
 
 
 
         reservas = reservaRepository.findByOperadorExperienciaAndFechaFinAfterOrderByFechaInicioAsc(operador.getMail(), new Date(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)).getTime()));
 
-        ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
-
-        for (ReservaEntity res : reservas){
-            Map<String, Object> item = new HashMap<>();
-            item.put("fecha", res.getFechaInicio());
-            item.put("nombre", res.getNombreExperiencia());
-            item.put("cantidad", res.getCantidad());
-            items.add(item);
-        }
-        tvReservas.getItems().addAll(items);
+        tvReservas.getItems().addAll(reservas);
 
         Label placeholder = new Label();
         placeholder.setText("No hay reservas proximas");
         tvReservas.setPlaceholder(placeholder);
+    }
+
+    @Autowired
+    private ExperienciaRepository experienciaRepository;
+
+    @FXML
+    public void VerExp(ActionEvent actionEvent) throws IOException {
+        String expSeleccionada = tvReservas.getSelectionModel().getSelectedItem().getNombreExperiencia();
+        operador = Main.getCurrentSession().getActiveUser();
+
+        irAExperiencia(experienciaRepository.findByNombreAndOperador(expSeleccionada,operador.getMail()));
+    }
+
+
+    private void irAExperiencia(ExperienciaEntity experiencia) throws IOException{
+        Stage stage = (Stage) this.btnCrearExperiencia.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(VerExperienciaControler.class.getResourceAsStream("VerExperiencia.fxml"));
+        stage.setUserData(experiencia);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -143,20 +140,7 @@ public class MainOperador {
 
     }
 
-    @FXML
-    void irAExperiencia0(MouseEvent event) {
 
-    }
-
-    @FXML
-    void irAExperiencia1(MouseEvent event) {
-
-    }
-
-    @FXML
-    void irAExperiencia2(MouseEvent event) {
-
-    }
 
     public void cerrarSesion(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.btnCrearExperiencia.getScene().getWindow();

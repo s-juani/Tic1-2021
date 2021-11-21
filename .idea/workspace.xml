@@ -7,9 +7,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment="Borrado de experiencias por parte del operador">
+    <list default="true" id="b0593581-9d3c-4dd7-aa89-0ebe5e1b8937" name="Changes" comment="Agregado FXML Dejar comentario">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2021_19_47__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2021_19_47__Changes_by_Ari_2_0_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_15_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_15_07__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_19_40__Changes_by_Ari_2_0_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_by_Ari_2_0_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2021_20_33__Changes_by_Ari_2_0_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/main/ExperienceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/main/ExperienceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/CalificacionEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/CalificacionEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ReservaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/ReservaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/TuristaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/TuristaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ExperienceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/admin/AprovarExperiencia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/admin/AprovarExperiencia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/ingresar/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/ingresar/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ent/ReservaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ent/ReservaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/main/DejarComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/main/DejarComentarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" afterDir="false" />
     </list>
     <list id="afaf0ea0-94ea-4f4f-aed7-347743a2aab0" name="Changes by Ari 2.0" comment="Changes by Ari 2.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +75,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -108,7 +133,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/application/project/operator" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/application/project/main" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/application/project/operator/ExperienciasOperador.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -124,6 +149,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ari 2.0\IdeaProjects\Tic1-2021\src\main\resources\application\project\operator" />
       <recent name="C:\Users\Ari 2.0\IdeaProjects\Tic1-2021\src\main\resources\application\project\admin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="application.entities" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Main">
@@ -178,6 +206,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636672225539</updated>
       <workItem from="1637106952356" duration="11167000" />
+      <workItem from="1637496048916" duration="1744000" />
     </task>
     <task id="LOCAL-00001" summary="Avances">
       <created>1637024268663</created>
@@ -228,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637456446895</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Agregado FXML Dejar comentario">
+      <created>1637458377361</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1637458377361</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +291,8 @@
     <MESSAGE value="." />
     <MESSAGE value="dejo guardado cambios que se solaparían" />
     <MESSAGE value="Borrado de experiencias por parte del operador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Borrado de experiencias por parte del operador" />
+    <MESSAGE value="Agregado FXML Dejar comentario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado FXML Dejar comentario" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

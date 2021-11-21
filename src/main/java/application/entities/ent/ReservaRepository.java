@@ -29,6 +29,10 @@ public interface ReservaRepository extends CrudRepository<ReservaEntity,ReservaE
     @Query("select r from ReservaEntity r where r.operadorExperiencia = ?1")
     List<ReservaEntity> findByOperadorExperiencia(String operadorExperiencia);
 
+    List<ReservaEntity> findByOperadorExperienciaAndFechaFinBeforeOrderByFechaFinDesc(String operadorExperiencia, Date fechaFin);
+
+
+
 
 
 }
