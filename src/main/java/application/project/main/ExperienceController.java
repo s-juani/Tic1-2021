@@ -96,7 +96,6 @@ public class ExperienceController {
     List<CalificacionEntity> calificaciones;
 
     private int idx1 = 0;
-    private int idx2 = 1;
 
 
     @FXML
@@ -170,10 +169,10 @@ public class ExperienceController {
         }
         txtRes1Calificacion.setText(estrellas1);
         try{
-            txtRes2Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx2).getMailTurista()).getNombre());
-            txtRes2Desc.setText(calificaciones.get(idx2).getComentario());
+            txtRes2Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx1+1).getMailTurista()).getNombre());
+            txtRes2Desc.setText(calificaciones.get(idx1+1).getComentario());
             String estrellas2 = "";
-            for (int i=0; i<calificaciones.get(idx2).getPuntaje(); i++){
+            for (int i=0; i<calificaciones.get(idx1+1).getPuntaje(); i++){
                 estrellas2 = estrellas2.concat("★");
             }
             txtRes2Calificacion.setText(estrellas2);
@@ -190,7 +189,6 @@ public class ExperienceController {
     public void decRes(ActionEvent actionEvent) {
         if (idx1 != 0){
             idx1 -= 2;
-            idx2 -= 2;
             displayRating();
         }
     }
@@ -198,7 +196,6 @@ public class ExperienceController {
     public void incRes(ActionEvent actionEvent) {
         if (calificaciones.size() > idx1 + 2){
             idx1 += 2;
-            idx2 += 2;
             displayRating();
         }
     }

@@ -21,9 +21,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                </items>
             </SplitMenuButton>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Favoritos" AnchorPane.rightAnchor="304.0" AnchorPane.topAnchor="0.0" />
-            <Button layoutX="901.0" layoutY="1.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Itinerario" AnchorPane.rightAnchor="456.0" AnchorPane.topAnchor="0.0" />
+            <Button mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
          </children>
       </AnchorPane>

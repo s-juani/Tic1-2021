@@ -2,10 +2,7 @@ package application.project.operator;
 
 import application.Main;
 import application.entities.ExperienciaManager;
-import application.entities.ent.CalificacionEntity;
-import application.entities.ent.CalificacionRepository;
-import application.entities.ent.ExperienciaEntity;
-import application.entities.ent.ImagenEntity;
+import application.entities.ent.*;
 import application.project.ingresar.InitialController;
 import application.project.main.ExperienceController;
 import application.project.main.MainController;
@@ -122,7 +119,7 @@ public class VerExperienciaControler {
                         calificaciones = calificacionRepository.findByNombreExperienciaAndOperadorExperienciaOrderByPuntajeDesc(experiencia.getNombre(), experiencia.getOperador());
 
                         if (calificaciones.size() == 0){
-                            txtCalificacionPromedio.setText("Aun no se hicieron calificaciones");
+                            txtCalificacionPromedio.setText("Aun no se hiieron calificaciones");
                             txtRes1Calificacion.setVisible(false);
                             txtRes1Nombre.setVisible(false);
                             txtRes1Desc.setVisible(false);
@@ -134,23 +131,66 @@ public class VerExperienciaControler {
                             btnResMas.setVisible(false);
                             btnResMenos.setVisible(false);
                         } else {
-                            // TODO init cuando si hay comentarios
+                            displayRating();
+                            Long prom = Math.round((calificacionRepository.countByNombreExperienciaAndOperadorExperiencia(experiencia.getNombre(), experiencia.getOperador())/Double.valueOf(calificaciones.size())));
+                            String estrellas = "";
+                            for (int i=0; i<prom; i++){
+                                estrellas = estrellas.concat("★");
+                            }
+
+                            txtCalificacionPromedio.setText(estrellas);
+
                         }
                     }
                 });
             }
         });
+    }
 
-        // TODO armar estructura por "sets" para ver mas comentarios
+    @Autowired
+    private TuristaRepository turistaRepository;
 
+    private int idx1 = 0;
+
+    private void displayRating(){
+        txtRes1Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx1).getMailTurista()).getNombre());
+        txtRes1Desc.setText(calificaciones.get(idx1).getComentario());
+        String estrellas1 = "";
+        for (int i=0; i<calificaciones.get(idx1).getPuntaje(); i++){
+            estrellas1 = estrellas1.concat("★");
+        }
+        txtRes1Calificacion.setText(estrellas1);
+        try{
+            txtRes2Nombre.setText(turistaRepository.findByMail(calificaciones.get(idx1+1).getMailTurista()).getNombre());
+            txtRes2Desc.setText(calificaciones.get(idx1+1).getComentario());
+            String estrellas2 = "";
+            for (int i=0; i<calificaciones.get(idx1+1).getPuntaje(); i++){
+                estrellas2 = estrellas2.concat("★");
+            }
+            txtRes2Calificacion.setText(estrellas2);
+            txtRes2Nombre.setVisible(true);
+            txtRes2Calificacion.setVisible(true);
+            txtRes2Desc.setVisible(true);
+        } catch (Exception e) {
+            txtRes2Nombre.setVisible(false);
+            txtRes2Calificacion.setVisible(false);
+            txtRes2Desc.setVisible(false);
+        }
     }
 
     public void decRes(ActionEvent actionEvent) {
+        if (idx1 != 0){
+            idx1 -= 2;
+            displayRating();
+        }
     }
 
     public void incRes(ActionEvent actionEvent) {
+        if (calificaciones.size() > idx1 + 2){
+            idx1 += 2;
+            displayRating();
+        }
     }
-
     @FXML
     public void eliminarExperiencia(ActionEvent actionEvent) throws IOException {
         Optional<ButtonType> resultado = showConfirmationAlert("IMPORTANTE","Borrar la experiencia la eliminará completamente, ¿seguro que quiere hacerlo?");
@@ -207,5 +247,17 @@ public class VerExperienciaControler {
     }
 
 
+    @FXML
+    void iraReservas(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.btnResMas.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ReservasOperador.class.getResourceAsStream("Reservas.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+
+    }
 }
 
