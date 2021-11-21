@@ -36,6 +36,9 @@ public class ReservaController {
     private AnchorPane ap;
 
     @FXML
+    private Button btnReservas;
+
+    @FXML
     private Text txtExperienceName;
 
     @FXML
@@ -250,5 +253,18 @@ public class ReservaController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
+    }
+
+    @FXML
+    void iraReservas(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.btnReservas.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ReservasController.class.getResourceAsStream("Reservas.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.ExperienceController">
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.operator.ExperienciaController">
    <children>
       <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1500.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -20,18 +20,16 @@
             </ImageView>
             <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
+                  <MenuItem fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                </items>
             </SplitMenuButton>
             <Button fx:id="btnReservas" layoutX="901.0" layoutY="1.0" mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="0.0" />
-            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
+            <Button fx:id="btnVolver" layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
          <children>
-            <Button fx:id="btnReservar" layoutX="1215.0" layoutY="34.0" mnemonicParsing="false" onAction="#gotoReserva" prefHeight="50.0" prefWidth="200.0" text="Reservar" AnchorPane.topAnchor="20.0">
+            <Button fx:id="btnEliminar" layoutX="1103.0" layoutY="34.0" mnemonicParsing="false" onAction="#eliminarExp" prefHeight="50.0" prefWidth="312.0" text="Eliminar experiencia" AnchorPane.topAnchor="20.0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -79,7 +77,6 @@
                      </font>
                   </Text>
                   <Text fx:id="txtRes2Desc" layoutX="708.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="652.5890888574019" AnchorPane.rightAnchor="39.41091114259825" AnchorPane.topAnchor="70.0" />
-                  <Button fx:id="btnDejarComentario" layoutX="1242.0" layoutY="11.0" mnemonicParsing="false" onAction="#nuevoComentario" text="Deja tu comentario" />
                   <Text fx:id="txtCalificacionPromedio" layoutX="408.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ★★★★★">
                      <font>
                         <Font size="21.0" />

@@ -33,6 +33,9 @@ public class BusquedaController {
     private AnchorPane ap;
 
     @FXML
+    private Button btnReservas;
+
+    @FXML
     private Button btnPgAnterior;
 
     @FXML
@@ -302,5 +305,18 @@ public class BusquedaController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
+    }
+
+    @FXML
+    void iraReservas(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.btnReservas.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ReservasController.class.getResourceAsStream("Reservas.fxml"));
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.show();
+
     }
 }
