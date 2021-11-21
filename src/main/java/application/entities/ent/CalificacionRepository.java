@@ -10,4 +10,6 @@ public interface CalificacionRepository extends CrudRepository<CalificacionEntit
 
     List<CalificacionEntity> findByNombreExperienciaAndOperadorExperienciaOrderByPuntajeDesc(String nombreExperiencia, String operadorExperiencia);
 
+    @Query("select sum(c.puntaje) from CalificacionEntity c where c.nombreExperiencia = ?1 and c.operadorExperiencia = ?2")
+    Long countByNombreExperienciaAndOperadorExperiencia(String nombreExperiencia, String operadorExperiencia);
 }

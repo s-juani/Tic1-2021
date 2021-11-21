@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -281,7 +282,6 @@ public class ExperienceController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
-
     }
 
     private void refresh() throws IOException{

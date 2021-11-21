@@ -14,6 +14,19 @@ public class CalificacionEntity {
     private String comentario;
     private Timestamp fechaHora;
 
+    public CalificacionEntity(){
+
+    }
+
+    public CalificacionEntity(String operadorExperiencia, String nombreExperiencia, String mailTurista, byte puntaje, String comentario, Timestamp fechaHora) {
+        this.operadorExperiencia = operadorExperiencia;
+        this.nombreExperiencia = nombreExperiencia;
+        this.mailTurista = mailTurista;
+        this.puntaje = puntaje;
+        this.comentario = comentario;
+        this.fechaHora = fechaHora;
+    }
+
     @Id
     @Column(name = "operador_experiencia")
     public String getOperadorExperiencia() {
