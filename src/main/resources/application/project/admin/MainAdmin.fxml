@@ -13,9 +13,7 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0" />
             <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Cerrar sesion" onAction="#cerrarSesion"/>
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                </items>
                <font>
                   <Font size="18.0" />
@@ -24,11 +22,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </SplitMenuButton>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Notificaciones" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <Text layoutX="224.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Administrativo">
                <font>
                   <Font size="55.0" />

@@ -16,6 +16,14 @@ public class OperadorEntity extends UsuarioEntity {
         //this.usuarioByMail = usuarioByMail;
     }
 
+    public String getFormaContactosByMail() {
+        return formaContactosByMail;
+    }
+
+    public void setFormaContactosByMail(String formaContactosByMail) {
+        this.formaContactosByMail = formaContactosByMail;
+    }
+
     public OperadorEntity() {
 
     }

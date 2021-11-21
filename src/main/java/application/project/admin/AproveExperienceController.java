@@ -4,6 +4,7 @@ import application.Main;
 import application.entities.ExperienciaManager;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
+import application.entities.ent.OperadorRepository;
 import application.project.ingresar.InitialController;
 import application.project.main.MainController;
 import javafx.event.ActionEvent;
@@ -147,5 +148,30 @@ public class AproveExperienceController {
             experienciaManager.actualizarExperiencia(experiencia);
             volvelAlMain(new ActionEvent());
         }
+    }
+
+    public void verDireccion(ActionEvent actionEvent) {
+        showAlert(
+                "Direccion:",
+                experiencia.getDireccion()
+        );
+    }
+
+    @Autowired
+    private OperadorRepository operadorRepository;
+
+    public void verContacto(ActionEvent actionEvent) {
+        showAlert(
+                "Contacto:",
+                operadorRepository.findOneByMail(experiencia.getOperador()).getFormaContactosByMail()
+        );
+    }
+
+    private void showAlert(String title, String contextText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 }

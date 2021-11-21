@@ -11,7 +11,7 @@
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0" />
-            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">
+            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#cerrarsesion" text="Cerrar sesion" />
                </items>

@@ -16,13 +16,11 @@
             </ImageView>
             <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
                   <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                </items>
             </SplitMenuButton>
             <Button mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
-            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
+            <Button mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
@@ -114,6 +112,8 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
+                  <Button layoutY="114.0" mnemonicParsing="false" onAction="#verDireccion" text="Ver direccion" />
+                  <Button layoutX="93.0" layoutY="114.0" mnemonicParsing="false" onAction="#verContacto" text="Ver contacto" />
                </children>
             </AnchorPane>
             <Button fx:id="btnResMenos" layoutX="23.0" layoutY="605.0" mnemonicParsing="false" onAction="#decRes" text="←" />

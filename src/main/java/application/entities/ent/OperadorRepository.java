@@ -11,5 +11,9 @@ public interface OperadorRepository extends CrudRepository<OperadorEntity, Strin
 
     OperadorEntity findOneByUsuario(String usuario);
 
+    OperadorEntity findOneByMail(String mail);
+
+
+
 }
 

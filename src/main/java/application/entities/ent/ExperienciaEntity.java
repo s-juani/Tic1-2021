@@ -46,7 +46,6 @@ public class ExperienciaEntity {
     private Set<ImagenEntity> imagens;
     private Set<CalificacionEntity> calificaciones;
     private Set<InteresEntity> intereses;
-    private Set<VideoEntity> videos;
     private Set<ReservaEntity> reservas;
     private boolean vacunacion;
     private String direccion;
@@ -155,15 +154,6 @@ public class ExperienciaEntity {
         this.imagens = imagens;
     }
 
-    @OneToMany(mappedBy = "experiencia", fetch = FetchType.EAGER)
-    public Set<VideoEntity> getVideos() {
-        return videos;
-    }
-
-    public void setVideos(Set<VideoEntity> videos) {
-        this.videos = videos;
-    }
-
     @OneToMany(targetEntity = ReservaEntity.class, fetch = FetchType.EAGER)
     @JoinColumns({@JoinColumn(insertable = false,updatable = false,name = "operador_experiencia", referencedColumnName = "operador", nullable = false),
             @JoinColumn(insertable = false,updatable = false,name = "nombre_experiencia", referencedColumnName = "nombre", nullable = false)})
@@ -222,10 +212,6 @@ public class ExperienciaEntity {
         str += "}, intereses:{ ";
         for (InteresEntity interes: intereses){
             str += "," + interes.getNombre();
-        }
-        str += "}, videos:{ ";
-        for (VideoEntity video: videos){
-            str += "," + video.getUrl();
         }
         str += "}, calificaciones:{ ";
         for (CalificacionEntity calificacion: calificaciones){

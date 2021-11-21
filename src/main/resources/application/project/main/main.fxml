@@ -20,8 +20,6 @@
                </ImageView>
                <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <items>
-                     <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                     <MenuItem mnemonicParsing="false" text="Preferencias" />
                      <MenuItem fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                   </items>
                   <font>

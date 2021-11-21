@@ -133,11 +133,9 @@ public class ExperienceController {
                             txtRes1Calificacion.setVisible(false);
                             txtRes1Nombre.setVisible(false);
                             txtRes1Desc.setVisible(false);
-
                             txtRes2Nombre.setVisible(false);
                             txtRes2Calificacion.setVisible(false);
                             txtRes2Desc.setVisible(false);
-
                             btnResMas.setVisible(false);
                             btnResMenos.setVisible(false);
                         } else {
@@ -147,9 +145,7 @@ public class ExperienceController {
                             for (int i=0; i<prom; i++){
                                 estrellas = estrellas.concat("★");
                             }
-
                             txtCalificacionPromedio.setText(estrellas);
-
                         }
                     }
                 });
@@ -289,5 +285,22 @@ public class ExperienceController {
         stage.setUserData(experiencia);
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void verDIreccion(ActionEvent actionEvent) {
+        showAlert(
+                "Direccion:",
+                experiencia.getDireccion()
+        );
+    }
+
+    @Autowired
+    private OperadorRepository operadorRepository;
+
+    public void verContacto(ActionEvent actionEvent) {
+        showAlert(
+                "Contacto:",
+                operadorRepository.findOneByMail(experiencia.getOperador()).getFormaContactosByMail()
+        );
     }
 }

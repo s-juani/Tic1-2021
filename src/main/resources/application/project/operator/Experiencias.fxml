@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.operator.ExperienciasOperador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.operator.ExperienciasOperador">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0" />
-            <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">
+            <SplitMenuButton alignment="CENTER" layoutX="1336.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                   <MenuItem mnemonicParsing="false" text="Cerrar sesion" />
                </items>
@@ -26,12 +23,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </SplitMenuButton>
-            <Button fx:id="btnVolver" layoutX="31.0" layoutY="4.0" mnemonicParsing="false" onAction="#volverAlMain" prefHeight="100.0" prefWidth="150.0" text="Volver" AnchorPane.rightAnchor="1319.0" AnchorPane.topAnchor="4.0">
+            <Button fx:id="btnVolver" layoutX="31.0" layoutY="4.0" mnemonicParsing="false" onAction="#volverAlMain" prefHeight="100.0" prefWidth="150.0" text="Volver" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnReservas" layoutX="1155.0" layoutY="-10.0" mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.topAnchor="0.0">
+            <Button fx:id="btnReservas" layoutX="1155.0" layoutY="-10.0" mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="18.0" />
                </font>

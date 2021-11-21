@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.BusquedaController">
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.BusquedaController">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1500.0" style="-fx-background-color: 0;">
             <children>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="497.4651184082031" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1552.0" AnchorPane.topAnchor="0.0">
                 </ImageView>
-                <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">
+                <SplitMenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="Cuenta" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Editar perfil" />
-                        <MenuItem mnemonicParsing="false" text="Preferencias" />
                         <MenuItem fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                     </items>
                     <font>
@@ -30,68 +24,14 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </SplitMenuButton>
-                <Button fx:id="btnReservas" mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="2.0">
+                <Button fx:id="btnReservas" mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <AnchorPane prefHeight="200.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="100.0">
-            <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filtros" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
-                    <font>
-                        <Font name="System Bold" size="36.0" />
-                    </font>
-                </Text>
-                <CheckBox fx:id="chbFiltro1" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" text="Filtro 1" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro2" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="Filtro 2" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="150.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro3" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="Filtro 3" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="200.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro4" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="Filtro 4" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="250.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro5" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="Filtro 5" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="300.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro6" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="Filtro 6" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="350.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro7" layoutX="21.0" layoutY="120.0" mnemonicParsing="false" text="Filtro 7" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="400.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro8" layoutX="21.0" layoutY="120.0" mnemonicParsing="false" text="Filtro 8" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="450.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="chbFiltro9" layoutX="21.0" layoutY="120.0" mnemonicParsing="false" text="Filtro 9" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="500.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </CheckBox>
-            </children>
-        </AnchorPane>
-        <AnchorPane prefHeight="459.0" prefWidth="1437.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <AnchorPane layoutX="219.0" layoutY="100.0" prefHeight="459.0" prefWidth="1437.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="100.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resultado de busqueda" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="15.0">
                     <font>
@@ -174,7 +114,7 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <ImageView fx:id="imagenExperiencia6" fitHeight="100.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#irAExperiencia6" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0">
+                <ImageView fx:id="imagenExperiencia6" fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="350.0" onMouseClicked="#irAExperiencia6" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="350.0">
                     <viewport>
                         <Rectangle2D />
                     </viewport>

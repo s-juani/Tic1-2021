@@ -259,5 +259,30 @@ public class VerExperienciaControler {
         newStage.show();
 
     }
+
+    public void verDireccion(ActionEvent actionEvent) {
+        showAlert(
+                "Direccion:",
+                experiencia.getDireccion()
+        );
+    }
+
+    @Autowired
+    private OperadorRepository operadorRepository;
+
+    public void verContacto(ActionEvent actionEvent) {
+        showAlert(
+                "Contacto:",
+                operadorRepository.findOneByMail(experiencia.getOperador()).getFormaContactosByMail()
+        );
+    }
+
+    private void showAlert(String title, String contextText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
 }
 
