@@ -123,8 +123,13 @@ public class MainOperador {
     }
 
     @FXML
-    void goToExperiencias(ActionEvent event) {
-
+    void goToExperiencias(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.btnReservas.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(ExperienciasOperador.class.getResourceAsStream("Experiencias.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

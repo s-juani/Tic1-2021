@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.lang.NonNull;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 public interface ExperienciaRepository extends CrudRepository<ExperienciaEntity,ExperienciaEntityPK> {
@@ -25,6 +26,10 @@ public interface ExperienciaRepository extends CrudRepository<ExperienciaEntity,
 
     @NonNull
     ExperienciaEntity findByNombreAndOperador(String nombre, String operador);
+
+    List<ExperienciaEntity> findByOperador(String operador);
+
+
 
 
 

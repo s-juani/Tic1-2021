@@ -1,9 +1,6 @@
 package application.project.utils;
 
-import application.entities.ent.ExperienciaEntity;
-import application.entities.ent.ExperienciaRepository;
-import application.entities.ent.InteresEntity;
-import application.entities.ent.TuristaEntity;
+import application.entities.ent.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -42,4 +39,7 @@ public class Utilities {
         return new ArrayList<>(experienciaRepository.findByAprovadaIsTrueAndNombreContainsIgnoreCaseOrIntereses_NombreContainsIgnoreCaseAndAprovadaIsTrue(busqueda,busqueda));
     }
 
+    public ArrayList<ExperienciaEntity> getExperienciasByOperador(OperadorEntity operador) {
+        return new ArrayList<>(experienciaRepository.findByOperador(operador.getMail()));
+    }
 }
