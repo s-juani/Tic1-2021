@@ -319,4 +319,13 @@ public class BusquedaController {
         newStage.show();
 
     }
+
+    public void volver(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.ap.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root = fxmlLoader.load(MainController.class.getResourceAsStream("main.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

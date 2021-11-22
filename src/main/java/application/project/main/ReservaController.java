@@ -273,10 +273,7 @@ public class ReservaController {
                                         "No hay suficiente aforo"
                                 );
                             }
-                            showAlert(
-                                    "a",
-                                    "b"
-                            );
+
                             volver(new ActionEvent());
                         }
                     }
