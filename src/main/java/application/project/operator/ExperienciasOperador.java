@@ -151,15 +151,15 @@ public class ExperienciasOperador {
         this.displayExperiencia(this.experiencias, this.start_index + 2, this.imagenExperiencia2, this.nombreExperiencia2);
         this.displayExperiencia(this.experiencias, this.start_index + 3, this.imagenExperiencia3, this.nombreExperiencia3);
         this.displayExperiencia(this.experiencias, this.start_index + 4, this.imagenExperiencia4, this.nombreExperiencia4);
-        this.displayExperiencia(this.experiencias, this.start_index + 6, this.imagenExperiencia6, this.nombreExperiencia6);
-        this.displayExperiencia(this.experiencias, this.start_index + 7, this.imagenExperiencia7, this.nombreExperiencia7);
-        this.displayExperiencia(this.experiencias, this.start_index + 8, this.imagenExperiencia8, this.nombreExperiencia8);
-        this.displayExperiencia(this.experiencias, this.start_index + 9, this.imagenExperiencia9, this.nombreExperiencia9);
-        this.displayExperiencia(this.experiencias, this.start_index + 10, this.imagenExperiencia10, this.nombreExperiencia10);
-        this.displayExperiencia(this.experiencias, this.start_index + 11, this.imagenExperiencia11, this.nombreExperiencia11);
-        this.displayExperiencia(this.experiencias, this.start_index + 12, this.imagenExperiencia12, this.nombreExperiencia12);
-        this.displayExperiencia(this.experiencias, this.start_index + 13, this.imagenExperiencia13, this.nombreExperiencia13);
-        this.displayExperiencia(this.experiencias, this.start_index + 14, this.imagenExperiencia14, this.nombreExperiencia14);
+        this.displayExperiencia(this.experiencias, this.start_index + 5, this.imagenExperiencia6, this.nombreExperiencia6);
+        this.displayExperiencia(this.experiencias, this.start_index + 6, this.imagenExperiencia7, this.nombreExperiencia7);
+        this.displayExperiencia(this.experiencias, this.start_index + 7, this.imagenExperiencia8, this.nombreExperiencia8);
+        this.displayExperiencia(this.experiencias, this.start_index + 8, this.imagenExperiencia9, this.nombreExperiencia9);
+        this.displayExperiencia(this.experiencias, this.start_index + 9, this.imagenExperiencia10, this.nombreExperiencia10);
+        this.displayExperiencia(this.experiencias, this.start_index + 10, this.imagenExperiencia11, this.nombreExperiencia11);
+        this.displayExperiencia(this.experiencias, this.start_index + 11, this.imagenExperiencia12, this.nombreExperiencia12);
+        this.displayExperiencia(this.experiencias, this.start_index + 12, this.imagenExperiencia13, this.nombreExperiencia13);
+        this.displayExperiencia(this.experiencias, this.start_index + 13, this.imagenExperiencia14, this.nombreExperiencia14);
     }
 
     private void displayExperiencia(ArrayList<ExperienciaEntity> experiencias, int index, ImageView imagenExperiencia, Text nombreExperiencia) {
@@ -226,7 +226,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia6(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 6));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 5));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -236,7 +236,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia7(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 7));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 6));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -246,7 +246,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia8(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 8));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 7));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -256,7 +256,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia9(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 9));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 8));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -266,7 +266,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia10(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 10));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 9));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -276,7 +276,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia11(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 11));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 10));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -286,7 +286,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia12(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 12));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 11));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -296,7 +296,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia13(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 13));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 12));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -306,7 +306,7 @@ public class ExperienciasOperador {
     @FXML
     void irAExperiencia14(MouseEvent event) {
         try {
-            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 14));
+            this.irAExperienciaSeleccionada((ExperienciaEntity)this.experiencias.get(this.start_index + 13));
         } catch (IOException var3) {
             var3.printStackTrace();
         }
@@ -316,7 +316,7 @@ public class ExperienciasOperador {
     @FXML
     void irAPgAnterior(ActionEvent event) {
         if (this.start_index != 0) {
-            this.start_index -= 11;
+            this.start_index -= 14;
             this.refresh_experiencias();
         }
 
@@ -324,8 +324,8 @@ public class ExperienciasOperador {
 
     @FXML
     public void irAPgSiguiente(ActionEvent actionEvent) {
-        if (this.experiencias.size() > this.start_index + 11) {
-            this.start_index += 11;
+        if (this.experiencias.size() > this.start_index + 14) {
+            this.start_index += 14;
             this.refresh_experiencias();
         }
 

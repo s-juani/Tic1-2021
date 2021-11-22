@@ -162,11 +162,11 @@ public class BusquedaController {
         displayExperiencia(resultado_busqueda,start_index+2,imagenExperiencia2, nombreExperiencia2);
         displayExperiencia(resultado_busqueda,start_index+3,imagenExperiencia3, nombreExperiencia3);
         displayExperiencia(resultado_busqueda,start_index+4,imagenExperiencia4, nombreExperiencia4);
-        displayExperiencia(resultado_busqueda,start_index+6,imagenExperiencia6, nombreExperiencia6);
-        displayExperiencia(resultado_busqueda,start_index+7,imagenExperiencia7, nombreExperiencia7);
-        displayExperiencia(resultado_busqueda,start_index+8,imagenExperiencia8, nombreExperiencia8);
-        displayExperiencia(resultado_busqueda,start_index+9,imagenExperiencia9, nombreExperiencia9);
-        displayExperiencia(resultado_busqueda,start_index+10,imagenExperiencia10, nombreExperiencia10);
+        displayExperiencia(resultado_busqueda,start_index+5,imagenExperiencia6, nombreExperiencia6);
+        displayExperiencia(resultado_busqueda,start_index+6,imagenExperiencia7, nombreExperiencia7);
+        displayExperiencia(resultado_busqueda,start_index+7,imagenExperiencia8, nombreExperiencia8);
+        displayExperiencia(resultado_busqueda,start_index+8,imagenExperiencia9, nombreExperiencia9);
+        displayExperiencia(resultado_busqueda,start_index+9,imagenExperiencia10, nombreExperiencia10);
     }
 
     private void displayExperiencia(ArrayList<ExperienciaEntity> resultado_busqueda,int index,ImageView imagenExperiencia, Text nombreExperiencia){
@@ -227,7 +227,7 @@ public class BusquedaController {
     @FXML
     void irAExperiencia6(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+6));
+            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+5));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -236,7 +236,7 @@ public class BusquedaController {
     @FXML
     void irAExperiencia7(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+7));
+            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+6));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -245,7 +245,7 @@ public class BusquedaController {
     @FXML
     void irAExperiencia8(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+8));
+            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+7));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -254,7 +254,7 @@ public class BusquedaController {
     @FXML
     void irAExperiencia9(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+9));
+            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+8));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -263,7 +263,7 @@ public class BusquedaController {
     @FXML
     void irAExperiencia10(MouseEvent event) {
         try {
-            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+10));
+            irAExperienciaSeleccionada(resultado_busqueda.get(start_index+9));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -272,15 +272,15 @@ public class BusquedaController {
     @FXML
     void irAPgAnterior(ActionEvent event) {
         if (start_index != 0){
-            start_index -= 11;
+            start_index -= 10;
             refresh_experiencias();
         }
     }
 
     @FXML
     public void irAPgSiguiente(ActionEvent actionEvent) {
-        if (resultado_busqueda.size() > start_index+11){
-            start_index += 11;
+        if (resultado_busqueda.size() > start_index+10){
+            start_index += 10;
             refresh_experiencias();
         }
     }
