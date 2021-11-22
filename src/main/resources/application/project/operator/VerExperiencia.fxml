@@ -66,13 +66,21 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtRes1Desc" layoutX="34.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="625.883544921875" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="740.116455078125" AnchorPane.topAnchor="70.0" />
-                  <Text fx:id="txtRes2Nombre" layoutX="708.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referencia de la persona" AnchorPane.rightAnchor="496.9794921875" AnchorPane.topAnchor="58.0">
+                  <ScrollPane hbarPolicy="NEVER" layoutX="16.0" layoutY="91.0" prefHeight="72.0" prefWidth="644.0" style="-fx-border-color: #f4f4f4;" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="740.0" AnchorPane.topAnchor="91.0">
+                     <content>
+                        <Text fx:id="txtRes1Desc" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="625.883544921875" />
+                     </content>
+                  </ScrollPane>
+                  <Text fx:id="txtRes2Nombre" layoutX="706.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referencia de la persona" AnchorPane.topAnchor="43.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtRes2Desc" layoutX="708.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="652.5890888574019" AnchorPane.rightAnchor="39.41091114259825" AnchorPane.topAnchor="70.0" />
+                  <ScrollPane hbarPolicy="NEVER" layoutX="705.589111328125" layoutY="91.0" prefHeight="68.0" prefWidth="666.0" style="-fx-border-color: #f4f4f4;" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="91.0">
+                     <content>
+                        <Text fx:id="txtRes2Desc" strokeType="INSIDE" strokeWidth="0.0" text=" Comentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/ReseñaComentario/Reseña" wrappingWidth="652.5890888574019" />
+                     </content>
+                  </ScrollPane>
                   <Text fx:id="txtCalificacionPromedio" layoutX="408.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ★★★★★">
                      <font>
                         <Font size="21.0" />
