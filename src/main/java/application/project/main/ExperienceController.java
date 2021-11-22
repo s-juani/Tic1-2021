@@ -22,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Controller
@@ -97,6 +98,8 @@ public class ExperienceController {
 
     private int idx1 = 0;
 
+    @FXML
+    private Text txtIntereses;
 
     @FXML
     public void initialize(){
@@ -111,6 +114,13 @@ public class ExperienceController {
                         txtExperienceDescription.setText(experiencia.getDescripcion());
                         imagenEntities = new ArrayList<>(experiencia.getImagens());
                         showImagen();
+                        String textoIntereses = "Categorías: ";
+                        Set<InteresEntity> intereses = experiencia.getIntereses();
+                        for (InteresEntity interes: intereses){
+                            textoIntereses = textoIntereses.concat(interes + ", ");
+
+                        }
+                        txtIntereses.setText(textoIntereses.substring(0, textoIntereses.length() - 2));
                         if (!experiencia.isConReserva()){
                             btnReservar.setVisible(false);
                         }

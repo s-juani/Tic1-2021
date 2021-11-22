@@ -21,11 +21,12 @@
             </SplitMenuButton>
             <Button mnemonicParsing="false" onAction="#iraReservas" prefHeight="100.0" prefWidth="150.0" text="Reservas" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="0.0" />
             <Button mnemonicParsing="false" onAction="#volvelAlMain" prefHeight="77.0" prefWidth="113.0" text="Volver" />
+            <Text fx:id="txtIntereses" layoutX="503.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorías: " wrappingWidth="322.287109375" />
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="1920.0" style="-fx-background-color: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
          <children>
-            <Text fx:id="txtExperienceName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+            <Text fx:id="txtExperienceName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de experencia" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="64.0" />
                </font>
@@ -37,11 +38,15 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtExperienceDescription" layoutX="1.0" layoutY="99.40234375" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="660.3853759765625" AnchorPane.bottomAnchor="74.80859375" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="38.6146240234375" AnchorPane.topAnchor="50.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="50.0" prefHeight="252.0" prefWidth="653.0" style="-fx-border-color: #f4f4f4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="50.0">
+                     <content>
+                        <Text fx:id="txtExperienceDescription" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" textAlignment="JUSTIFY" wrappingWidth="609.3853759765625">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
             <AnchorPane layoutY="525.0" prefHeight="159.0" prefWidth="1400.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="525.0">

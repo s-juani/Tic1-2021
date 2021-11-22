@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class VerExperienciaControler {
@@ -92,6 +93,9 @@ public class VerExperienciaControler {
     private ExperienciaManager experienciaManager;
 
     @FXML
+    private Text txtIntereses;
+
+    @FXML
     public void initialize(){
         ap.sceneProperty().addListener((observableScene, oldScene, newScene) -> {
             if (oldScene == null && newScene != null) {
@@ -115,11 +119,18 @@ public class VerExperienciaControler {
                         if (textoInfoSanitaria.equals("")){
                             tituloInformacionSanitaria.setText("");
                         }
+                        String textoIntereses = "Categorías: ";
+                        Set<InteresEntity> intereses = experiencia.getIntereses();
+                        for (InteresEntity interes: intereses){
+                            textoIntereses = textoIntereses.concat(interes + ", ");
+
+                        }
+                        txtIntereses.setText(textoIntereses.substring(0, textoIntereses.length() - 2));
 
                         calificaciones = calificacionRepository.findByNombreExperienciaAndOperadorExperienciaOrderByPuntajeDesc(experiencia.getNombre(), experiencia.getOperador());
 
                         if (calificaciones.size() == 0){
-                            txtCalificacionPromedio.setText("Aun no se hiieron calificaciones");
+                            txtCalificacionPromedio.setText("Aun no se hicieron calificaciones");
                             txtRes1Calificacion.setVisible(false);
                             txtRes1Nombre.setVisible(false);
                             txtRes1Desc.setVisible(false);

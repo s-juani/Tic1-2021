@@ -4,6 +4,7 @@ import application.Main;
 import application.entities.ExperienciaManager;
 import application.entities.ent.ExperienciaEntity;
 import application.entities.ent.ImagenEntity;
+import application.entities.ent.InteresEntity;
 import application.entities.ent.OperadorRepository;
 import application.project.ingresar.InitialController;
 import application.project.main.MainController;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class AproveExperienceController {
@@ -56,6 +58,9 @@ public class AproveExperienceController {
     private int idxImg=0;
 
     @FXML
+    private Text txtIntereses;
+
+    @FXML
     public void initialize(){
         ap.sceneProperty().addListener((observableScene, oldScene, newScene) -> {
             if (oldScene == null && newScene != null) {
@@ -79,6 +84,13 @@ public class AproveExperienceController {
                         if (textoInfoSanitaria.equals("")){
                             tituloInformacionSanitaria.setText("");
                         }
+                        String textoIntereses = "Categorías: ";
+                        Set<InteresEntity> intereses = experiencia.getIntereses();
+                        for (InteresEntity interes: intereses){
+                            textoIntereses = textoIntereses.concat(interes + ", ");
+
+                        }
+                        txtIntereses.setText(textoIntereses.substring(0, textoIntereses.length() - 2));
                     }
                 });
             }
