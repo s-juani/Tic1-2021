@@ -92,7 +92,7 @@ public class TuristaEntity extends UsuarioEntity {
 
 
     @ManyToOne(targetEntity = PaisEntity.class)
-    @JoinColumn(name = "origen_documento", referencedColumnName = "nombre", nullable = false)
+    @JoinColumn(name = "origen_documento", referencedColumnName = "nombre")
     public PaisEntity getOrigenDocumento() {
         return origenDocumento;
     }

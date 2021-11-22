@@ -229,9 +229,15 @@ public class ReservaController {
         if (checkRequisitos.isSelected() ){
             if (dateFechaInicio.getValue() != null){
                 if (reservaMultiplesDias){
+                    System.out.println("Reserva multiples dias");
                     if (dateFechaFin.getValue() != null){
                         if (turista.getNroDocumento() == null){
-                            if (cbTipoDoc.getValue() != null && cbOrigenDoc.getValue() != null && txtNumeroDoc.getText() != null && txtNumeroDoc.getText().equals("")){
+                            System.out.println("No tiene doc");
+                            System.out.println(cbTipoDoc.getValue());
+                            System.out.println(cbOrigenDoc.getValue());
+                            System.out.println(txtNumeroDoc.getText());
+                            if (cbTipoDoc.getValue() != null && cbOrigenDoc.getValue() != null && txtNumeroDoc.getText() != null && !txtNumeroDoc.getText().equals("")){
+                                System.out.println("De cheto");
                                 turista.setOrigenDocumento(cbOrigenDoc.getValue());
                                 turista.setNroDocumento(txtNumeroDoc.getText());
                                 turista.setTipoDocumento(cbTipoDoc.getValue() == "Pasaporte");
@@ -250,11 +256,13 @@ public class ReservaController {
                                 volver(new ActionEvent());
                             }
                             else {
+                                System.out.println("Comp datos");
                                 showAlert("ERROR!",
                                         "Debe completar todos los datos"
                                 );
                             }
                         } else {
+                            System.out.println("Tiene doc");
                             try {
                                 reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
                                 showAlert("Felicitaciones!",
@@ -279,6 +287,7 @@ public class ReservaController {
                     }
                 }
                 else {
+                    System.out.println("Reserva unico dia");
                     if (turista.getNroDocumento() == null){
                         if (cbTipoDoc.getValue() != null && cbOrigenDoc.getValue() != null && txtNumeroDoc.getText() != null && !txtNumeroDoc.getText().equals("")){
                             turista.setOrigenDocumento(cbOrigenDoc.getValue());

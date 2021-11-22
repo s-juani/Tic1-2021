@@ -38,6 +38,7 @@ public class UsuarioManager {
             System.out.println("*Guardado con exito*");
         }
         catch (Exception e){
+            e.printStackTrace();
             throw new UserAlreadyInUse();
         }
     }
