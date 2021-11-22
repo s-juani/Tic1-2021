@@ -42,7 +42,12 @@
             <TableColumn fx:id="CPersonas" prefWidth="375.0" text="Cantidad de personas" />
         </columns>
       </TableView>
-      <Button fx:id="btnVerExp" layoutX="963.0" layoutY="102.0" mnemonicParsing="false" onAction="#verExp" text="Ver experienica seleccionada">
+      <Button fx:id="btnVerExp" layoutX="818.0" layoutY="118.0" mnemonicParsing="false" onAction="#verExp" text="Ver experienica seleccionada">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="1167.0" layoutY="118.0" mnemonicParsing="false" onAction="#verUser" text="Ver detalles de usuario">
          <font>
             <Font size="24.0" />
          </font>

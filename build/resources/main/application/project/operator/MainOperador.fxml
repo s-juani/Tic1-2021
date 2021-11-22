@@ -57,5 +57,6 @@
          </font>
       </Button>
       <Button layoutX="1197.0" layoutY="209.0" mnemonicParsing="false" onAction="#VerExp" text="Ver experiencia seleccionada" />
+      <Button fx:id="btnVerUser" layoutX="1197.0" layoutY="245.0" mnemonicParsing="false" onAction="#verUser" text="Ver detalles del usuario" />
    </children>
 </AnchorPane>

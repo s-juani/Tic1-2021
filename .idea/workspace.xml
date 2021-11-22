@@ -13,25 +13,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/TuristaEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/entities/ent/TuristaEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/main/ReservaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/NuevaExperienciaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/NuevaExperienciaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/application/project/operator/ReservasOperador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/Reserva.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/main/Reserva.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/main/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/main/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/entities/ent/TuristaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/entities/ent/TuristaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/main/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/main/ReservaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/MainOperador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/NuevaExperienciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/NuevaExperienciaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/project/operator/ReservasOperador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/main/Reserva.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/main/Reserva.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/MainOperador.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/project/operator/Reservas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/MainOperador.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application/project/operator/Reservas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application/project/operator/Reservas.fxml" afterDir="false" />
     </list>
     <list id="afaf0ea0-94ea-4f4f-aed7-347743a2aab0" name="Changes by Ari 2.0" comment="Changes by Ari 2.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,6 +124,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.11904764" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -151,19 +140,102 @@
       <recent name="application.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="application.Main" />
-      <module name="Sprint0.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle shadowJar" />
+      <command value="gradle customFatJar" />
+      <command value="gradle jar" />
+      <command value="gradle fatJar" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.Sprint0 [fatJar]">
+    <configuration name="Sprint0 [customFatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="customFatJar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Sprint0 [fatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="fatJar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Sprint0 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Sprint0 [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Sprint0-1.0-SNAPSHOT-all.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/Sprint0-1.0-SNAPSHOT-all.jar" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Tic1-2021" />
@@ -187,7 +259,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.Sprint0 [fatJar]" />
+        <item itemvalue="Gradle.Sprint0 [jar]" />
+        <item itemvalue="Gradle.Sprint0 [customFatJar]" />
+        <item itemvalue="JAR Application.Sprint0-1.0-SNAPSHOT-all.jar" />
+        <item itemvalue="Gradle.Sprint0 [shadowJar]" />
       </list>
     </recent_temporary>
   </component>
