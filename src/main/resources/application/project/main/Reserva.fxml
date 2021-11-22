@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.ReservaController">
+<?import org.controlsfx.control.CheckComboBox?>
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.project.main.ReservaController">
    <children>
       <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1500.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -66,45 +76,72 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Label fx:id="txtFechaInicio" layoutX="69.0" layoutY="194.0" text="Fecha de la reserva:">
+                  <Label fx:id="txtFechaInicio" layoutX="32.0" layoutY="193.0" text="Fecha de la reserva:">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnDiasReserva" layoutX="76.0" layoutY="163.0" mnemonicParsing="false" onAction="#toggleDiasReserva" text="Reservar muliples dias" />
-                  <DatePicker fx:id="dateFechaInicio" layoutX="69.0" layoutY="229.0" prefHeight="35.0" prefWidth="234.0" />
-                  <Label fx:id="txtFechaFin" layoutX="69.0" layoutY="279.0" text="Fecha de finalizacion de la reserva:">
+                  <Button fx:id="btnDiasReserva" layoutX="39.0" layoutY="162.0" mnemonicParsing="false" onAction="#toggleDiasReserva" text="Reservar muliples dias" />
+                  <DatePicker fx:id="dateFechaInicio" layoutX="32.0" layoutY="228.0" prefHeight="35.0" prefWidth="234.0" />
+                  <Label fx:id="txtFechaFin" layoutX="32.0" layoutY="278.0" text="Fecha de finalizacion de la reserva:">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateFechaFin" layoutX="69.0" layoutY="314.0" prefHeight="35.0" prefWidth="234.0" />
-                  <CheckBox fx:id="checkRequisitos" layoutX="69.0" layoutY="384.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="334.0" text="Afirmo que cumplo con los requisitos solicitados." />
-                  <Button fx:id="btnReservar" layoutX="517.0" layoutY="384.0" mnemonicParsing="false" onAction="#reservar" prefHeight="50.0" prefWidth="200.0" text="Reservar">
+                  <DatePicker fx:id="dateFechaFin" layoutX="32.0" layoutY="313.0" prefHeight="35.0" prefWidth="234.0" />
+                  <CheckBox fx:id="checkRequisitos" layoutX="234.0" layoutY="401.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="292.0" text="Afirmo que cumplo con los requisitos solicitados." />
+                  <Button fx:id="btnReservar" layoutX="545.0" layoutY="393.0" mnemonicParsing="false" onAction="#reservar" prefHeight="50.0" prefWidth="200.0" text="Reservar">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Label fx:id="txtFechaInicio1" layoutX="71.0" layoutY="73.0" text="Cantidad de personas">
+                  <Label fx:id="txtFechaInicio1" layoutX="34.0" layoutY="72.0" text="Cantidad de personas">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnMenos" cancelButton="true" layoutX="76.0" layoutY="111.0" mnemonicParsing="false" onAction="#decrementar" prefHeight="30.0" prefWidth="30.0" text="-">
+                  <Button fx:id="btnMenos" cancelButton="true" layoutX="39.0" layoutY="110.0" mnemonicParsing="false" onAction="#decrementar" prefHeight="30.0" prefWidth="30.0" text="-">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnMas" cancelButton="true" layoutX="143.0" layoutY="111.0" mnemonicParsing="false" onAction="#incrementar" prefHeight="30.0" prefWidth="30.0" text="+">
+                  <Button fx:id="btnMas" cancelButton="true" layoutX="106.0" layoutY="110.0" mnemonicParsing="false" onAction="#incrementar" prefHeight="30.0" prefWidth="30.0" text="+">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Label fx:id="txtCantidad" layoutX="117.0" layoutY="109.0" text="1">
+                  <Label fx:id="txtCantidad" layoutX="80.0" layoutY="108.0" text="1">
                      <font>
                         <Font name="Bodoni MT Condensed Bold" size="21.0" />
                      </font>
                   </Label>
+                  <AnchorPane fx:id="apDatosPersonales" layoutX="425.0" layoutY="11.0" prefHeight="376.0" prefWidth="320.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="64.0" text="Tipo de documento">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" text="Datos personales:">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbTipoDoc" layoutX="14.0" layoutY="99.0" prefHeight="35.0" prefWidth="207.0" />
+                        <Label layoutX="13.0" layoutY="147.0" text="Origen de documento">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbOrigenDoc" layoutX="13.0" layoutY="182.0" prefHeight="35.0" prefWidth="207.0" />
+                        <Label layoutX="13.0" layoutY="229.0" text="Numero de documento">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNumeroDoc" layoutX="13.0" layoutY="264.0" prefHeight="35.0" prefWidth="207.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>

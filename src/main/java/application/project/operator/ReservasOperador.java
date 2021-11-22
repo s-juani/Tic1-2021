@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,5 +126,30 @@ public class ReservasOperador {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.show();
+    }
+
+    @Autowired
+    private TuristaRepository turistaRep;
+
+    public void verUser(ActionEvent actionEvent) {
+        String selection = TablaReservas.getSelectionModel().getSelectedItem().getMailTurista();
+        TuristaEntity turista = turistaRep.findByMail(selection);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        String tipo;
+        if (turista.getTipoDocumento()){
+            tipo = "Pasaporte";
+        } else {
+            tipo = "Documento de Identidad";
+        }
+        alert.setTitle("Usuario");
+        alert.setHeaderText("Datos de usuario:");
+        alert.setContentText(
+                "Nombre: "+turista.getNombre()+"\n" +
+                        "Documento: "+turista.getNroDocumento().toString()+"\n" +
+                        "Tipo de documento: "+tipo+"\n"+
+                        "Origen de documento: " +turista.getOrigenDocumento()+"\n"+
+                        "Mail: "+turista.getMail()
+        );
+        alert.showAndWait();
     }
 }

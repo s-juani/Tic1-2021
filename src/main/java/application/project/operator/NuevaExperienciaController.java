@@ -58,7 +58,7 @@ public class NuevaExperienciaController {
     @FXML
     private Button btnCargarExp;
 
-    private Set<ImagenEntity> imagenes = new HashSet<>();
+    private Set<ImagenEntity> imagenes;
 
     private final FileChooser fc = new FileChooser();
 
@@ -68,10 +68,11 @@ public class NuevaExperienciaController {
     @Autowired
     private InteresRepository interesRep;
 
-    private ExperienciaEntity nuevaExperiencia=new ExperienciaEntity();
+    private ExperienciaEntity nuevaExperiencia = new ExperienciaEntity();
 
     @FXML
     private void initialize(){
+        imagenes = new HashSet<>();
         FileChooser.ExtensionFilter imageFilter
                 = new FileChooser.ExtensionFilter("Imagen", "*.jpg", "*.png");
         fc.getExtensionFilters().add(imageFilter);

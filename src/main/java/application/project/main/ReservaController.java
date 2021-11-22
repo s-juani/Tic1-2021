@@ -3,9 +3,9 @@ package application.project.main;
 
 import application.Main;
 import application.entities.ReservaManager;
-import application.entities.ent.ExperienciaEntity;
-import application.entities.ent.ImagenEntity;
+import application.entities.ent.*;
 import application.entities.exceptions.AforoCompleto;
+import application.entities.session.currentSession;
 import application.project.ingresar.InitialController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,15 +17,31 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.controlsfx.control.CheckComboBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class ReservaController {
+
+    @FXML
+    public AnchorPane apDatosPersonales;
+
+    @FXML
+    public ComboBox cbTipoDoc;
+
+    @FXML
+    public ComboBox<PaisEntity> cbOrigenDoc;
+
+    @FXML
+    public TextField txtNumeroDoc;
 
     private ExperienciaEntity experiencia;
 
@@ -118,6 +134,24 @@ public class ReservaController {
         }
     }
 
+    @Autowired
+    private PaisRepository paisRep;
+
+    private void addCountries(){
+        Collection<PaisEntity> paises = paisRep.findAll();
+        cbOrigenDoc.getItems().addAll(paises);
+    }
+
+    private void addTipos(){
+        cbTipoDoc.getItems().add("Documento de Identidad");
+        cbTipoDoc.getItems().add("Pasaporte");
+    }
+
+    private TuristaEntity turista;
+
+    @Autowired
+    private TuristaRepository turistaRep;
+
     @FXML
     void initialize(){
 
@@ -132,6 +166,12 @@ public class ReservaController {
                         txtExperienceDescription.setText(experiencia.getDescripcion());
                         imagenEntities = new ArrayList<>(experiencia.getImagens());
                         showImagen();
+                        addCountries();
+                        addTipos();
+                        turista = Main.getCurrentSession().getActiveUser();
+                        if (turista.getNroDocumento() != null){
+                            apDatosPersonales.setVisible(false);
+                        }
                     }
                 });
             }
@@ -190,17 +230,47 @@ public class ReservaController {
             if (dateFechaInicio.getValue() != null){
                 if (reservaMultiplesDias){
                     if (dateFechaFin.getValue() != null){
-                        try {
-                            reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
-                            showAlert("Felicitaciones!",
-                                    "Su reserva se registro con exito!"
+                        if (turista.getNroDocumento() == null){
+                            if (cbTipoDoc.getValue() != null && cbOrigenDoc.getValue() != null && txtNumeroDoc.getText() != null && txtNumeroDoc.getText().equals("")){
+                                turista.setOrigenDocumento(cbOrigenDoc.getValue());
+                                turista.setNroDocumento(txtNumeroDoc.getText());
+                                turista.setTipoDocumento(cbTipoDoc.getValue() == "Pasaporte");
+                                turistaRep.save(turista);
+                                Main.setCurrentSession(new currentSession(turista));
+                                try {
+                                    reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
+                                    showAlert("Felicitaciones!",
+                                            "Su reserva se registro con exito!"
+                                    );
+                                } catch(AforoCompleto e) {
+                                    showAlert("ERROR!",
+                                            "No hay suficiente aforo"
+                                    );
+                                }
+                                volver(new ActionEvent());
+                            }
+                            else {
+                                showAlert("ERROR!",
+                                        "Debe completar todos los datos"
+                                );
+                            }
+                        } else {
+                            try {
+                                reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
+                                showAlert("Felicitaciones!",
+                                        "Su reserva se registro con exito!"
+                                );
+                            } catch(AforoCompleto e) {
+                                showAlert("ERROR!",
+                                        "No hay suficiente aforo"
+                                );
+                            }
+                            showAlert(
+                                    "a",
+                                    "b"
                             );
-                        } catch(AforoCompleto e) {
-                            showAlert("ERROR!",
-                                    "No hay suficiente aforo"
-                            );
+                            volver(new ActionEvent());
                         }
-                        volver(new ActionEvent());
                     }
                     else{
                         showAlert("ERROR!",
@@ -209,17 +279,47 @@ public class ReservaController {
                     }
                 }
                 else {
-                    try{
-                        reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), null, cantidad);
-                        showAlert("Felicitaciones!",
-                                "Su reserva se registro con exito!"
-                        );
-                    } catch(AforoCompleto e){
-                        showAlert("ERROR!",
-                                "No hay suficiente aforo"
-                        );
+                    if (turista.getNroDocumento() == null){
+                        if (cbTipoDoc.getValue() != null && cbOrigenDoc.getValue() != null && txtNumeroDoc.getText() != null && !txtNumeroDoc.getText().equals("")){
+                            turista.setOrigenDocumento(cbOrigenDoc.getValue());
+                            turista.setNroDocumento(txtNumeroDoc.getText());
+                            turista.setTipoDocumento(cbTipoDoc.getValue() == "Pasaporte");
+                            turistaRep.save(turista);
+                            Main.setCurrentSession(new currentSession(turista));
+                            try {
+                                reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), dateFechaFin.getValue(), cantidad);
+                                showAlert("Felicitaciones!",
+                                        "Su reserva se registro con exito!"
+                                );
+                            } catch(AforoCompleto e) {
+                                showAlert("ERROR!",
+                                        "No hay suficiente aforo"
+                                );
+                            }
+                            volver(new ActionEvent());
+                        }
+                        else {
+                            System.out.println("Values");
+                            System.out.println(cbTipoDoc.getValue());
+                            System.out.println(cbOrigenDoc.getValue());
+                            System.out.println(txtNumeroDoc.getText());
+                            showAlert("ERROR!",
+                                    "Debe completar todos los datos"
+                            );
+                        }
+                    } else {
+                        try {
+                            reservaMgr.createReserva(Main.getCurrentSession().getActiveUser(), experiencia, dateFechaInicio.getValue(), null, cantidad);
+                            showAlert("Felicitaciones!",
+                                    "Su reserva se registro con exito!"
+                            );
+                        } catch (AforoCompleto e) {
+                            showAlert("ERROR!",
+                                    "No hay suficiente aforo"
+                            );
+                        }
+                        volver(new ActionEvent());
                     }
-                    volver(new ActionEvent());
                 }
             }
             else {

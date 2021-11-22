@@ -38,7 +38,7 @@
          </AnchorPane>
          <AnchorPane layoutX="45.0" layoutY="102.0" maxWidth="1.7976931348623157E308" minWidth="0.0" prefHeight="172.0" prefWidth="1465.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="102.0">
             <children>
-               <TextField fx:id="campoDeBusqueda" promptText="Ingrese ciudad/ departamento o experiencia" style="-fx-background-color: #eeeeee; -fx-border-color: #dddddd;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="80.0">
+               <TextField fx:id="campoDeBusqueda" promptText="Ingrese interés o experiencia" style="-fx-background-color: #eeeeee; -fx-border-color: #dddddd;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="80.0">
                   <font>
                      <Font size="29.0" />
                   </font>
